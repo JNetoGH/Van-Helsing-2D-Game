@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 // todo Dash cool down
@@ -10,18 +13,16 @@ public enum Direction
 
 public class PlayerController : MonoBehaviour
 {
+
+    // Observer Pattern
+    private List<IPlayerObserver> _playerObservers = new List<IPlayerObserver>();
     
     [SerializeField] private Direction spriteDefaultFacingDirection = Direction.Right;
-    [SerializeField] private Animator spritesAnimator;
-    [SerializeField] private SpriteRenderer mainArmSpriteRenderer;
-    [SerializeField] private SpriteRenderer crossbowSpriteRenderer;
-    [SerializeField] private SpriteRenderer secondaryArmSpriteRenderer;
-    
+
     private static float InputX => Input.GetAxis("Horizontal");
     
+    public static float MaxWalkSpeed => 1.5f;
     private float _runSpeed = 3.0f;
-    private float _maxWalkSpeed = 1.5f;
-    
     private float _jumpForce = 4.0f;
     private float _doubleJumpForce = 4.5f;
     
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
     public static bool IsDashing { get; private set; } = false;
     
     // Jump Related States
-    public static bool IsGrounded { get; private set; }= false;
+    public static bool IsGrounded { get; private set; } = false;
     public static bool HasJumpedThisFrame { get; private set; } = false;
     public static bool HasDoubleJumpedThisFrame { get; private set; } = false;
     public static bool IsJumping { get; private set; } = false;
@@ -57,9 +58,14 @@ public class PlayerController : MonoBehaviour
     // ===============================================================================================================
     // ===============================================================================================================
     
-    
+
     private void Start()
     {
+        
+        // adding observers
+        // Ideally is the last one to be notified
+        _playerObservers.Add(GetComponent<PlayerAnimationObserver>());
+        
         // _spriteRenderer = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
         _groundSensor = transform.Find("GroundSensor").GetComponent<GroundSensorController>();
@@ -100,7 +106,11 @@ public class PlayerController : MonoBehaviour
         IsLockingToWalkOnly = Input.GetButton("Lock to Walk Only");
         
         // Ideally is the last one to be updated
-        HandleAnimations();
+        foreach (IPlayerObserver observer in _playerObservers)
+        {
+            observer.OnNotify(this);
+        }
+        
     }
 
     private void FixedUpdate()
@@ -206,38 +216,10 @@ public class PlayerController : MonoBehaviour
 
     private void Move(float inputX)
     {
-        if (IsLockingToWalkOnly) _rb.velocity = new Vector2(inputX * _maxWalkSpeed, _rb.velocity.y);
+        if (IsLockingToWalkOnly) _rb.velocity = new Vector2(inputX * MaxWalkSpeed, _rb.velocity.y);
         else _rb.velocity = new Vector2(inputX * _runSpeed, _rb.velocity.y);
     }
 
     private void Jump(float force) => _rb.velocity = new Vector2(_rb.velocity.x, force);
-    
-
-    // ===============================================================================================================
-    // ===============================================================================================================
-
-    
-    private void HandleAnimations()
-    {
-        // walk, run and idle
-        if (Mathf.Abs(_rb.velocity.x) > 0f && Mathf.Abs(_rb.velocity.x) > _maxWalkSpeed) // Run
-        {
-            spritesAnimator.SetBool("IsRunning", true);
-            spritesAnimator.SetBool("IsWalking", false);
-            spritesAnimator.SetBool("IsInIdle", false);
-        }
-        else if (Mathf.Abs(_rb.velocity.x) > 0f) // Walk
-        {
-            spritesAnimator.SetBool("IsRunning", false);
-            spritesAnimator.SetBool("IsWalking", true);
-            spritesAnimator.SetBool("IsInIdle", false);
-        }
-        else // idle
-        {
-            spritesAnimator.SetBool("IsRunning", false);
-            spritesAnimator.SetBool("IsWalking", false);
-            spritesAnimator.SetBool("IsInIdle", true);
-        }
-    }
     
 }

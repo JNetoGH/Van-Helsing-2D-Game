@@ -341,6 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5208994224392219739}
   - component: {fileID: 5208994224392219736}
+  - component: {fileID: 9124558177152679091}
   - component: {fileID: 5208994224392219737}
   - component: {fileID: 5208994224392219742}
   m_Layer: 0
@@ -381,10 +382,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteDefaultFacingDirection: 1
+--- !u!114 &9124558177152679091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208994224392219738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87166ffe4a1220f488e298237de10a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   spritesAnimator: {fileID: 5208994224371975085}
-  mainArmSpriteRenderer: {fileID: 5208994226077550939}
-  crossbowSpriteRenderer: {fileID: 5208994225755438439}
-  secondaryArmSpriteRenderer: {fileID: 5208994225795651460}
 --- !u!61 &5208994224392219737
 BoxCollider2D:
   m_ObjectHideFlags: 0
