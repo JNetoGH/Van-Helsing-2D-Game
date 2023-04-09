@@ -1,10 +1,11 @@
-using Interfaces;
+using PlayerScripts.Interfaces;
 using UnityEngine;
 
 namespace PlayerScripts.PlayerObservers
 {
     public class PlayerAnimationObserver : MonoBehaviour, IPlayerObserver
     {
+    
         [SerializeField] private Animator spritesAnimator;
         private Rigidbody2D _rb;
 
@@ -36,5 +37,6 @@ namespace PlayerScripts.PlayerObservers
                 spritesAnimator.SetBool("IsInIdle", true);
             }
         }
+    
     }
 }

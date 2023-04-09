@@ -1,5 +1,8 @@
-public enum FacingDirection
+namespace PlayerScripts.Enums
 {
-    Left,
-    Right
+    public enum FacingDirection
+    {
+        Left,
+        Right
+    }
 }

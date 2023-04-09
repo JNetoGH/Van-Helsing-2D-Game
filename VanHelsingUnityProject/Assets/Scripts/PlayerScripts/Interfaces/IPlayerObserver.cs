@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Interfaces
+﻿namespace PlayerScripts.Interfaces
 {
     public interface IPlayerObserver
     {

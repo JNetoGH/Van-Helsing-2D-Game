@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2922635600838669430, guid: 5070b341ec87b9b4bb954e3fbd31020a, type: 3}
+      propertyPath: m_Size.y
+      value: 0.13611066
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922635600838669430, guid: 5070b341ec87b9b4bb954e3fbd31020a, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5265426
+      objectReference: {fileID: 0}
     - target: {fileID: 5208994224392219738, guid: 5070b341ec87b9b4bb954e3fbd31020a, type: 3}
       propertyPath: m_Name
       value: VanHelsing

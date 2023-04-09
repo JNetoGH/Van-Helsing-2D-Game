@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using Interfaces;
+using PlayerScripts.Enums;
+using PlayerScripts.Interfaces;
 using PlayerScripts.PlayerObservers;
 using UnityEngine;
 
@@ -7,8 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     
     private List<IPlayerObserver> _playerObservers = new List<IPlayerObserver>();
-    public FacingDirection spriteDefaultFacingDirection = FacingDirection.Right;
-
+    
     
     #region Components
     private Rigidbody2D _rb;
@@ -62,8 +62,7 @@ public class PlayerController : MonoBehaviour
             observer.OnNotifyStart(this);
         
         _rb = GetComponent<Rigidbody2D>();
-        _groundSensor = transform.Find("GroundSensor").GetComponent<GroundSensorController>();
-        CurrentFacingDirection = spriteDefaultFacingDirection;
+        _groundSensor = GetComponentInChildren<GroundSensorController>();
     }
     
     private void Update()

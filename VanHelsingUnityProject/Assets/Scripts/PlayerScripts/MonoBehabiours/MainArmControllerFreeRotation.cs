@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PlayerScripts.Enums;
 using UnityEngine;
 
 public class MainArmControllerFreeRotation : MonoBehaviour
