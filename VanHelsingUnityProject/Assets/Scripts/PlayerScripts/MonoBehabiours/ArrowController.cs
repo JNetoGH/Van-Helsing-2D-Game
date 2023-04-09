@@ -4,7 +4,7 @@ using UnityEngine;
 public class ArrowController : MonoBehaviour
 {
     
-    private float moveSpeed = 8.0f;
+    private float moveSpeed = 10.0f;
 
     private Rigidbody2D _rigidbody2D;
 

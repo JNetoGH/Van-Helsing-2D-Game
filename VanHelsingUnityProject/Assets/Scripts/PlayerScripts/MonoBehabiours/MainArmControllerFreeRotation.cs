@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MainArmControllerFreeRotation : MonoBehaviour
-{
+{    
     
     [SerializeField] private GameObject crossbow;
     [SerializeField] private GameObject projectile;
@@ -52,4 +52,6 @@ public class MainArmControllerFreeRotation : MonoBehaviour
         }
         _shotCoolDown -= Time.deltaTime;
     }
+    
 }
+

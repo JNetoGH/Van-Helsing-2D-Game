@@ -45,11 +45,7 @@ public class PlayerController : MonoBehaviour
     public static bool IsDoubleJumping { get; private set; } = false;
     public static bool IsShooting { get; private set; } = false;
     #endregion
-
     
-    // To be implemented
-    // public static bool IsCombatIdle { get; private set; } = false;
-    // public static bool IsDead { get; private set; } = false;
     
     // ===============================================================================================================
     // ===============================================================================================================
@@ -88,10 +84,16 @@ public class PlayerController : MonoBehaviour
             IsMovingBackwards = false;
         
         UpdateIsGrounded();
-        UpdateFacingDir();
+        UpdateCurrentFacingDir();
         UpdateHasJumpedThisFrame();
         UpdateHasDoubleJumpedThisFrame();
         IsLockingToWalkOnly = Input.GetButton("Lock to Walk Only");
+        
+        if (HasJumpedThisFrame)
+            Jump(jumpForce);
+
+        if (HasDoubleJumpedThisFrame)
+            Jump(doubleJumpForce);
         
         // Notifying all Observers that the PlayerController.cs is updating
         foreach (IPlayerObserver observer in _playerObservers)
@@ -104,10 +106,25 @@ public class PlayerController : MonoBehaviour
         else Move(InputX);
     }
     
+    private void Dash()
+    {
+        // In case of not moving dash towards where he is facing
+        if (IsMoving) _rb.velocity = new Vector2(InputX > 0 ? DashSpeed : -DashSpeed, _rb.velocity.y);
+        else _rb.velocity = new Vector2(CurrentFacingDirection == FacingDirection.Right ? DashSpeed : -DashSpeed, _rb.velocity.y);
+    }
+
+    private void Move(float inputX)
+    {
+        if (IsLockingToWalkOnly) _rb.velocity = new Vector2(inputX * maxWalkSpeed, _rb.velocity.y);
+        else _rb.velocity = new Vector2(inputX * runSpeed, _rb.velocity.y);
+    }
+
+    private void Jump(float force) => _rb.velocity = new Vector2(_rb.velocity.x, force);
+    
     
     // ===============================================================================================================
     // ===============================================================================================================
-    
+    //                                        UPDATE STATES
     
     private void UpdateIsDashing()
     {
@@ -129,7 +146,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    private void UpdateFacingDir()
+    private void UpdateCurrentFacingDir()
     {
         Vector3 mouseInWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mouseInWorldPos.x > this.transform.position.x) CurrentFacingDirection = FacingDirection.Right;
@@ -161,10 +178,7 @@ public class PlayerController : MonoBehaviour
             return;
         IsGrounded = false;
         IsJumping = true;
-        //_animator.SetTrigger("Jump");
-        //_animator.SetBool("Grounded", IsGrounded);
         _groundSensor.Disable(0.2f);
-        Jump(jumpForce);
     }
 
     private void UpdateHasDoubleJumpedThisFrame()
@@ -173,28 +187,6 @@ public class PlayerController : MonoBehaviour
         if (!HasDoubleJumpedThisFrame)
             return;
         IsDoubleJumping = true;
-        //_animator.SetTrigger("DoubleJump");
-        Jump(doubleJumpForce);
     }
-    
-    
-    // ===============================================================================================================
-    // ===============================================================================================================
-    
-    
-    private void Dash()
-    {
-        // In case of not moving dash towards where he is facing
-        if (IsMoving) _rb.velocity = new Vector2(InputX > 0 ? DashSpeed : -DashSpeed, _rb.velocity.y);
-        else _rb.velocity = new Vector2(CurrentFacingDirection == FacingDirection.Right ? DashSpeed : -DashSpeed, _rb.velocity.y);
-    }
-
-    private void Move(float inputX)
-    {
-        if (IsLockingToWalkOnly) _rb.velocity = new Vector2(inputX * maxWalkSpeed, _rb.velocity.y);
-        else _rb.velocity = new Vector2(inputX * runSpeed, _rb.velocity.y);
-    }
-
-    private void Jump(float force) => _rb.velocity = new Vector2(_rb.velocity.x, force);
     
 }
