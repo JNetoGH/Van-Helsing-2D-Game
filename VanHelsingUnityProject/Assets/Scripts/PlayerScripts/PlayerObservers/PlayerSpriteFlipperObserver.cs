@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PlayerScripts.PlayerObservers
 {
-    public class PlayerSpriteFlippersObserver : MonoBehaviour, IPlayerObserver
+    public class PlayerSpriteFlipperObserver : MonoBehaviour, IPlayerObserver
     {
 
         [SerializeField] private FacingDirection _spriteDefaultFacingDirection = FacingDirection.Right;

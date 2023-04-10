@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         // adding observers
-        _playerObservers.Add(GetComponent<PlayerSpriteFlippersObserver>());
+        _playerObservers.Add(GetComponent<PlayerSpriteFlipperObserver>());
         _playerObservers.Add(GetComponent<PlayerAnimationObserver>()); // Ideally is the last one to be notified
         
         // Notifying all Observers that the PlayerController.cs is starting
