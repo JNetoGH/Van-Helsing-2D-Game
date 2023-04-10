@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using PlayerScripts.Enums;
 using UnityEngine;
 
 public class MainArmControllerFreeRotation : MonoBehaviour
-{
+{    
     
     [SerializeField] private GameObject crossbow;
     [SerializeField] private GameObject projectile;
@@ -40,7 +41,7 @@ public class MainArmControllerFreeRotation : MonoBehaviour
             // I make an alternative rotation in case Va Helsing is facing left because the X scale is * -1
             // and it messes a lot with the arrow inverting the rotation wile facing left, so I subtract 180 of it
             Quaternion projectileRotation = crossbow.transform.rotation;
-            if (PlayerController.FacingDirection == Direction.Left)
+            if (PlayerController.CurrentFacingDirection == FacingDirection.Left)
             {
                 Vector3 aux = projectileRotation.eulerAngles;
                 aux.z -= 180;
@@ -52,4 +53,6 @@ public class MainArmControllerFreeRotation : MonoBehaviour
         }
         _shotCoolDown -= Time.deltaTime;
     }
+    
 }
+
