@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using PlayerScripts.Enums;
 using UnityEngine;
+
 
 public class MainArmControllerFreeRotation : MonoBehaviour
 {    
@@ -12,10 +11,12 @@ public class MainArmControllerFreeRotation : MonoBehaviour
     private float _shotInterval = 0.3f;
     private float _shotCoolDown = 0;
     public Animator camAnim;
-    
-    // Default orientation to 0 degrees (-->) increment
-    // Van Helsing's main arm sprite is aiming downward by default, so + 90 degrees
-    private const int RotationOffset = 90;
+
+    private void Start()
+    {
+        // Making sure that the angle in 0 is zero
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+    }
 
     void Update()
     {
@@ -29,7 +30,15 @@ public class MainArmControllerFreeRotation : MonoBehaviour
         Vector3 mouseInWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 difference = mouseInWorldPos - transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + RotationOffset);
+        switch (PlayerController.CurrentFacingDirection)
+        {
+            case FacingDirection.Right:
+                transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+                break;
+            case FacingDirection.Left:
+                transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 180);
+                break;
+        }
     }
 
     private void TryShoot()
@@ -38,7 +47,7 @@ public class MainArmControllerFreeRotation : MonoBehaviour
         {
             // camAnim.SetTrigger("shake");
             // arrow is by default facing right --> just like the crossbow
-            // I make an alternative rotation in case Va Helsing is facing left because the X scale is * -1
+            // I make an alternative rotation in case Van Helsing is facing left because the X scale is * -1
             // and it messes a lot with the arrow inverting the rotation wile facing left, so I subtract 180 of it
             Quaternion projectileRotation = crossbow.transform.rotation;
             if (PlayerController.CurrentFacingDirection == FacingDirection.Left)
