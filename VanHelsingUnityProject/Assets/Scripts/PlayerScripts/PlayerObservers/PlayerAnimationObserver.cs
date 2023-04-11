@@ -15,7 +15,7 @@ namespace PlayerScripts.PlayerObservers
 
         public void OnNotifyUpdate(PlayerController playerController)
         {
-            // Run
+            /*// Run
             if (Mathf.Abs(_rb.velocity.x) > 0f && Mathf.Abs(_rb.velocity.x) > playerController.maxWalkSpeed) 
             {
                 spritesAnimator.SetBool("IsRunning", true);
@@ -35,7 +35,7 @@ namespace PlayerScripts.PlayerObservers
                 spritesAnimator.SetBool("IsRunning", false);
                 spritesAnimator.SetBool("IsWalking", false);
                 spritesAnimator.SetBool("IsInIdle", true);
-            }
+            }*/
         }
     
     }
