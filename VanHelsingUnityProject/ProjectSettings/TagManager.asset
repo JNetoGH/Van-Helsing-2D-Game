@@ -54,3 +54,9 @@ TagManager:
   - name: Boss
     uniqueID: 1905828095
     locked: 0
+  - name: Projectiles
+    uniqueID: 1972046559
+    locked: 0
+  - name: EnviromentOverLayer
+    uniqueID: 3849646367
+    locked: 0
