@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ArrowController : MonoBehaviour
 {
-    
-    private float moveSpeed = 10.0f;
+
+    [SerializeField] private float moveSpeed = 10f;
 
     private Rigidbody2D _rigidbody2D;
 

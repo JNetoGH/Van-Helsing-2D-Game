@@ -2487,6 +2487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9180983038646184252}
   - component: {fileID: 9180983038646184255}
+  - component: {fileID: 9180983038646184257}
   - component: {fileID: 9180983038646184256}
   m_Layer: 0
   m_Name: CrossbowArm
@@ -2494,7 +2495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9180983038646184252
 Transform:
   m_ObjectHideFlags: 0
@@ -2523,10 +2524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11aa5059a541ed34686726c42000bd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crossbow: {fileID: 9180983039364898055}
-  projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
-  shotPoint: {fileID: 5442858225684795606}
-  camAnim: {fileID: 0}
 --- !u!212 &9180983038646184256
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2579,6 +2576,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9180983038646184257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9180983038646184227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bd5092f5744517b8f270d3a644f0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
 --- !u!4 &9180983039364898048
 Transform:
   m_ObjectHideFlags: 0
