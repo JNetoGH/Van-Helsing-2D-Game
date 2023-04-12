@@ -1590,7 +1590,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762709751}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.246, y: -0.116, z: 0}
+  m_LocalPosition: {x: 0.25, y: -0.115, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2194,6 +2194,7 @@ GameObject:
   - component: {fileID: 1912451980}
   - component: {fileID: 1912451982}
   - component: {fileID: 1912451981}
+  - component: {fileID: 1912451983}
   m_Layer: 0
   m_Name: SawArm
   m_TagString: Untagged
@@ -2290,6 +2291,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1912451983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912451979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9cc488dabd94e48909ecff08e03a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atkInterval: 0.5
 --- !u!1001 &2041383477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2531,7 +2545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669060757645072783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.54865, y: -0.024960041, z: 0}
+  m_LocalPosition: {x: 0.729, y: 0, z: 0}
   m_LocalScale: {x: 0.67, y: 0.67, z: 0.67}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2582,7 +2596,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9180983038538419261}
   - component: {fileID: 9180983038538419262}
-  - component: {fileID: 9180983038538419265}
   - component: {fileID: 8834920949309019444}
   - component: {fileID: 9180983038538419264}
   - component: {fileID: 9180983038538419263}
@@ -2667,20 +2680,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spritesAnimator: {fileID: 0}
---- !u!114 &9180983038538419265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180983038538419260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9cc488dabd94e48909ecff08e03a9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sawArmAnimator: {fileID: 1912451981}
-  atkInterval: 0.5
 --- !u!1 &9180983038646184227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2690,7 +2689,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9180983038646184252}
-  - component: {fileID: 9180983038646184257}
   - component: {fileID: 9180983038646184256}
   m_Layer: 0
   m_Name: CrossbowArm
@@ -2698,7 +2696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9180983038646184252
 Transform:
   m_ObjectHideFlags: 0
@@ -2768,20 +2766,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9180983038646184257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180983038646184227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4bd5092f5744517b8f270d3a644f0d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
-  shotPoint: {fileID: 5442858225684795606}
 --- !u!4 &9180983039364898048
 Transform:
   m_ObjectHideFlags: 0
@@ -2859,6 +2843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9180983039364898048}
   - component: {fileID: 9180983039364898049}
+  - component: {fileID: 9180983039364898056}
   m_Layer: 0
   m_Name: Crossbow
   m_TagString: Untagged
@@ -2866,3 +2851,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9180983039364898056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9180983039364898055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bd5092f5744517b8f270d3a644f0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
+  shotPoint: {fileID: 5442858225684795606}
+  shotInterval: 0.3

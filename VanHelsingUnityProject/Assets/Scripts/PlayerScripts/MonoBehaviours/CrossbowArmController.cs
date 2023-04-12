@@ -7,7 +7,7 @@ public class CrossbowArmController : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform shotPoint;
     [SerializeField] private float shotInterval = 0.3f;
-    private float _shotCoolDownTimer = 0;
+    public static float ShotCoolDownTimer = 0;
     
     private void Update()
     {
@@ -17,7 +17,7 @@ public class CrossbowArmController : MonoBehaviour
     
     private void TryShoot()
     {
-        if (_shotCoolDownTimer <= 0)
+        if (ShotCoolDownTimer <= 0)
         {
             // arrow is by default facing right --> just like the crossbow
             // I make an alternative rotation in case Van Helsing is facing left because the X scale is * -1
@@ -30,10 +30,10 @@ public class CrossbowArmController : MonoBehaviour
                 projectileRotation = Quaternion.Euler(aux);
             }
             Instantiate(projectile, shotPoint.position, projectileRotation);
-            _shotCoolDownTimer = shotInterval;
+            ShotCoolDownTimer = shotInterval;
             return;
         }
-        _shotCoolDownTimer -= Time.deltaTime;
+        ShotCoolDownTimer -= Time.deltaTime;
     }
     
 }

@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         // Updates Shooting States (the player cant dash while shooting)
-        IsShooting = Input.GetButton("Shoot");
+        IsShooting = Input.GetButton("Shoot") || Input.GetButtonDown("Shoot");;
         HasShotThisFrame = Input.GetButtonDown("Shoot");
         
         UpdateIsGrounded();

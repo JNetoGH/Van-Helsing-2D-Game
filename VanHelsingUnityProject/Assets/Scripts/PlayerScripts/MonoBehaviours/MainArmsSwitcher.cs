@@ -20,6 +20,7 @@ public class MainArmsSwitcher : MonoBehaviour
     {
         foreach (ArmState key in stateAndGameObject.Keys)
             stateAndGameObject[key].SetActive(currentArmState == key);
+        
         if (Input.GetButtonDown("ChangeArm"))
         {
             switch (currentArmState)
@@ -27,13 +28,19 @@ public class MainArmsSwitcher : MonoBehaviour
                 case ArmState.Crossbow: SwitchArmState(ArmState.Saw); break;
                 case ArmState.Saw: SwitchArmState(ArmState.Crossbow); break;
             }
-            
         }
     }
 
     public void SwitchArmState(ArmState newState)
     {
         currentArmState = newState;
+        
+        // also makes sure the cooldown timer is 0
+        switch (currentArmState)
+        {
+            case ArmState.Crossbow: CrossbowArmController.ShotCoolDownTimer = 0; break;
+            case ArmState.Saw: SawArmController.AtkCoolDownTimer = 0; break;
+        }
     }
     
 }
