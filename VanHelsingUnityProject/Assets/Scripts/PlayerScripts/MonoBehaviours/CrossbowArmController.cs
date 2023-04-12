@@ -1,12 +1,12 @@
 ﻿using PlayerScripts.Enums;
 using UnityEngine;
 
-public class CrossbowShootingHandler : MonoBehaviour
+public class CrossbowArmController : MonoBehaviour
 {
     
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform shotPoint;
-    private float _shotInterval = 0.3f;
+    [SerializeField] private float shotInterval = 0.3f;
     private float _shotCoolDownTimer = 0;
     
     private void Update()
@@ -17,7 +17,7 @@ public class CrossbowShootingHandler : MonoBehaviour
     
     private void TryShoot()
     {
-        if (Input.GetButton("Shoot") && _shotCoolDownTimer <= 0)
+        if (_shotCoolDownTimer <= 0)
         {
             // arrow is by default facing right --> just like the crossbow
             // I make an alternative rotation in case Van Helsing is facing left because the X scale is * -1
@@ -30,7 +30,7 @@ public class CrossbowShootingHandler : MonoBehaviour
                 projectileRotation = Quaternion.Euler(aux);
             }
             Instantiate(projectile, shotPoint.position, projectileRotation);
-            _shotCoolDownTimer = _shotInterval;
+            _shotCoolDownTimer = shotInterval;
             return;
         }
         _shotCoolDownTimer -= Time.deltaTime;

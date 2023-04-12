@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 5208994224392219737}
   - component: {fileID: 5208994224392219742}
   m_Layer: 0
-  m_Name: VanHelsing
+  m_Name: OldVanHelsing
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

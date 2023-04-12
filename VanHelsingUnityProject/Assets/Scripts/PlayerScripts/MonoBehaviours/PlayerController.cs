@@ -44,11 +44,8 @@ public class PlayerController : MonoBehaviour
     public static bool IsJumping { get; private set; } = false;
     public static bool IsDoubleJumping { get; private set; } = false;
     public static bool IsShooting { get; private set; } = false;
+    public static bool HasShotThisFrame { get; private set; } = false;
     #endregion
-    
-    
-    // ===============================================================================================================
-    // ===============================================================================================================
     
 
     private void Start()
@@ -67,13 +64,15 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
     {
+        // The Player cant do anything else while dashing
         UpdateIsDashing();
         if (IsDashing) 
             return;
-        
-        // Updates isShooting
-        IsShooting = Input.GetButton("Shoot");
 
+        // Updates Shooting States (the player cant dash while shooting)
+        IsShooting = Input.GetButton("Shoot");
+        HasShotThisFrame = Input.GetButtonDown("Shoot");
+        
         UpdateIsGrounded();
         UpdateCurrentFacingDir();
         UpdateIsMovingBackwards();
@@ -127,7 +126,10 @@ public class PlayerController : MonoBehaviour
         if (IsDashing)
         {
             // cant shoot while dashing
+            HasShotThisFrame = false;
             IsShooting = false;
+            
+            // releases dash timer
             _dashTimer += Time.deltaTime;
             if (_dashTimer >= DashDurationInSeg)
             {
@@ -147,14 +149,14 @@ public class PlayerController : MonoBehaviour
     
     private void UpdateIsGrounded()
     {
-        // Check if character just landed on the ground
+        // Checks if character just landed on the ground
         if (!IsGrounded && _groundSensor.State())
         {
             IsGrounded = true;
             IsJumping = false;
             IsDoubleJumping = false;
         }
-        // Check if character just started falling
+        // Checks if character just started falling
         if (IsGrounded && !_groundSensor.State())
         {
             IsGrounded = false;
@@ -190,6 +192,5 @@ public class PlayerController : MonoBehaviour
         else
             IsMovingBackwards = false;
     }
-    
-    
+
 }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using PlayerScripts.Enums;
 using UnityEngine;
 
-public class MainArmSwitcher : MonoBehaviour
+public class MainArmsSwitcher : MonoBehaviour
 {
 
     [SerializeField] private ArmState currentArmState = ArmState.Saw;
@@ -20,6 +20,15 @@ public class MainArmSwitcher : MonoBehaviour
     {
         foreach (ArmState key in stateAndGameObject.Keys)
             stateAndGameObject[key].SetActive(currentArmState == key);
+        if (Input.GetButtonDown("ChangeArm"))
+        {
+            switch (currentArmState)
+            {
+                case ArmState.Crossbow: SwitchArmState(ArmState.Saw); break;
+                case ArmState.Saw: SwitchArmState(ArmState.Crossbow); break;
+            }
+            
+        }
     }
 
     public void SwitchArmState(ArmState newState)

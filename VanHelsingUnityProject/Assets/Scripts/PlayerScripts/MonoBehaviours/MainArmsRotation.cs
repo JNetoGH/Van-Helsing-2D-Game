@@ -2,7 +2,7 @@ using PlayerScripts.Enums;
 using UnityEngine;
 
 
-public class MainArmRotation : MonoBehaviour
+public class MainArmsRotation : MonoBehaviour
 {
 
     // Making sure that the angle in 0 is zero
