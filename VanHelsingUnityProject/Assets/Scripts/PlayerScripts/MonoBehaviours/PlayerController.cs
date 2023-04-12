@@ -73,17 +73,10 @@ public class PlayerController : MonoBehaviour
         
         // Updates isShooting
         IsShooting = Input.GetButton("Shoot");
-        
-        // Updates isMovingBackwards
-        if (CurrentFacingDirection == FacingDirection.Left && InputX > 0)
-            IsMovingBackwards = true;
-        else if (CurrentFacingDirection == FacingDirection.Right && InputX < 0)
-            IsMovingBackwards = true;
-        else
-            IsMovingBackwards = false;
-        
+
         UpdateIsGrounded();
         UpdateCurrentFacingDir();
+        UpdateIsMovingBackwards();
         UpdateHasJumpedThisFrame();
         UpdateHasDoubleJumpedThisFrame();
         IsLockingToWalkOnly = Input.GetButton("Lock to Walk Only");
@@ -98,7 +91,7 @@ public class PlayerController : MonoBehaviour
         foreach (IPlayerObserver observer in _playerObservers)
             observer.OnNotifyUpdate(this);
     }
-
+    
     private void FixedUpdate()
     {
         if (IsDashing) Dash();
@@ -187,5 +180,16 @@ public class PlayerController : MonoBehaviour
             return;
         IsDoubleJumping = true;
     }
+    
+    private static void UpdateIsMovingBackwards()
+    {
+        if (CurrentFacingDirection == FacingDirection.Left && InputX > 0)
+            IsMovingBackwards = true;
+        else if (CurrentFacingDirection == FacingDirection.Right && InputX < 0)
+            IsMovingBackwards = true;
+        else
+            IsMovingBackwards = false;
+    }
+    
     
 }

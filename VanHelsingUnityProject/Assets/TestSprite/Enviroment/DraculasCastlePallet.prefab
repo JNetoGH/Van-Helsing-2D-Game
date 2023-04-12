@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 3227949084640860576}
   - component: {fileID: 4239922429811412356}
   m_Layer: 0
-  m_Name: DraculasCastle
+  m_Name: DraculasCastlePallet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
