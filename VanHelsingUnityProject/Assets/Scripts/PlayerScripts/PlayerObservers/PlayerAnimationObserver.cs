@@ -36,6 +36,8 @@ namespace PlayerScripts.PlayerObservers
                 spritesAnimator.SetBool("IsWalking", false);
                 spritesAnimator.SetBool("IsInIdle", true);
             }*/
+            
+            //_animator.SetBool("Grounded", IsGrounded);
         }
     
     }

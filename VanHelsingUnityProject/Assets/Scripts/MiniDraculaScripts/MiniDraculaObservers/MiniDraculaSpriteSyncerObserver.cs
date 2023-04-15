@@ -11,7 +11,7 @@ public class MiniDraculaSpriteSyncerObserver : MonoBehaviour, IMiniDraculaObserv
     private GameObject _currentAnimationGameObject = null;
     private Vector3 _defaultScale;
     
-    public void OnNotifyStart(MiniDraculaController miniDraculaminiDraculaController) 
+    public void OnNotifyStart(MiniDraculaController miniDraculaController) 
     {
         _defaultScale = transform.localScale;
         SwitchAnimation(defaultAnimationMiniDraculaView);
@@ -19,7 +19,7 @@ public class MiniDraculaSpriteSyncerObserver : MonoBehaviour, IMiniDraculaObserv
 
     public void OnNotifyUpdate(MiniDraculaController miniDraculaController)
     {
-        if (MiniDraculaController.HasStartedToAtkPlayerAtThisFrame)
+        if (miniDraculaController.HasStartedToAtkPlayerAtThisFrame)
         {
             // switches and flips the sprite
             SwitchAnimation(MiniDraculaView.Side);

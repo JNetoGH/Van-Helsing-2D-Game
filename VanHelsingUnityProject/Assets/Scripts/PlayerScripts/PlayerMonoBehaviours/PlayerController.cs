@@ -17,10 +17,9 @@ public class PlayerController : MonoBehaviour
     
     
     #region Fields (Move/Jump)
-    [HideInInspector] public float maxWalkSpeed = 1.5f;
-    [HideInInspector] public float runSpeed = 3.0f;
-    [HideInInspector] public float jumpForce = 4.0f;
-    [HideInInspector] public float doubleJumpForce = 4.5f;
+    [SerializeField] private float maxWalkSpeed = 1.5f;
+    [SerializeField] private float runSpeed = 3.0f;
+    [SerializeField] private float jumpForce = 5.5f;
     #endregion
     
     
@@ -40,9 +39,8 @@ public class PlayerController : MonoBehaviour
     public static bool IsDashing { get; private set; } = false;
     public static bool IsGrounded { get; private set; } = false;
     public static bool HasJumpedThisFrame { get; private set; } = false;
-    public static bool HasDoubleJumpedThisFrame { get; private set; } = false;
     public static bool IsJumping { get; private set; } = false;
-    public static bool IsDoubleJumping { get; private set; } = false;
+    public static bool IsFalling { get; private set; } = false;
     public static bool IsShooting { get; private set; } = false;
     public static bool HasShotThisFrame { get; private set; } = false;
     #endregion
@@ -64,27 +62,27 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
     {
+        
+        IsFalling = _rb.velocity.y < 0;
+        IsJumping = _rb.velocity.y > 0;
+        IsGrounded = _groundSensor.State() && _rb.velocity.y == 0;        
+        
         // The Player cant do anything else while dashing
         UpdateIsDashing();
         if (IsDashing) 
             return;
-
+        
+        if (HasJumpedThisFrame)
+            Jump(jumpForce);
+        
         // Updates Shooting States (the player cant dash while shooting)
         IsShooting = Input.GetButton("Shoot") || Input.GetButtonDown("Shoot");;
         HasShotThisFrame = Input.GetButtonDown("Shoot");
         
-        UpdateIsGrounded();
         UpdateCurrentFacingDir();
         UpdateIsMovingBackwards();
         UpdateHasJumpedThisFrame();
-        UpdateHasDoubleJumpedThisFrame();
         IsLockingToWalkOnly = Input.GetButton("Lock to Walk Only");
-        
-        if (HasJumpedThisFrame)
-            Jump(jumpForce);
-
-        if (HasDoubleJumpedThisFrame)
-            Jump(doubleJumpForce);
         
         // Notifying all Observers that the PlayerController.cs is updating
         foreach (IPlayerObserver observer in _playerObservers)
@@ -111,12 +109,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Jump(float force) => _rb.velocity = new Vector2(_rb.velocity.x, force);
-    
-    
-    // ===============================================================================================================
-    // ===============================================================================================================
-    //                                        UPDATE STATES
-    
+
     private void UpdateIsDashing()
     {
         // cant dash again while dashing
@@ -147,40 +140,12 @@ public class PlayerController : MonoBehaviour
         else if (mouseInWorldPos.x < this.transform.position.x) CurrentFacingDirection = FacingDirection.Left;
     }
     
-    private void UpdateIsGrounded()
-    {
-        // Checks if character just landed on the ground
-        if (!IsGrounded && _groundSensor.State())
-        {
-            IsGrounded = true;
-            IsJumping = false;
-            IsDoubleJumping = false;
-        }
-        // Checks if character just started falling
-        if (IsGrounded && !_groundSensor.State())
-        {
-            IsGrounded = false;
-            IsJumping = true;
-        }
-        //_animator.SetBool("Grounded", IsGrounded);
-    }
-
     private void UpdateHasJumpedThisFrame()
     {
         HasJumpedThisFrame = Input.GetButtonDown("Jump") && IsGrounded;
         if (!HasJumpedThisFrame)
             return;
-        IsGrounded = false;
-        IsJumping = true;
         _groundSensor.Disable(0.2f);
-    }
-
-    private void UpdateHasDoubleJumpedThisFrame()
-    {
-        HasDoubleJumpedThisFrame = Input.GetButtonDown("Jump") && IsJumping && !IsDoubleJumping && !HasJumpedThisFrame;
-        if (!HasDoubleJumpedThisFrame)
-            return;
-        IsDoubleJumping = true;
     }
     
     private static void UpdateIsMovingBackwards()

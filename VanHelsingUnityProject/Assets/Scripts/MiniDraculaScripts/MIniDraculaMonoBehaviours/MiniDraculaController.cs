@@ -12,8 +12,8 @@ public class MiniDraculaController : MonoBehaviour
     private const float IdleDurationInSecs = 3;
     private float _atkCountDownTimer;
     
-    public static bool IsInAttackPlayerState { get; private set; } = false;
-    public static bool HasStartedToAtkPlayerAtThisFrame { get; private set; } = false;
+    public bool IsInAttackPlayerState { get; private set; } = false;
+    public bool HasStartedToAtkPlayerAtThisFrame { get; private set; } = false;
 
     void Start()
     {

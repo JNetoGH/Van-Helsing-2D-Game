@@ -13,8 +13,8 @@ public class MainArmsRotation : MonoBehaviour
     private void RotateArmAccordingToMousePos()
     {
         Vector3 mouseInWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 difference = mouseInWorldPos - transform.position;
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        Vector3 distanceToMouse = mouseInWorldPos - transform.position;
+        float rotZ = Mathf.Atan2(distanceToMouse.y, distanceToMouse.x) * Mathf.Rad2Deg;
         
         switch (PlayerController.CurrentFacingDirection)
         {
