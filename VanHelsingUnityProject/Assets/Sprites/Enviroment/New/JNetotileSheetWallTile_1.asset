@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: JotaTileSet_0
+  m_Name: JNetotileSheetWallTile_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1983404536, guid: 62935990ffbac6044a0952b62600ff10, type: 3}
+  m_Sprite: {fileID: 467127179, guid: e2e9fb5669fad694aa970c8bb2da535f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 62935990ffbac6044a0952b62600ff10
+guid: e2e9fb5669fad694aa970c8bb2da535f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JotaTileSet_0
+      name: JNetotileSheetWallTile_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 64
-        height: 64
+        x: 2
+        y: 2
+        width: 32
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49779c94b12200c499d2e0cca71647f5
-      internalID: 1983404536
+      spriteID: d533714c1cbfb81428376ac69e4ab1df
+      internalID: -291905605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JotaTileSet_1
+      name: JNetotileSheetWallTile_1
       rect:
         serializedVersion: 2
-        x: 66
-        y: 1
-        width: 64
-        height: 64
+        x: 36
+        y: 2
+        width: 32
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e985840ae438c7a4e9820ef912177fa8
-      internalID: 1628040607
+      spriteID: 5a7f6e7fb8ca8274485107ad524fb700
+      internalID: 467127179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JotaTileSet_2
+      name: JNetotileSheetWallTile_2
       rect:
         serializedVersion: 2
-        x: 131
-        y: 1
-        width: 64
-        height: 64
+        x: 70
+        y: 2
+        width: 32
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +161,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67314295a4fb65e48a85ea4dc487ce4d
-      internalID: 863643216
+      spriteID: 739665193578ce543b7f1c8e58f4bcd9
+      internalID: 1559843594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JNetotileSheetWallTile_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 2
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69eddfc7fced4045a221aad2df6fff1
+      internalID: 525518582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JNetotileSheetWallTile_4
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 2
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c26566234cbb9c642b6aa16fa175c62e
+      internalID: -1479794888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JNetotileSheetWallTile_5
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 2
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 523e60e8ee21a2c41a28a9fc08c1a863
+      internalID: 1244578938
       vertices: []
       indices: 
       edges: []
@@ -178,9 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      JotaTileSet_0: 1983404536
-      JotaTileSet_1: 1628040607
-      JotaTileSet_2: 863643216
+      JNetotileSheetWallTile_0: -291905605
+      JNetotileSheetWallTile_1: 467127179
+      JNetotileSheetWallTile_2: 1559843594
+      JNetotileSheetWallTile_3: 525518582
+      JNetotileSheetWallTile_4: -1479794888
+      JNetotileSheetWallTile_5: 1244578938
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
