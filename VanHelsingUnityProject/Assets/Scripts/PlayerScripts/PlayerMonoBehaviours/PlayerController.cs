@@ -31,16 +31,16 @@ public class PlayerController : MonoBehaviour
     
 
     #region Get-Only Static States for Subsystems
+    public bool IsJumping => _rb.velocity.y > 0;
+    public bool IsFalling => _rb.velocity.y < 0;
+    public bool IsGrounded => _groundSensor.State() && _rb.velocity.y == 0;
+    public bool HasJumpedThisFrame =>  Input.GetButtonDown("Jump") && IsGrounded;
     public static float InputX => Input.GetAxis("Horizontal");
     public static FacingDirection CurrentFacingDirection { get; private set; }
     public static bool IsMoving => Mathf.Abs(InputX) > 0f;
     public static bool IsMovingBackwards { get; private set; } = false;
     public static bool IsLockingToWalkOnly { get; private set; } = false;
     public static bool IsDashing { get; private set; } = false;
-    public static bool IsGrounded { get; private set; } = false;
-    public static bool HasJumpedThisFrame { get; private set; } = false;
-    public static bool IsJumping { get; private set; } = false;
-    public static bool IsFalling { get; private set; } = false;
     public static bool IsShooting { get; private set; } = false;
     public static bool HasShotThisFrame { get; private set; } = false;
     #endregion
@@ -62,11 +62,6 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
     {
-        
-        IsFalling = _rb.velocity.y < 0;
-        IsJumping = _rb.velocity.y > 0;
-        IsGrounded = _groundSensor.State() && _rb.velocity.y == 0;        
-        
         // The Player cant do anything else while dashing
         UpdateIsDashing();
         if (IsDashing) 
@@ -81,7 +76,6 @@ public class PlayerController : MonoBehaviour
         
         UpdateCurrentFacingDir();
         UpdateIsMovingBackwards();
-        UpdateHasJumpedThisFrame();
         IsLockingToWalkOnly = Input.GetButton("Lock to Walk Only");
         
         // Notifying all Observers that the PlayerController.cs is updating
@@ -138,14 +132,6 @@ public class PlayerController : MonoBehaviour
         Vector3 mouseInWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mouseInWorldPos.x > this.transform.position.x) CurrentFacingDirection = FacingDirection.Right;
         else if (mouseInWorldPos.x < this.transform.position.x) CurrentFacingDirection = FacingDirection.Left;
-    }
-    
-    private void UpdateHasJumpedThisFrame()
-    {
-        HasJumpedThisFrame = Input.GetButtonDown("Jump") && IsGrounded;
-        if (!HasJumpedThisFrame)
-            return;
-        _groundSensor.Disable(0.2f);
     }
     
     private static void UpdateIsMovingBackwards()
