@@ -1,5 +1,6 @@
 TODO
 
+- add the saw's affected area effet to it
 - flecha tem q sumir quando atinge o inimigo
 - por tail pra flecha
 - animacao de poeira quando salta
