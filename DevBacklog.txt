@@ -14,3 +14,5 @@ TODO
 
 
 DONE
+
+- Tile tearing fixe (4-April-2023)
