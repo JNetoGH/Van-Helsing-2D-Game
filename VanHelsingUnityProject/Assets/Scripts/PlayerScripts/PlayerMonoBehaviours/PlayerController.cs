@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
         
         _rb = GetComponent<Rigidbody2D>();
         _groundSensor = GetComponentInChildren<GroundSensorController>();
+        
+        
     }
     
     private void Update()
