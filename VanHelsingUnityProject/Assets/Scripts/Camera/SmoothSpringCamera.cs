@@ -9,11 +9,16 @@ public class SmoothSpringCamera : MonoBehaviour
     [SerializeField] private bool followInX = true;
     [SerializeField] private Vector2 offset;
     [SerializeField] private float speed; // Cant be bigger than 1
-    
-    void Start() => _player = GameObject.FindWithTag("Player");
-    
+
     private void FixedUpdate()
     {
+        // finds player or quits the method
+        if (_player is null)
+        {
+            _player = GameObject.FindWithTag("Player");
+            if (_player is null) return;
+        }
+        
         Vector3 targetPosition = _player.transform.position - new Vector3(offset.x, offset.y, 0);
         Vector3 newPosition = transform.position;
         Vector3 error = targetPosition - newPosition;
