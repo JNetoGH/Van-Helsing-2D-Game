@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 // Camera Smooth Spring System
-public class CameraController : MonoBehaviour
+public class SmoothSpringCamera : MonoBehaviour
 {
     
     private GameObject _player;
@@ -18,8 +14,7 @@ public class CameraController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        Vector3 targetPosition = _player.transform.position - new Vector3(offset.x, offset.y, 0); 
-        
+        Vector3 targetPosition = _player.transform.position - new Vector3(offset.x, offset.y, 0);
         Vector3 newPosition = transform.position;
         Vector3 error = targetPosition - newPosition;
         newPosition += error * speed * Mathf.Min(Time.fixedDeltaTime / speed, 1);
