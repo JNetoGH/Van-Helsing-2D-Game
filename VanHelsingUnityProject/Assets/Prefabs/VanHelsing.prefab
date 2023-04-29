@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3004604959617028929}
-  - component: {fileID: 3004604959617028930}
   - component: {fileID: 3004604959617028931}
   m_Layer: 0
   m_Name: MainArmHandler
@@ -66,18 +65,6 @@ Transform:
   m_Father: {fileID: 6258850253062367961}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3004604959617028930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004604959617028928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11aa5059a541ed34686726c42000bd62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3004604959617028931
 MonoBehaviour:
   m_ObjectHideFlags: 0
