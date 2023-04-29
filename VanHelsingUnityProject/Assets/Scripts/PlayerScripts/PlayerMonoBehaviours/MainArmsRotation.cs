@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class MainArmsRotation : MonoBehaviour
 {
+    
+    private PlayerController _playerController;
 
-    // Making sure that the angle in 0 is zero
-    private void Start() => transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+    private void Start()
+    {
+        _playerController = transform.parent.GetComponent<PlayerController>();
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f); // Making sure that the angle in 0 is zero
+    }
 
-    void Update() => RotateArmAccordingToMousePos();
+    void Update()
+    {
+        RotateArmAccordingToMousePos();
+    }
 
     private void RotateArmAccordingToMousePos()
     {
@@ -16,7 +24,7 @@ public class MainArmsRotation : MonoBehaviour
         Vector3 distanceToMouse = mouseInWorldPos - transform.position;
         float rotZ = Mathf.Atan2(distanceToMouse.y, distanceToMouse.x) * Mathf.Rad2Deg;
         
-        switch (PlayerController.CurrentFacingDirection)
+        switch (_playerController.CurrentFacingDirection)
         {
             case FacingDirection.Right: transform.rotation = Quaternion.Euler(0f, 0f, rotZ); break;
             case FacingDirection.Left:  transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 180); break;

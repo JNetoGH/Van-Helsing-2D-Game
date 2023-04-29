@@ -25,15 +25,14 @@ namespace PlayerScripts.PlayerObservers
         }
 
         public void OnNotifyStart(PlayerController playerController) { }
-
         public void OnNotifyUpdate(PlayerController playerController)
         {
             // Updates sprite in X axis scale, in order to flip the sprite to the current facing direction
-            if (PlayerController.CurrentFacingDirection == FacingDirection.Left) 
+            if (playerController.CurrentFacingDirection == FacingDirection.Left) 
                 transform.localScale = facingLeftScale;
-            else if (PlayerController.CurrentFacingDirection == FacingDirection.Right) 
+            else if (playerController.CurrentFacingDirection == FacingDirection.Right) 
                 transform.localScale = facingRightScale;
         }
-
+        
     }
 }

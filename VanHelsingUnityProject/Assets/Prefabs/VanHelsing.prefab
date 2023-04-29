@@ -455,6 +455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6258850251310436312}
   - component: {fileID: 6258850251310436260}
+  - component: {fileID: 7808887365803763986}
   m_Layer: 0
   m_Name: CrossbowArm
   m_TagString: Untagged
@@ -521,7 +522,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: e6a5a5d46119be54993ecd06cbeb5609, type: 3}
-  m_Color: {r: 0.98564017, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.5952402, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -531,6 +532,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7808887365803763986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258850251310436295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bd5092f5744517b8f270d3a644f0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
+  shotPoint: {fileID: 7078087355338077746}
+  shotInterval: 0.3
 --- !u!1 &6258850251766397923
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +557,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6258850251766397924}
   - component: {fileID: 6258850251766397925}
-  - component: {fileID: 6258850251766397932}
   m_Layer: 0
   m_Name: Crossbow
   m_TagString: Untagged
@@ -616,21 +631,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6258850251766397932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6258850251766397923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4bd5092f5744517b8f270d3a644f0d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
-  shotPoint: {fileID: 7078087355338077746}
-  shotInterval: 0.3
 --- !u!1 &6258850253062367960
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +745,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.14331609, y: -0.59584665}
+  m_Offset: {x: 0.14331609, y: -0.58450603}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -756,7 +756,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.37521863, y: 0.0316751}
+  m_Size: {x: 0.37521863, y: 0.092618704}
   m_EdgeRadius: 0
 --- !u!212 &6258850253062367909
 SpriteRenderer:

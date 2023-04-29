@@ -7,16 +7,18 @@ public class SawArmController : MonoBehaviour
     public static  float AtkCoolDownTimer = 0;
     private static readonly int Shoot = Animator.StringToHash("melee");
     private Animator _sawArmAnimator;
+    private PlayerController _playerController;
 
     private void Start()
     {
+        _playerController = GetComponentInParent<PlayerController>();
         _sawArmAnimator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         AtkCoolDownTimer -= Time.deltaTime;
-        if(PlayerController.HasShotThisFrame && !PlayerController.IsDashing) 
+        if(_playerController.HasShotThisFrame && !_playerController.IsDashing) 
             TryAtk();
     }
     

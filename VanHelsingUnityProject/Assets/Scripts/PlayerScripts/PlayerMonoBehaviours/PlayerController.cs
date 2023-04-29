@@ -29,22 +29,18 @@ public class PlayerController : MonoBehaviour
     private float _dashTimer = 0;
     #endregion
     
-
-    #region Get-Only Static States for Subsystems
     public bool IsJumping => _rb.velocity.y > 0;
     public bool IsFalling => _rb.velocity.y < 0;
     public bool IsGrounded => _groundSensor.State() && _rb.velocity.y == 0;
     public bool HasJumpedThisFrame =>  Input.GetButtonDown("Jump") && IsGrounded;
-    public static float InputX => Input.GetAxis("Horizontal");
-    public static FacingDirection CurrentFacingDirection { get; private set; }
-    public static bool IsMoving => Mathf.Abs(InputX) > 0f;
-    public static bool IsMovingBackwards { get; private set; } = false;
-    public static bool IsLockingToWalkOnly { get; private set; } = false;
-    public static bool IsDashing { get; private set; } = false;
-    public static bool IsShooting { get; private set; } = false;
-    public static bool HasShotThisFrame { get; private set; } = false;
-    #endregion
-    
+    public float InputX => Input.GetAxis("Horizontal");
+    public FacingDirection CurrentFacingDirection { get; private set; }
+    public bool IsMoving => Mathf.Abs(InputX) > 0f;
+    public bool IsMovingBackwards { get; private set; } = false;
+    public bool IsLockingToWalkOnly { get; private set; } = false;
+    public bool IsDashing { get; private set; } = false;
+    public bool IsShooting { get; private set; } = false;
+    public bool HasShotThisFrame { get; private set; } = false;
 
     private void Start()
     {
@@ -136,7 +132,7 @@ public class PlayerController : MonoBehaviour
         else if (mouseInWorldPos.x < this.transform.position.x) CurrentFacingDirection = FacingDirection.Left;
     }
     
-    private static void UpdateIsMovingBackwards()
+    private void UpdateIsMovingBackwards()
     {
         if (CurrentFacingDirection == FacingDirection.Left && InputX > 0)
             IsMovingBackwards = true;
