@@ -13,11 +13,15 @@ public class PlayerArmsHandlerObserver : MonoBehaviour, IPlayerObserver
     
     private GameObject _currentArm;
     private readonly Dictionary<ArmState, GameObject> _armStateAndArmGameObject = new();
+    private SawArmController _sawArmController;
+    private CrossbowArmController _crossbowArmController;
     
     public void OnNotifyStart(PlayerController playerController)
     {
         _armStateAndArmGameObject.Add(ArmState.Crossbow, _crossbowArm);
         _armStateAndArmGameObject.Add(ArmState.Saw, _sawArm);
+        _crossbowArmController = _crossbowArm.GetComponent<CrossbowArmController>();
+        _sawArmController = _sawArm.GetComponent<SawArmController>();
         SetArm(_currentArmState);
     }
     
@@ -37,11 +41,14 @@ public class PlayerArmsHandlerObserver : MonoBehaviour, IPlayerObserver
     {
         // Changes the _currentArmState
         _currentArmState = newState;
+        
+        // Also makes sure to reset the cooldown before Updating enabling the arm 
         switch (_currentArmState)
-        {   // also makes sure to reset the cooldown
-            case ArmState.Crossbow: CrossbowArmController.ShotCoolDownTimer = 0; break;
-            case ArmState.Saw: SawArmController.AtkCoolDownTimer = 0; break;
+        {   
+            case ArmState.Crossbow: _crossbowArmController.ResetCoolDown(); break;
+            case ArmState.Saw: _sawArmController.ResetCoolDown(); break;
         }
+        
         // Updates the dictionary and sets the _currentArm based on it
         foreach (ArmState key in _armStateAndArmGameObject.Keys)
         {

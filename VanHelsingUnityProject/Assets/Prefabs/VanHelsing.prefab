@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9cc488dabd94e48909ecff08e03a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkInterval: 0.5
+  _attackCoolDownDuration: 0.5
 --- !u!1 &3004604960578691091
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,9 +428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bd5092f5744517b8f270d3a644f0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
-  shotPoint: {fileID: 7078087355338077746}
-  shotInterval: 0.3
+  _projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
+  _shootingPoint: {fileID: 7078087355338077746}
+  _shootingCoolDownDuration: 0.3
 --- !u!1 &6258850251766397923
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,9 +569,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c07134218d7fd4486a917af686e72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWalkSpeed: 1.5
-  runSpeed: 3
-  jumpForce: 5.5
+  _walkMaxSpeed: 1.5
+  _runSpeed: 3
+  _jumpForce: 5.5
+  _dashDurationInSec: 0.1
+  _dashSpeed: 13
 --- !u!114 &7400544189496890782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87166ffe4a1220f488e298237de10a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spritesAnimator: {fileID: 0}
+  _spritesAnimator: {fileID: 0}
 --- !u!50 &6258850253062367964
 Rigidbody2D:
   serializedVersion: 4

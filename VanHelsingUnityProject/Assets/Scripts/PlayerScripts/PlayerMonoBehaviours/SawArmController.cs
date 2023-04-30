@@ -3,11 +3,13 @@ using UnityEngine;
 public class SawArmController : MonoBehaviour
 {
     
-    [SerializeField] private float atkInterval = 0.5f;
-    public static  float AtkCoolDownTimer = 0;
-    private static readonly int Shoot = Animator.StringToHash("melee");
-    private Animator _sawArmAnimator;
+    [SerializeField] private float _attackCoolDownDuration = 0.5f;
+    private float _atkCoolDownTimer = 0;
+    
     private PlayerController _playerController;
+    private Animator _sawArmAnimator;
+    private static readonly int Shoot = Animator.StringToHash("melee");
+    
 
     private void Start()
     {
@@ -17,18 +19,18 @@ public class SawArmController : MonoBehaviour
 
     private void Update()
     {
-        AtkCoolDownTimer -= Time.deltaTime;
+        _atkCoolDownTimer -= Time.deltaTime;
         if(_playerController.HasShotThisFrame && !_playerController.IsDashing) 
             TryAtk();
     }
     
     private void TryAtk()
     {
-        if (AtkCoolDownTimer <= 0)
-        {
-            _sawArmAnimator.SetTrigger(Shoot);
-            AtkCoolDownTimer = atkInterval;
-        }
+        if (!(_atkCoolDownTimer <= 0)) return;
+        _sawArmAnimator.SetTrigger(Shoot);
+        _atkCoolDownTimer = _attackCoolDownDuration;
     }
+
+    public void ResetCoolDown() => _atkCoolDownTimer = 0;
     
 }
