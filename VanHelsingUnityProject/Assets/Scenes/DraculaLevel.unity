@@ -742,8 +742,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519420032}
-  - component: {fileID: 519420031}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   m_Layer: 0
@@ -864,10 +864,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2c6231f23891649a6c59be2f7a9557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followInY: 1
-  followInX: 1
-  offset: {x: 0, y: -1.5}
-  speed: 0.5
+  _target: {fileID: 733137089}
+  _followInY: 1
+  _followInX: 1
+  _offset: {x: 0, y: -1.5}
+  _speed: 0.5
+  _minIncrement: 0.005
 --- !u!1001 &549453090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1402,21 +1404,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6258850253062367960, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
   m_PrefabInstance: {fileID: 3004604960095430372}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &733137097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733137089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42212f36883369a4fba2afafcc2b7310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentArmState: 1
-  _crossbowArm: {fileID: 0}
-  _sawArm: {fileID: 0}
 --- !u!1 &760124855
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,16 +3134,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7866c39ad0359e4ba6f2bcc2bcef5c8, type: 3}
---- !u!1 &1521993210 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6258850251310436295, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-  m_PrefabInstance: {fileID: 3004604960095430372}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1544672866 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3004604959831414127, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-  m_PrefabInstance: {fileID: 3004604960095430372}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1545062567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4298963775529504953, guid: 3e417ab686e83b046bee2719db8622f8, type: 3}
@@ -14683,17 +14660,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7400544189496890782, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _sawArm
-      value: 
-      objectReference: {fileID: 1544672866}
-    - target: {fileID: 7400544189496890782, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _crossbowArm
-      value: 
-      objectReference: {fileID: 1521993210}
-    m_RemovedComponents:
-    - {fileID: 3004604959617028930, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-    - {fileID: 3004604959617028931, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
 --- !u!1001 &6245893599166845599
 PrefabInstance:
@@ -14759,6 +14726,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88480600271042289, guid: 91b6a4d46e3306444ad41acd52de45fb, type: 3}
+      propertyPath: _lifeTimeInSeconds
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 88480600271042292, guid: 91b6a4d46e3306444ad41acd52de45fb, type: 3}
       propertyPath: m_Name
       value: MiniDracula
