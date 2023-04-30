@@ -1,5 +1,4 @@
-﻿using System;
-using PlayerScripts.Enums;
+﻿using PlayerScripts.Enums;
 using UnityEngine;
 
 public class CrossbowArmController : MonoBehaviour
@@ -13,7 +12,7 @@ public class CrossbowArmController : MonoBehaviour
 
     private void Start()
     {
-        _playerController = transform.parent.parent.GetComponent<PlayerController>();
+        _playerController = GetComponentInParent<PlayerController>();
     }
 
     private void Update()
