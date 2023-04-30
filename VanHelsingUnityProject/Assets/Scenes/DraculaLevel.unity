@@ -742,8 +742,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519420032}
-  - component: {fileID: 519420031}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   m_Layer: 0
@@ -864,10 +864,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2c6231f23891649a6c59be2f7a9557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followInY: 1
-  followInX: 1
-  offset: {x: 0, y: -1.5}
-  speed: 0.5
+  _target: {fileID: 733137089}
+  _followInY: 1
+  _followInX: 1
+  _offset: {x: 0, y: -1}
+  _speed: 0.5
+  _smoothFollowInY: 0
+  _smoothFollowInX: 1
+  _minimumIncrement: {x: 0.0025, y: 0.005}
 --- !u!1001 &549453090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1396,6 +1400,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7855724588169396572, guid: a7866c39ad0359e4ba6f2bcc2bcef5c8, type: 3}
   m_PrefabInstance: {fileID: 1516129603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &733137089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6258850253062367960, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+  m_PrefabInstance: {fileID: 3004604960095430372}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &760124855
 GameObject:
@@ -14652,14 +14661,6 @@ PrefabInstance:
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6258850253062367963, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: m_Size.y
-      value: 0.092618704
-      objectReference: {fileID: 0}
-    - target: {fileID: 6258850253062367963, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.58450603
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}

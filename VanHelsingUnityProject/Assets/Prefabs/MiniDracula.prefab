@@ -32,8 +32,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7300839090493893760}
-  - {fileID: 4371242850080314039}
+  - {fileID: 4371242848994820176}
+  - {fileID: 7300839090616196667}
   m_Father: {fileID: 88480600271042295}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,21 +49,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1bdcfa1e2f49c090a23aee0bac7d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 1
-  dmgColorIndicatorDurationInSec: 0.1
-  spriteRenderersToReceiveDmgEffect:
-  - {fileID: 7300839091376118377}
-  - {fileID: 7300839090689083052}
-  - {fileID: 7300839089866759833}
-  - {fileID: 7300839091074421067}
-  - {fileID: 7300839091114211714}
-  - {fileID: 7300839091853602899}
+  _healthPoints: 1
+  _dmgColorIndicatorDurationInSec: 0.1
+  _spriteRenderersToReceiveDmgEffect:
   - {fileID: 4371242849081438692}
   - {fileID: 4371242848781358486}
   - {fileID: 4371242850626689836}
   - {fileID: 4371242849620209568}
   - {fileID: 4371242848771691684}
   - {fileID: 4371242849647579742}
+  - {fileID: 7300839091376118377}
+  - {fileID: 7300839090689083052}
+  - {fileID: 7300839089866759833}
+  - {fileID: 7300839091074421067}
+  - {fileID: 7300839091114211714}
+  - {fileID: 7300839091853602899}
 --- !u!50 &88480600227767446
 Rigidbody2D:
   serializedVersion: 4
@@ -179,7 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05ce5d68547898478247a791fe5c81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySpeed: 2
+  _flySpeed: 2
+  _idleDurationInSecs: 3
 --- !u!114 &88480600271042289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7c7322a094406d8169231a61d8154c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeTimeInSeconds: 10
+  _lifeTimeInSeconds: 10
 --- !u!114 &88480600271042288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,9 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb53673f3aa97449883d04ba4edf7b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationFrontView: {fileID: 7300839090493893767}
-  animationSideView: {fileID: 4371242850080314038}
-  defaultAnimationMiniDraculaView: 0
+  _animationFrontView: {fileID: 7300839090616196666}
+  _animationSideView: {fileID: 4371242848994820191}
 --- !u!1 &4371242848771691682
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 4371242848994820176}
   - component: {fileID: 4371242848994820177}
   m_Layer: 0
-  m_Name: mini_sprite_container
+  m_Name: MiniDraculaSideView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -400,7 +400,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4371242848994820191}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -411,7 +411,7 @@ Transform:
   - {fileID: 4371242849620209583}
   - {fileID: 4371242848771691683}
   - {fileID: 4371242849647579741}
-  m_Father: {fileID: 4371242850080314039}
+  m_Father: {fileID: 88480600227767451}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4371242848994820177
@@ -687,38 +687,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &4371242850080314038
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4371242850080314039}
-  m_Layer: 0
-  m_Name: MiniDraculaSideView
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4371242850080314039
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4371242850080314038}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4371242848994820176}
-  m_Father: {fileID: 88480600227767451}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4371242850626689834
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,38 +855,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &7300839090493893767
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7300839090493893760}
-  m_Layer: 0
-  m_Name: front_view_minidracula_sprite_and_ani
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7300839090493893760
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7300839090493893767}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7300839090616196667}
-  m_Father: {fileID: 88480600227767451}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7300839090616196666
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +866,7 @@ GameObject:
   - component: {fileID: 7300839090616196667}
   - component: {fileID: 7300839090616196660}
   m_Layer: 0
-  m_Name: mini_dracula_front_view_sprites_container
+  m_Name: MiniDraculaFrontView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -943,7 +879,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7300839090616196666}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -954,8 +890,8 @@ Transform:
   - {fileID: 7300839091074421066}
   - {fileID: 7300839091114211713}
   - {fileID: 7300839091853602898}
-  m_Father: {fileID: 7300839090493893760}
-  m_RootOrder: 0
+  m_Father: {fileID: 88480600227767451}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7300839090616196660
 Animator:

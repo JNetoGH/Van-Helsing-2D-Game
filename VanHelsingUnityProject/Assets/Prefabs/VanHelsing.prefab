@@ -31,68 +31,6 @@ Transform:
   m_Father: {fileID: 6258850251310436312}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3004604959617028928
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3004604959617028929}
-  - component: {fileID: 3004604959617028930}
-  - component: {fileID: 3004604959617028931}
-  m_Layer: 0
-  m_Name: MainArmHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3004604959617028929
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004604959617028928}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6258850251310436312}
-  - {fileID: 3004604960681162744}
-  m_Father: {fileID: 6258850253062367961}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3004604959617028930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004604959617028928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11aa5059a541ed34686726c42000bd62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3004604959617028931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004604959617028928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42212f36883369a4fba2afafcc2b7310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentArmState: 1
-  crossbowArm: {fileID: 6258850251310436295}
-  sawArm: {fileID: 3004604959831414127}
 --- !u!1 &3004604959831414127
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,8 +63,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3004604960578691100}
-  m_Father: {fileID: 3004604960681162744}
-  m_RootOrder: 0
+  m_Father: {fileID: 6258850253062367961}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3004604959831414122
 SpriteRenderer:
@@ -213,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9cc488dabd94e48909ecff08e03a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkInterval: 0.5
+  _attackCoolDownDuration: 0.5
 --- !u!1 &3004604960578691091
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,60 +258,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &3004604960681162751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3004604960681162744}
-  - component: {fileID: 3004604960681162745}
-  m_Layer: 0
-  m_Name: SawArmContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3004604960681162744
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004604960681162751}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3004604959831414120}
-  m_Father: {fileID: 3004604959617028929}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &3004604960681162745
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004604960681162751}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d2486d7c7c240334aa54acffa519c01e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3945821561110328458
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +289,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6258850253062367961}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3899763350023107316
 BoxCollider2D:
@@ -455,6 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6258850251310436312}
   - component: {fileID: 6258850251310436260}
+  - component: {fileID: 7808887365803763986}
   m_Layer: 0
   m_Name: CrossbowArm
   m_TagString: Untagged
@@ -476,7 +361,7 @@ Transform:
   m_Children:
   - {fileID: 6258850251766397924}
   - {fileID: 7078087355338077746}
-  m_Father: {fileID: 3004604959617028929}
+  m_Father: {fileID: 6258850253062367961}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6258850251310436260
@@ -521,7 +406,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: e6a5a5d46119be54993ecd06cbeb5609, type: 3}
-  m_Color: {r: 0.98564017, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.5952402, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -531,6 +416,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7808887365803763986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258850251310436295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bd5092f5744517b8f270d3a644f0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
+  _shootingPoint: {fileID: 7078087355338077746}
+  _shootingCoolDownDuration: 0.3
 --- !u!1 &6258850251766397923
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +441,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6258850251766397924}
   - component: {fileID: 6258850251766397925}
-  - component: {fileID: 6258850251766397932}
   m_Layer: 0
   m_Name: Crossbow
   m_TagString: Untagged
@@ -616,21 +515,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6258850251766397932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6258850251766397923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4bd5092f5744517b8f270d3a644f0d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
-  shotPoint: {fileID: 7078087355338077746}
-  shotInterval: 0.3
 --- !u!1 &6258850253062367960
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,11 +525,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6258850253062367961}
   - component: {fileID: 6258850253062367962}
+  - component: {fileID: 7400544189496890782}
   - component: {fileID: 5992445580388201424}
   - component: {fileID: 6258850253062367908}
   - component: {fileID: 6258850253062367964}
   - component: {fileID: 6258850253062367963}
   - component: {fileID: 6258850253062367909}
+  - component: {fileID: 733137097}
   m_Layer: 0
   m_Name: VanHelsing
   m_TagString: Player
@@ -665,7 +551,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3004604959617028929}
+  - {fileID: 6258850251310436312}
+  - {fileID: 3004604959831414120}
   - {fileID: 3948411062049629344}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -682,9 +569,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c07134218d7fd4486a917af686e72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWalkSpeed: 1.5
-  runSpeed: 3
-  jumpForce: 5.5
+  _walkMaxSpeed: 1.5
+  _runSpeed: 3
+  _jumpForce: 5.5
+  _dashDurationInSec: 0.1
+  _dashSpeed: 13
+--- !u!114 &7400544189496890782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258850253062367960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42212f36883369a4fba2afafcc2b7310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentArmState: 1
+  _crossbowArm: {fileID: 6258850251310436295}
+  _sawArm: {fileID: 3004604959831414127}
 --- !u!114 &5992445580388201424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87166ffe4a1220f488e298237de10a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spritesAnimator: {fileID: 0}
+  _spritesAnimator: {fileID: 0}
 --- !u!50 &6258850253062367964
 Rigidbody2D:
   serializedVersion: 4
@@ -745,7 +649,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.14331609, y: -0.59584665}
+  m_Offset: {x: 0.14331609, y: -0.58450603}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -756,7 +660,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.37521863, y: 0.0316751}
+  m_Size: {x: 0.37521863, y: 0.092618704}
   m_EdgeRadius: 0
 --- !u!212 &6258850253062367909
 SpriteRenderer:
@@ -810,3 +714,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &733137097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258850253062367960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42212f36883369a4fba2afafcc2b7310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentArmState: 1
+  _crossbowArm: {fileID: 0}
+  _sawArm: {fileID: 0}

@@ -7,49 +7,38 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     
-    private List<IPlayerObserver> _playerObservers = new List<IPlayerObserver>();
-    
-    
-    #region Components
-    private Rigidbody2D _rb;
+    private readonly List<IPlayerObserver> _playerObservers = new List<IPlayerObserver>();
     private GroundSensorController _groundSensor;
-    #endregion
-    
-    
-    #region Fields (Move/Jump)
-    [SerializeField] private float maxWalkSpeed = 1.5f;
-    [SerializeField] private float runSpeed = 3.0f;
-    [SerializeField] private float jumpForce = 5.5f;
-    #endregion
-    
-    
-    #region Fields (Dash)
-    private const float DashDurationInSeg = 0.1f;
-    private const float DashSpeed = 13;
-    private float _dashTimer = 0;
-    #endregion
-    
+    private Rigidbody2D _rb;
 
-    #region Get-Only Static States for Subsystems
+    [Header("Walk and Run")]
+    [SerializeField] private float _walkMaxSpeed;
+    [SerializeField] private float _runSpeed;
+    [SerializeField] private float _jumpForce;
+    
+    [Header("Dash")]
+    [SerializeField] private float _dashDurationInSec;
+    [SerializeField] private float _dashSpeed;
+    private float _dashTimer = 0;
+    
+    public float InputX => Input.GetAxis("Horizontal");
     public bool IsJumping => _rb.velocity.y > 0;
     public bool IsFalling => _rb.velocity.y < 0;
     public bool IsGrounded => _groundSensor.State() && _rb.velocity.y == 0;
     public bool HasJumpedThisFrame =>  Input.GetButtonDown("Jump") && IsGrounded;
-    public static float InputX => Input.GetAxis("Horizontal");
-    public static FacingDirection CurrentFacingDirection { get; private set; }
-    public static bool IsMoving => Mathf.Abs(InputX) > 0f;
-    public static bool IsMovingBackwards { get; private set; } = false;
-    public static bool IsLockingToWalkOnly { get; private set; } = false;
-    public static bool IsDashing { get; private set; } = false;
-    public static bool IsShooting { get; private set; } = false;
-    public static bool HasShotThisFrame { get; private set; } = false;
-    #endregion
+    public bool IsMoving => Mathf.Abs(InputX) > 0f;
+    public bool IsMovingBackwards { get; private set; } = false;
+    public bool IsLockingToWalkOnly { get; private set; } = false;
+    public bool IsDashing { get; private set; } = false;
+    public bool IsShooting { get; private set; } = false;
+    public bool HasShotThisFrame { get; private set; } = false;
+    public FacingDirection CurrentFacingDirection { get; private set; }
     
-
     private void Start()
     {
         // adding observers
         _playerObservers.Add(GetComponent<PlayerSpriteFlipperObserver>());
+        _playerObservers.Add(GetComponent<PlayerArmsHandlerObserver>());
         _playerObservers.Add(GetComponent<PlayerAnimationObserver>()); // Ideally is the last one to be notified
         
         // Notifying all Observers that the PlayerController.cs is starting
@@ -58,8 +47,6 @@ public class PlayerController : MonoBehaviour
         
         _rb = GetComponent<Rigidbody2D>();
         _groundSensor = GetComponentInChildren<GroundSensorController>();
-        
-        
     }
     
     private void Update()
@@ -70,7 +57,7 @@ public class PlayerController : MonoBehaviour
             return;
         
         if (HasJumpedThisFrame)
-            Jump(jumpForce);
+            Jump(_jumpForce);
         
         // Updates Shooting States (the player cant dash while shooting)
         IsShooting = Input.GetButton("Shoot") || Input.GetButtonDown("Shoot");;
@@ -94,17 +81,20 @@ public class PlayerController : MonoBehaviour
     private void Dash()
     {
         // In case of not moving dash towards where he is facing
-        if (IsMoving) _rb.velocity = new Vector2(InputX > 0 ? DashSpeed : -DashSpeed, _rb.velocity.y);
-        else _rb.velocity = new Vector2(CurrentFacingDirection == FacingDirection.Right ? DashSpeed : -DashSpeed, _rb.velocity.y);
+        if (IsMoving) _rb.velocity = new Vector2(InputX > 0 ? _dashSpeed : -_dashSpeed, _rb.velocity.y);
+        else _rb.velocity = new Vector2(CurrentFacingDirection == FacingDirection.Right ? _dashSpeed : -_dashSpeed, _rb.velocity.y);
     }
 
     private void Move(float inputX)
     {
-        if (IsLockingToWalkOnly) _rb.velocity = new Vector2(inputX * maxWalkSpeed, _rb.velocity.y);
-        else _rb.velocity = new Vector2(inputX * runSpeed, _rb.velocity.y);
+        if (IsLockingToWalkOnly) _rb.velocity = new Vector2(inputX * _walkMaxSpeed, _rb.velocity.y);
+        else _rb.velocity = new Vector2(inputX * _runSpeed, _rb.velocity.y);
     }
 
-    private void Jump(float force) => _rb.velocity = new Vector2(_rb.velocity.x, force);
+    private void Jump(float force)
+    {
+        _rb.velocity = new Vector2(_rb.velocity.x, force);
+    }
 
     private void UpdateIsDashing()
     {
@@ -120,7 +110,7 @@ public class PlayerController : MonoBehaviour
             
             // releases dash timer
             _dashTimer += Time.deltaTime;
-            if (_dashTimer >= DashDurationInSeg)
+            if (_dashTimer >= _dashDurationInSec)
             {
                 IsDashing = false;
                 _dashTimer = 0;
@@ -136,14 +126,11 @@ public class PlayerController : MonoBehaviour
         else if (mouseInWorldPos.x < this.transform.position.x) CurrentFacingDirection = FacingDirection.Left;
     }
     
-    private static void UpdateIsMovingBackwards()
+    private void UpdateIsMovingBackwards()
     {
-        if (CurrentFacingDirection == FacingDirection.Left && InputX > 0)
-            IsMovingBackwards = true;
-        else if (CurrentFacingDirection == FacingDirection.Right && InputX < 0)
-            IsMovingBackwards = true;
-        else
-            IsMovingBackwards = false;
+        if (CurrentFacingDirection == FacingDirection.Left && InputX > 0) IsMovingBackwards = true;
+        else if (CurrentFacingDirection == FacingDirection.Right && InputX < 0) IsMovingBackwards = true;
+        else IsMovingBackwards = false;
     }
 
 }
