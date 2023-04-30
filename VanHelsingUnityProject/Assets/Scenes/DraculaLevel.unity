@@ -867,9 +867,11 @@ MonoBehaviour:
   _target: {fileID: 733137089}
   _followInY: 1
   _followInX: 1
-  _offset: {x: 0, y: -1.5}
+  _offset: {x: 0, y: -1}
   _speed: 0.5
-  _minIncrement: 0.005
+  _smoothFollowInY: 0
+  _smoothFollowInX: 1
+  _minimumIncrement: {x: 0.0025, y: 0.005}
 --- !u!1001 &549453090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14726,10 +14728,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 88480600271042289, guid: 91b6a4d46e3306444ad41acd52de45fb, type: 3}
-      propertyPath: _lifeTimeInSeconds
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 88480600271042292, guid: 91b6a4d46e3306444ad41acd52de45fb, type: 3}
       propertyPath: m_Name
       value: MiniDracula
