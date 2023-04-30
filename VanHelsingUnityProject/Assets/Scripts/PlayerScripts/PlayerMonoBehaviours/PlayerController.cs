@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     
-    private List<IPlayerObserver> _playerObservers = new List<IPlayerObserver>();
+    private readonly List<IPlayerObserver> _playerObservers = new List<IPlayerObserver>();
     
     
     #region Components
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         // adding observers
         _playerObservers.Add(GetComponent<PlayerSpriteFlipperObserver>());
+        _playerObservers.Add(GetComponent<PlayerArmsHandlerObserver>());
         _playerObservers.Add(GetComponent<PlayerAnimationObserver>()); // Ideally is the last one to be notified
         
         // Notifying all Observers that the PlayerController.cs is starting

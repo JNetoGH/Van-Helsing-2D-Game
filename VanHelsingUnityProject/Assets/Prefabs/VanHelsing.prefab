@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 6258850253062367964}
   - component: {fileID: 6258850253062367963}
   - component: {fileID: 6258850253062367909}
+  - component: {fileID: 733137097}
   m_Layer: 0
   m_Name: VanHelsing
   m_TagString: Player
@@ -583,9 +584,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42212f36883369a4fba2afafcc2b7310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentArmState: 1
-  crossbowArm: {fileID: 6258850251310436295}
-  sawArm: {fileID: 3004604959831414127}
+  _currentArmState: 1
+  _crossbowArm: {fileID: 6258850251310436295}
+  _sawArm: {fileID: 3004604959831414127}
 --- !u!114 &5992445580388201424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,3 +712,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &733137097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258850253062367960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42212f36883369a4fba2afafcc2b7310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentArmState: 1
+  _crossbowArm: {fileID: 0}
+  _sawArm: {fileID: 0}
