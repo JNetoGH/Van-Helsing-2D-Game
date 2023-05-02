@@ -603,6 +603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Platform 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7855724588169396563, guid: a7866c39ad0359e4ba6f2bcc2bcef5c8, type: 3}
+      propertyPath: m_SurfaceArc
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 7855724588169396572, guid: a7866c39ad0359e4ba6f2bcc2bcef5c8, type: 3}
       propertyPath: m_RootOrder
       value: 2
