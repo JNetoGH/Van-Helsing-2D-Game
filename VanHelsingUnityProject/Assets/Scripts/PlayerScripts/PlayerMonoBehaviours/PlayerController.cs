@@ -30,8 +30,6 @@ public class PlayerController : MonoBehaviour
     public bool IsMovingBackwards { get; private set; } = false;
     public bool IsLockingToWalkOnly { get; private set; } = false;
     public bool IsDashing { get; private set; } = false;
-    public bool IsShooting { get; private set; } = false;
-    public bool HasShotThisFrame { get; private set; } = false;
     public FacingDirection CurrentFacingDirection { get; private set; }
     
     private void Start()
@@ -58,10 +56,6 @@ public class PlayerController : MonoBehaviour
         
         if (HasJumpedThisFrame)
             Jump(_jumpForce);
-        
-        // Updates Shooting States (the player cant dash while shooting)
-        IsShooting = Input.GetButton("Shoot") || Input.GetButtonDown("Shoot");;
-        HasShotThisFrame = Input.GetButtonDown("Shoot");
         
         UpdateCurrentFacingDir();
         UpdateIsMovingBackwards();
@@ -101,13 +95,8 @@ public class PlayerController : MonoBehaviour
         // cant dash again while dashing
         if (!IsDashing)
             IsDashing = Input.GetButtonDown("Dash");
-
         if (IsDashing)
         {
-            // cant shoot while dashing
-            HasShotThisFrame = false;
-            IsShooting = false;
-            
             // releases dash timer
             _dashTimer += Time.deltaTime;
             if (_dashTimer >= _dashDurationInSec)

@@ -5,11 +5,9 @@ public class SawArmController : MonoBehaviour
     
     [SerializeField] private float _attackCoolDownDuration = 0.5f;
     private float _atkCoolDownTimer = 0;
-    
     private PlayerController _playerController;
     private Animator _sawArmAnimator;
     private static readonly int Shoot = Animator.StringToHash("melee");
-    
 
     private void Start()
     {
@@ -20,7 +18,9 @@ public class SawArmController : MonoBehaviour
     private void Update()
     {
         _atkCoolDownTimer -= Time.deltaTime;
-        if(_playerController.HasShotThisFrame && !_playerController.IsDashing) 
+        // cant shoot while dashing
+        bool hasShot = Input.GetButton("Shoot") && !_playerController.IsDashing;
+        if(hasShot) 
             TryAtk();
     }
     
