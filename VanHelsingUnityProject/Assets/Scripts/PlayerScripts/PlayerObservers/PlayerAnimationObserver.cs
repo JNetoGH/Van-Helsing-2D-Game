@@ -7,7 +7,7 @@ namespace PlayerScripts.PlayerObservers
     public class PlayerAnimationObserver : MonoBehaviour, IPlayerObserver
     {
     
-        [FormerlySerializedAs("spritesAnimator")] [SerializeField] private Animator _spritesAnimator;
+        [SerializeField] private Animator _spritesAnimator;
         private Rigidbody2D _rb;
 
         private void Start() => _rb = GetComponent<Rigidbody2D>();

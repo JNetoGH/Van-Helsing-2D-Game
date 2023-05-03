@@ -42,12 +42,8 @@ public class PlayerArmsHandlerObserver : MonoBehaviour, IPlayerObserver
         // Changes the _currentArmState
         _currentArmState = newState;
         
-        // Also makes sure to reset the cooldown before Updating enabling the arm 
-        switch (_currentArmState)
-        {   
-            case ArmState.Crossbow: _crossbowArmController.ResetCoolDown(); break;
-            case ArmState.Saw: _sawArmController.ResetCoolDown(); break;
-        }
+        // Also makes sure to reset the cooldown before Updating enabling the arm , it's required, otherwise the Gui gets Stuck
+        ResetAllCooldowns();
         
         // Updates the dictionary and sets the _currentArm based on it
         foreach (ArmState key in _armStateAndArmGameObject.Keys)
@@ -58,6 +54,14 @@ public class PlayerArmsHandlerObserver : MonoBehaviour, IPlayerObserver
         }
     }
 
+
+    private void ResetAllCooldowns()
+    {
+        _crossbowArmController.ResetCoolDown();
+        _sawArmController.ResetCoolDown();
+    }
+    
+    
     private void RotateArmAccordingToMousePos(PlayerController playerController)
     {
         Vector3 mouseInWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

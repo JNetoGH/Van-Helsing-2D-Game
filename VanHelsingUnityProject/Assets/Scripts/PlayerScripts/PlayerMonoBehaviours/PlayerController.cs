@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _dashCooldownInSec;
     private float _dashDurationTimer = 0;
     private float _dashCooldownTimer = 0;
-    
+    public float DashCooldownInSec => _dashCooldownInSec;
+    public float DashCooldownTimer => _dashCooldownTimer;
+
     public float InputX => Input.GetAxis("Horizontal");
     public bool IsJumping => _rb.velocity.y > 0;
     public bool IsFalling => _rb.velocity.y < 0;
@@ -54,6 +56,9 @@ public class PlayerController : MonoBehaviour
     {
         // The Player cant do anything else while dashing
         _dashCooldownTimer -= Time.deltaTime;
+        // needs to be zero in order to sync with the GUI slider
+        if (_dashCooldownTimer < 0)
+            _dashCooldownTimer = 0;
         Debug.Log(_dashCooldownTimer);
         
         UpdateIsDashing();
@@ -97,8 +102,8 @@ public class PlayerController : MonoBehaviour
     
     private void UpdateIsDashing()
     {
-        bool hasFinishedCooldown = _dashCooldownTimer < 0;
-        
+        bool hasFinishedCooldown = _dashCooldownTimer <= 0;
+
         // check dashing input, cant dash again while already dashing
         if (!IsDashing)
         {

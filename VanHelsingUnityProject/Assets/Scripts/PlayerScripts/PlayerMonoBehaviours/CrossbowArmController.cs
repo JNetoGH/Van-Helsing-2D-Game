@@ -8,8 +8,11 @@ public class CrossbowArmController : MonoBehaviour
     [SerializeField] private Transform _shootingPoint;
     [SerializeField] private float _shootingCooldownDuration = 0.3f;
     private float _shotCoolDownTimer = 0;
+    public float ShootingCooldownDuration => _shootingCooldownDuration;
+    public float ShotCoolDownTimer => _shotCoolDownTimer;
+    
     private PlayerController _playerController;
-
+    
     private void Start()
     {
         _playerController = GetComponentInParent<PlayerController>();
@@ -18,6 +21,9 @@ public class CrossbowArmController : MonoBehaviour
     private void Update()
     {
         _shotCoolDownTimer -= Time.deltaTime;
+        // needs to be zero in order to sync with the GUI slider
+        if (_shotCoolDownTimer < 0)
+            _shotCoolDownTimer = 0;
         
         bool isShooting = Input.GetButton("Shoot") || Input.GetButtonDown("Shoot") && !_playerController.IsDashing;
         // cant shoot while dashing
