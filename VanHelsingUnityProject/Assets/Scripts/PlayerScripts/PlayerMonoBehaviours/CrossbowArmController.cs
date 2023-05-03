@@ -6,7 +6,7 @@ public class CrossbowArmController : MonoBehaviour
     
     [SerializeField] private GameObject _projectile;
     [SerializeField] private Transform _shootingPoint;
-    [SerializeField] private float _shootingCoolDownDuration = 0.3f;
+    [SerializeField] private float _shootingCooldownDuration = 0.3f;
     private float _shotCoolDownTimer = 0;
     private PlayerController _playerController;
 
@@ -40,7 +40,7 @@ public class CrossbowArmController : MonoBehaviour
             projectileRotation = Quaternion.Euler(aux);
         }
         Instantiate(_projectile, _shootingPoint.position, projectileRotation);
-        _shotCoolDownTimer = _shootingCoolDownDuration;
+        _shotCoolDownTimer = _shootingCooldownDuration;
     }
     
     public void ResetCoolDown() => _shotCoolDownTimer  = 0;

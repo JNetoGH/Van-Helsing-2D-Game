@@ -3,6 +3,7 @@ using PlayerScripts.Enums;
 using PlayerScripts.Interfaces;
 using PlayerScripts.PlayerObservers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _runSpeed;
 
     [Header("Dash")]
-    [SerializeField] private float _dashDurationInSec;
     [SerializeField] private float _dashSpeed;
-    private float _dashTimer = 0;
+    [SerializeField] private float _dashDurationInSec;
+    [SerializeField] private float _dashCooldownInSec;
+    private float _dashDurationTimer = 0;
+    private float _dashCooldownTimer = 0;
     
     public float InputX => Input.GetAxis("Horizontal");
     public bool IsJumping => _rb.velocity.y > 0;
@@ -50,9 +53,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // The Player cant do anything else while dashing
+        _dashCooldownTimer -= Time.deltaTime;
+        Debug.Log(_dashCooldownTimer);
+        
         UpdateIsDashing();
         if (IsDashing) 
-            return;
+           return;
         
         UpdateCurrentFacingDir();
         UpdateIsMovingBackwards();
@@ -65,46 +71,64 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (IsDashing) Dash();
-        else Move(InputX);
+        if (IsDashing)
+            Dash();
+        else
+            Move(InputX);
     }
     
     private void Dash()
     {
+        // This version of dash ignores gravity
         // In case of not moving dash towards where he is facing
-        if (IsMoving) _rb.velocity = new Vector2(InputX > 0 ? _dashSpeed : -_dashSpeed, _rb.velocity.y);
-        else _rb.velocity = new Vector2(CurrentFacingDirection == FacingDirection.Right ? _dashSpeed : -_dashSpeed, _rb.velocity.y);
+        if (IsMoving) 
+            _rb.velocity = new Vector2(InputX > 0 ? _dashSpeed : -_dashSpeed, 0);
+        else 
+            _rb.velocity = new Vector2(CurrentFacingDirection == FacingDirection.Right ? _dashSpeed : -_dashSpeed, 0);
     }
 
     private void Move(float inputX)
     {
-        if (IsLockingToWalkOnly) _rb.velocity = new Vector2(inputX * _walkMaxSpeed, _rb.velocity.y);
-        else _rb.velocity = new Vector2(inputX * _runSpeed, _rb.velocity.y);
+        if (IsLockingToWalkOnly) 
+            _rb.velocity = new Vector2(inputX * _walkMaxSpeed, _rb.velocity.y);
+        else
+            _rb.velocity = new Vector2(inputX * _runSpeed, _rb.velocity.y);
     }
     
     private void UpdateIsDashing()
     {
-        // cant dash again while dashing
+        bool hasFinishedCooldown = _dashCooldownTimer < 0;
+        
+        // check dashing input, cant dash again while already dashing
         if (!IsDashing)
-            IsDashing = Input.GetButtonDown("Dash");
+        {
+            IsDashing = Input.GetButtonDown("Dash") && hasFinishedCooldown;
+            // inits the cooldown timer to the next dash, in case of a valid input to a dash
+            if (IsDashing)
+                _dashCooldownTimer = _dashCooldownInSec;
+        }
+        
         if (IsDashing)
         {
-            // releases dash timer
-            _dashTimer += Time.deltaTime;
-            if (_dashTimer >= _dashDurationInSec)
+            // updates the dash duration timer
+            _dashDurationTimer += Time.deltaTime;
+            // in case the duration of the dash has finished
+            if (_dashDurationTimer >= _dashDurationInSec)
             {
                 IsDashing = false;
-                _dashTimer = 0;
+                // resets the duration timer
+                _dashDurationTimer = 0;
                 _rb.velocity = new Vector2(0, _rb.velocity.y);
             }
         }
+        
     }
     
     private void UpdateCurrentFacingDir()
     {
         Vector3 mouseInWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (mouseInWorldPos.x > this.transform.position.x) CurrentFacingDirection = FacingDirection.Right;
-        else if (mouseInWorldPos.x < this.transform.position.x) CurrentFacingDirection = FacingDirection.Left;
+        if (mouseInWorldPos.x > transform.position.x) CurrentFacingDirection = FacingDirection.Right;
+        else if (mouseInWorldPos.x < transform.position.x) CurrentFacingDirection = FacingDirection.Left;
     }
     
     private void UpdateIsMovingBackwards()
