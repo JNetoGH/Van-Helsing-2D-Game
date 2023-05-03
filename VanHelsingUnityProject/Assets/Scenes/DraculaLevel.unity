@@ -1325,7 +1325,7 @@ MonoBehaviour:
   _offset: {x: 0, y: -1}
   _speed: 0.5
   _smoothFollowInY: 0
-  _smoothFollowInX: 1
+  _smoothFollowInX: 0
   _minimumIncrement: {x: 0.0025, y: 0.005}
 --- !u!1001 &549453090
 PrefabInstance:

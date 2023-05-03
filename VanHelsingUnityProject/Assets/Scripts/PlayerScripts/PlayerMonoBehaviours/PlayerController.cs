@@ -3,7 +3,6 @@ using PlayerScripts.Enums;
 using PlayerScripts.Interfaces;
 using PlayerScripts.PlayerObservers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
