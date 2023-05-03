@@ -869,12 +869,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 733137089}
-  _followInY: 1
-  _followInX: 1
+  _followInY: 0
+  _followInX: 0
   _offset: {x: 0, y: -1}
   _speed: 0.5
   _smoothFollowInY: 0
-  _smoothFollowInX: 1
+  _smoothFollowInX: 0
   _minimumIncrement: {x: 0.0025, y: 0.005}
 --- !u!1001 &549453090
 PrefabInstance:
@@ -14618,6 +14618,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4353194281908265816, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: _jumpForce
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367960, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_Name
       value: VanHelsing

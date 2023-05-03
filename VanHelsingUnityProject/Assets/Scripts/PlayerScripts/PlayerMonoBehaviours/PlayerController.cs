@@ -14,8 +14,7 @@ public class PlayerController : MonoBehaviour
     [Header("Walk and Run")]
     [SerializeField] private float _walkMaxSpeed;
     [SerializeField] private float _runSpeed;
-    [SerializeField] private float _jumpForce;
-    
+
     [Header("Dash")]
     [SerializeField] private float _dashDurationInSec;
     [SerializeField] private float _dashSpeed;
@@ -36,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         // adding observers
         _playerObservers.Add(GetComponent<PlayerSpriteFlipperObserver>());
+        _playerObservers.Add(GetComponent<PlayerBetterJumpObserver>());
         _playerObservers.Add(GetComponent<PlayerArmsHandlerObserver>());
         _playerObservers.Add(GetComponent<PlayerAnimationObserver>()); // Ideally is the last one to be notified
         
@@ -53,9 +53,6 @@ public class PlayerController : MonoBehaviour
         UpdateIsDashing();
         if (IsDashing) 
             return;
-        
-        if (HasJumpedThisFrame)
-            Jump(_jumpForce);
         
         UpdateCurrentFacingDir();
         UpdateIsMovingBackwards();
@@ -84,12 +81,7 @@ public class PlayerController : MonoBehaviour
         if (IsLockingToWalkOnly) _rb.velocity = new Vector2(inputX * _walkMaxSpeed, _rb.velocity.y);
         else _rb.velocity = new Vector2(inputX * _runSpeed, _rb.velocity.y);
     }
-
-    private void Jump(float force)
-    {
-        _rb.velocity = new Vector2(_rb.velocity.x, force);
-    }
-
+    
     private void UpdateIsDashing()
     {
         // cant dash again while dashing
