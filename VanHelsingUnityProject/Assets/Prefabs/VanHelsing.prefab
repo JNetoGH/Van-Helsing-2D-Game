@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9cc488dabd94e48909ecff08e03a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackCoolDownDuration: 0.5
+  _attackCooldownDuration: 0.5
 --- !u!1 &3004604960578691091
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 4987062721150964232, guid: b4711fe22e3a0d64c8ba58f96a61d8df, type: 3}
   _shootingPoint: {fileID: 7078087355338077746}
-  _shootingCoolDownDuration: 0.3
+  _shootingCooldownDuration: 0.3
 --- !u!1 &6258850251766397923
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,8 +572,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _walkMaxSpeed: 1.5
   _runSpeed: 3
-  _dashDurationInSec: 0.1
   _dashSpeed: 13
+  _dashDurationInSec: 0.15
+  _dashCooldownInSec: 2
 --- !u!114 &7400544189496890782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,8 +603,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 5
-  _fallMultiplier: 1.5
-  _lowJumpMultiplier: 1
+  _fallGravityScale: 2.5
+  _lowJumpGravityScale: 2
 --- !u!114 &5992445580388201424
 MonoBehaviour:
   m_ObjectHideFlags: 0
