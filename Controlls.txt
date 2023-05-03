@@ -1,0 +1,11 @@
+Press "space" bar to jump
+	- keep pressing for high jump
+	- press and release for low jup
+
+Press "A" and "D" keys or "<-" and "->" arrow keys to move
+
+Press "Q" to lock the speed to walk speed only
+
+Press "Shift" to Dash
+
+Press "E" key to switch the current weapon

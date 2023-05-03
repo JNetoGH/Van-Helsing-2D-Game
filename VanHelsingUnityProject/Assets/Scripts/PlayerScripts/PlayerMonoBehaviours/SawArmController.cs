@@ -26,7 +26,7 @@ public class SawArmController : MonoBehaviour
             _atkCoolDownTimer = 0;
         
         // cant shoot while dashing
-        bool hasShot = Input.GetButton("Shoot") && !_playerController.IsDashing;
+        bool hasShot = Input.GetButtonDown("Shoot") && !_playerController.IsDashing;
         if(hasShot) 
             TryAtk();
     }
