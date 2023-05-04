@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42212f36883369a4fba2afafcc2b7310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentArmState: 1
+  _currentArmState: 0
   _crossbowArm: {fileID: 6258850251310436295}
   _sawArm: {fileID: 3004604959831414127}
 --- !u!114 &4353194281908265816

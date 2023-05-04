@@ -58,8 +58,7 @@ public class PlayerController : MonoBehaviour
         // needs to be zero in order to sync with the GUI slider
         if (_dashCooldownTimer < 0)
             _dashCooldownTimer = 0;
-        Debug.Log(_dashCooldownTimer);
-        
+
         UpdateIsDashing();
         if (IsDashing) 
            return;
