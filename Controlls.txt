@@ -9,3 +9,5 @@ Press "Q" to lock the speed to walk speed only
 Press "Shift" to Dash
 
 Press "E" key to switch the current weapon
+
+Press "Mouse Right Button" to use the selected weapon
