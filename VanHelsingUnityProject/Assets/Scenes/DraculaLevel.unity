@@ -1325,7 +1325,7 @@ MonoBehaviour:
   _offset: {x: 0, y: -1}
   _speed: 0.5
   _smoothFollowInY: 0
-  _smoothFollowInX: 0
+  _smoothFollowInX: 1
   _minimumIncrement: {x: 0.0025, y: 0.005}
 --- !u!1001 &549453090
 PrefabInstance:
@@ -4671,11 +4671,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7285411743873478495, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.31
+      value: -2.71
       objectReference: {fileID: 0}
     - target: {fileID: 7285411743873478495, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.16
+      value: 1.44
       objectReference: {fileID: 0}
     - target: {fileID: 7285411743873478495, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_LocalPosition.z
