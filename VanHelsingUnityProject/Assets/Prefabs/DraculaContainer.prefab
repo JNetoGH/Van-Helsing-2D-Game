@@ -162,10 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447d28d74e524d7489727d4633e0b025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durationInSec: 2.4
-  speed: 2
-  kindOfMovement: 1
-  moveDirection: {x: 1, y: 0}
+  _durationInSec: 3.2
+  _speed: 2
+  _kindOfMovement: 1
+  _moveDirection: {x: 1, y: 0}
 --- !u!1 &7285411743894904825
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,9 +439,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1bdcfa1e2f49c090a23aee0bac7d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 1
-  dmgColorIndicatorDurationInSec: 0.1
-  spriteRenderersToReceiveDmgEffect:
+  _healthPoints: 20
+  _destroyWhenKilled: {fileID: 7285411743873478464}
+  _dmgColorIndicatorDurationInSec: 0.1
+  _spriteRenderersToReceiveDmgEffect:
   - {fileID: 7285411744432325141}
   - {fileID: 7285411744045541577}
   - {fileID: 7285411743718662148}

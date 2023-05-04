@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class DamageReciever : MonoBehaviour
 {
     
     [Header("HP System")]
     [SerializeField] private int _healthPoints = 1;
+
+    [Header("To be remove when dead (root ideally)")]
+    [SerializeField] private GameObject _destroyWhenKilled;
     
     [Header("Damage Color Effect")]
     [SerializeField] private float _dmgColorIndicatorDurationInSec = 0.1f;
@@ -18,7 +22,16 @@ public class DamageReciever : MonoBehaviour
         col.gameObject.GetComponent<DamageDealer>().InflictDamageToReceiver(this);
         ExecuteDmgEffect();
     }
-    
+
+    private void Update()
+    {
+        if (this._healthPoints <= 0)
+        {
+            Debug.Log($"{gameObject.name} was killed"); 
+            Destroy(_destroyWhenKilled);
+        }
+    }
+
     public void DecreaseLife(int damage) 
     {
         _healthPoints -= damage;
@@ -38,5 +51,6 @@ public class DamageReciever : MonoBehaviour
         foreach (SpriteRenderer spriteRenderer in _spriteRenderersToReceiveDmgEffect)
             spriteRenderer.color = Color.white;
     }
+    
     
 }

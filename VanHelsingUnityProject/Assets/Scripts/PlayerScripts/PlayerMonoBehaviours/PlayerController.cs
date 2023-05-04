@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     
     private readonly List<IPlayerObserver> _playerObservers = new List<IPlayerObserver>();
-    private GroundSensorController _groundSensor;
+    private GroundSensor _groundSensor;
     private Rigidbody2D _rb;
 
     [Header("Walk and Run")]
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
             observer.OnNotifyStart(this);
         
         _rb = GetComponent<Rigidbody2D>();
-        _groundSensor = GetComponentInChildren<GroundSensorController>();
+        _groundSensor = GetComponentInChildren<GroundSensor>();
     }
     
     private void Update()
