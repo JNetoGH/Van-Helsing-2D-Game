@@ -51,6 +51,9 @@ TagManager:
   - name: MiniDraculas
     uniqueID: 2849771659
     locked: 0
+  - name: Dwergi
+    uniqueID: 519134081
+    locked: 0
   - name: Boss
     uniqueID: 1905828095
     locked: 0
