@@ -1,6 +1,5 @@
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 
 public class GroundSensor : MonoBehaviour
@@ -72,6 +71,9 @@ public class GroundSensor : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        // draws gizmos only if enabled
+        if (! _enabled) return;
+        
         Color color = _isGrounded ? Color.green : Color.red;
 
         Gizmos.color = color;

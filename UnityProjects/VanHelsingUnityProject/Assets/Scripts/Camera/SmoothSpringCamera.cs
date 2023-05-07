@@ -1,5 +1,6 @@
+using System;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 // Camera Smooth Spring System
 public class SmoothSpringCamera : MonoBehaviour
@@ -16,6 +17,13 @@ public class SmoothSpringCamera : MonoBehaviour
     [SerializeField] private bool _smoothFollowInY = true;
     [SerializeField] private bool _smoothFollowInX = true;
     [SerializeField] private Vector2 _minimumIncrement = new Vector2(0.0025f, 0.005f);
+
+    [Header("Smothering Box")]
+    [Tooltip("When the target is out of this box, the camera will simply follow it at the same speed tha it moves")]
+    [SerializeField] private bool _useSmotheringBox;
+    [SerializeField] private Vector2 _boxOffset;
+    [SerializeField] private Vector2 _boxSize;
+    private Vector2 SmotheringBoxPosition => new Vector2(transform.position.x + _boxOffset.x, transform.position.y + _boxOffset.y);
     
     private void FixedUpdate()
     {
@@ -25,6 +33,12 @@ public class SmoothSpringCamera : MonoBehaviour
             _target = GameObject.FindWithTag("Player");
             if (_target is null) return;
         }
+
+        if (_useSmotheringBox)
+        {
+            
+        }
+        
         
         Vector3 targetPosition = _target.transform.position - new Vector3(_offset.x, _offset.y, 0);
         Vector3 newPosition = transform.position;
@@ -52,5 +66,12 @@ public class SmoothSpringCamera : MonoBehaviour
         transform.position = newPosition;
         
     }
+
+    private void OnDrawGizmos()
+    {
+        if (_useSmotheringBox)
+            Gizmos.DrawWireCube(SmotheringBoxPosition, _boxSize);
+    }
+    
 }
 

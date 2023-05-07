@@ -117,36 +117,43 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
     
     private void OnDrawGizmos()
     {
-        // Set the gizmo color
-        Color colorCoyoteTime = _coyoteTimeCountDownTimer > 0 ? Color.green : Color.red;
         
-        // Draw a sphere at the GameObject's for the coyote time
-        Gizmos.color = colorCoyoteTime;
-        Vector3 spherePosition = transform.position;
-        spherePosition.y += 0.5f; 
-        Gizmos.DrawSphere(spherePosition, 0.1f);
+        if (_useCoyoteTime)
+        {
+            // Set the gizmo color for the coyote time
+            Color colorCoyoteTime = _coyoteTimeCountDownTimer > 0 ? Color.green : Color.red;
         
-        // Draw the gizmo text for the coyote time
-        Vector3 coyoteTextPosition = transform.position;
-        coyoteTextPosition.y += 0.5f; 
-        coyoteTextPosition.x += 0.75f; 
-        GUIStyle coyoteTextStyle = new GUIStyle();
-        coyoteTextStyle.normal.textColor = colorCoyoteTime;
-        coyoteTextStyle.alignment = TextAnchor.MiddleCenter;
-        Handles.Label(coyoteTextPosition, "CoyoteTime", coyoteTextStyle);
+            // Draw a sphere at the GameObject's for the coyote time
+            Gizmos.color = colorCoyoteTime;
+            Vector3 spherePosition = transform.position;
+            spherePosition.y += 0.5f; 
+            Gizmos.DrawSphere(spherePosition, 0.1f);
         
-        // Draws a line for the jump buffer
-        Color colorJumpBuffer = _hasJumpBuffered ? Color.green : Color.yellow;
-        Gizmos.color = colorJumpBuffer;
-        Gizmos.DrawLine(JumpBufferLineStart, JumpBufferLineEnd);
+            // Draw the gizmo text for the coyote time
+            Vector3 coyoteTextPosition = transform.position;
+            coyoteTextPosition.y += 0.5f; 
+            coyoteTextPosition.x += 0.75f; 
+            GUIStyle coyoteTextStyle = new GUIStyle();
+            coyoteTextStyle.normal.textColor = colorCoyoteTime;
+            coyoteTextStyle.alignment = TextAnchor.MiddleCenter;
+            Handles.Label(coyoteTextPosition, "CoyoteTime", coyoteTextStyle);
+        }
         
-        // Draw the gizmo text for the coyote time
-        Vector3 jumpBufferTxtPosition = JumpBufferLineEnd;
-        jumpBufferTxtPosition.x += 0.75f; 
-        GUIStyle styleJumpBufferText = new GUIStyle();
-        styleJumpBufferText.normal.textColor = colorJumpBuffer;
-        styleJumpBufferText.alignment = TextAnchor.MiddleCenter;
-        Handles.Label(jumpBufferTxtPosition, "Jump Buffer", styleJumpBufferText);
+        if (_useJumpBuffer)
+        {
+            // Draws a line for the jump buffer
+            Color colorJumpBuffer = _hasJumpBuffered ? Color.green : Color.yellow;
+            Gizmos.color = colorJumpBuffer;
+            Gizmos.DrawLine(JumpBufferLineStart, JumpBufferLineEnd);
+        
+            // Draw the gizmo text for the coyote time
+            Vector3 jumpBufferTxtPosition = JumpBufferLineEnd;
+            jumpBufferTxtPosition.x += 0.75f; 
+            GUIStyle styleJumpBufferText = new GUIStyle();
+            styleJumpBufferText.normal.textColor = colorJumpBuffer;
+            styleJumpBufferText.alignment = TextAnchor.MiddleCenter;
+            Handles.Label(jumpBufferTxtPosition, "Jump Buffer", styleJumpBufferText);
+        }        
         
     }
     

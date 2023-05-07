@@ -1327,6 +1327,9 @@ MonoBehaviour:
   _smoothFollowInY: 1
   _smoothFollowInX: 1
   _minimumIncrement: {x: 0.0025, y: 0.005}
+  _useSmotheringBox: 0
+  _boxOffset: {x: 0, y: 0}
+  _boxSize: {x: 9.7, y: 4.78}
 --- !u!1001 &549453090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16306,6 +16309,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 732675373666529496, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: _enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353194281908265816, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: _useCoyoteTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353194281908265816, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: _useJumpBuffer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367960, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_Name
       value: VanHelsing
