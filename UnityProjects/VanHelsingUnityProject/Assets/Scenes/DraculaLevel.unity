@@ -2041,6 +2041,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dwergi (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3876799320300711287, guid: 638c5f64f5dc86b49b1f9f03df5fa30d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3876799320300711291, guid: 638c5f64f5dc86b49b1f9f03df5fa30d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -16419,6 +16423,10 @@ PrefabInstance:
     - target: {fileID: 3876799320300711287, guid: 638c5f64f5dc86b49b1f9f03df5fa30d, type: 3}
       propertyPath: m_Name
       value: Dwergi
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876799320300711287, guid: 638c5f64f5dc86b49b1f9f03df5fa30d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3876799320300711291, guid: 638c5f64f5dc86b49b1f9f03df5fa30d, type: 3}
       propertyPath: m_RootOrder
