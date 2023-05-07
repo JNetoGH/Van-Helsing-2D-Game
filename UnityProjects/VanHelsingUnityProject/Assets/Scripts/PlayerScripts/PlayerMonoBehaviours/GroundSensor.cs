@@ -14,7 +14,7 @@ public class GroundSensor : MonoBehaviour
     [SerializeField] private Vector2 _offset;
     [SerializeField] private bool _checkIfIsStoppedInY = true;
     
-    [Header("Layer Setting (Multiple Selection)")]
+    [Header("Layer Settings (Multiple Selection)")]
     [SerializeField] private LayerMask _layersToConsider;
 
     // Internal Fields and Properties
