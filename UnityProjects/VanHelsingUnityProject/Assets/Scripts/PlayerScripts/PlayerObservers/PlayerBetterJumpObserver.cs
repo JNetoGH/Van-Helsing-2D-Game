@@ -9,7 +9,7 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
     [Header("Features")]
     [SerializeField] private float _coyoteTimeDurationInSeconds = 0;
 
-    [Header("Anti-Floppy Jump Settings")]
+    [Header("Anti-Floaty Jump Settings")]
     [SerializeField, Range(1, 10)] private float _jumpForce;
     [SerializeField, Range(1, 3)] private float _fallGravityScale;
     [SerializeField, Range(1, 3)] private float _lowJumpGravityScale;
@@ -50,7 +50,7 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
             }
         }
         
-        // Variable gravity for anti-floppy jumps
+        // Variable gravity for anti-floaty jumps
         if (playerController.IsJumping && !Input.GetButton("Jump"))
         {
             // variable height jump, only applies more gravity when not pressing the jump button
