@@ -53,10 +53,11 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
             bool hasBufferCollided = CheckJumpBufferCollision();
             if (!hasBufferCollided)
                 _hasJumpBuffered = false;
-            else if (HasPlayerPressedJumpedFrame && ! _hasJumpBuffered)
+            else if (HasPlayerPressedJumpedFrame && !_hasJumpBuffered)
                 _hasJumpBuffered = true;
         }
-
+        else _hasJumpBuffered = false;
+        
         // Jumps if it's grounded or if it's in coyote time when the player gives the input or has a jumper buffered
         if (HasPlayerPressedJumpedFrame || _hasJumpBuffered)
         {
