@@ -1,23 +1,28 @@
-﻿using System;
-using PlayerScripts.Interfaces;
+﻿using PlayerScripts.Interfaces;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 
 public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
 {
     
-    [Header("Features")]
+    [Header("Jump Settings")]
+    [SerializeField, Range(1, 10)] private float _jumpForce;
+    
+    [Header("Anti-Floaty Jump Settings")]
+    [SerializeField, Range(1, 3)] private float _fallGravityScale;
+    
+    [Header("Variable Height Jump Settings")]
+    [SerializeField, Range(1, 3)] private float _lowJumpGravityScale;
+    
+    [Header("Coyote Time Settings")]
+    [SerializeField] private bool _useCoyoteTime = true;
     [SerializeField] private float _coyoteTimeDurationInSeconds = 0;
+    
+    [Header("Jump Buffer Settings")]
     [SerializeField] private bool _useJumpBuffer = true;
     [SerializeField] private Vector2 _jumpBufferLineOffset;
     [SerializeField] private float _jumpBufferLineLength;
-
-    [Header("Anti-Floaty Jump Settings")]
-    [SerializeField, Range(1, 10)] private float _jumpForce;
-    [SerializeField, Range(1, 3)] private float _fallGravityScale;
-    [SerializeField, Range(1, 3)] private float _lowJumpGravityScale;
     
     private bool HasPlayerPressedJumpedFrame => Input.GetButtonDown("Jump");
     private float _coyoteTimeCountDownTimer = 0;
@@ -43,7 +48,7 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
         
         // Checking if coyote time should be released
         bool releaseCoyoteTimer = _wasGroundedLastFrame && playerController.IsFalling;
-        if (releaseCoyoteTimer)
+        if (releaseCoyoteTimer && _useCoyoteTime)
             _coyoteTimeCountDownTimer = _coyoteTimeDurationInSeconds;
         _wasGroundedLastFrame = playerController.IsGrounded;
         
