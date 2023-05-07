@@ -1177,7 +1177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7300839091376118376}
   - component: {fileID: 7300839091376118377}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: front_view_baby dracula_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

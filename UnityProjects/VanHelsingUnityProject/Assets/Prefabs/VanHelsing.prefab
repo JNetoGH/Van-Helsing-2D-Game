@@ -455,16 +455,14 @@ GameObject:
   - component: {fileID: 6258850253062367961}
   - component: {fileID: 6258850253062367962}
   - component: {fileID: 732675373666529496}
-  - component: {fileID: 7400544189496890782}
   - component: {fileID: 4353194281908265816}
+  - component: {fileID: 7400544189496890782}
   - component: {fileID: 5992445580388201424}
-  - component: {fileID: 733137097}
   - component: {fileID: 6258850253062367908}
   - component: {fileID: 6258850253062367909}
   - component: {fileID: 6258850253062367964}
   - component: {fileID: 6258850253062367963}
   - component: {fileID: 1602231149}
-  - component: {fileID: 1602231150}
   m_Layer: 0
   m_Name: VanHelsing
   m_TagString: Player
@@ -521,9 +519,26 @@ MonoBehaviour:
   _enabled: 1
   _size: {x: 0.4, y: 0.1}
   _offset: {x: 0, y: -0.54}
+  _checkIfIsStoppedInY: 1
   _layersToConsider:
-  - serializedVersion: 2
+    serializedVersion: 2
     m_Bits: 8
+--- !u!114 &4353194281908265816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258850253062367960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b76303de6a14c678745cb04db2eeba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coyoteTimeDurationInSeconds: 0
+  _jumpForce: 5
+  _fallGravityScale: 2.5
+  _lowJumpGravityScale: 2
 --- !u!114 &7400544189496890782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,21 +554,6 @@ MonoBehaviour:
   _currentArmState: 0
   _crossbowArm: {fileID: 6258850251310436295}
   _sawArm: {fileID: 3004604959831414127}
---- !u!114 &4353194281908265816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6258850253062367960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b76303de6a14c678745cb04db2eeba8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jumpForce: 5
-  _fallGravityScale: 2.5
-  _lowJumpGravityScale: 2
 --- !u!114 &5992445580388201424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,21 +567,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteDefaultFacingDirection: 1
---- !u!114 &733137097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6258850253062367960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42212f36883369a4fba2afafcc2b7310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentArmState: 1
-  _crossbowArm: {fileID: 6258850251310436295}
-  _sawArm: {fileID: 3004604959831414127}
 --- !u!114 &6258850253062367908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,19 +699,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1602231150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6258850253062367960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb3e7dea9167ac24f9b236e3aa681f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enabled: 1
-  _size: {x: 0, y: 0}
-  _offset: {x: 0, y: 0}
-  _layersToConsider: []
