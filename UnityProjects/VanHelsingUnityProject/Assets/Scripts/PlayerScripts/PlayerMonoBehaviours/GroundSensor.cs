@@ -80,8 +80,8 @@ public class GroundSensor : MonoBehaviour
         // Draw the gizmo text
         GUIStyle style = new GUIStyle();
         Vector3 textPosition = Center;
-        textPosition.y -= _size.y;
-        textPosition.y -= 0.1f;
+        textPosition.x += _size.x;
+        textPosition.x += 0.5f;
         style.normal.textColor = color;
         style.alignment = TextAnchor.MiddleCenter;
         Handles.Label(textPosition, "GroundSensor", style);        

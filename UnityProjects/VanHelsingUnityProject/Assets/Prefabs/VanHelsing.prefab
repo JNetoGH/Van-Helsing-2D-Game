@@ -535,7 +535,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b76303de6a14c678745cb04db2eeba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coyoteTimeDurationInSeconds: 0
+  _coyoteTimeDurationInSeconds: 0.2
+  _useJumpBuffer: 1
+  _jumpBufferLineOffset: {x: 0, y: -0.49}
+  _jumpBufferLineLength: 0.7
   _jumpForce: 5
   _fallGravityScale: 2.5
   _lowJumpGravityScale: 2
