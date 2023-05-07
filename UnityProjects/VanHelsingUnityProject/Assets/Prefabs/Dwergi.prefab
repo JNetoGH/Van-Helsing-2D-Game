@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3876799320300711289}
   - component: {fileID: 3876799320300711288}
   - component: {fileID: 3876799320300711293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dwergi
   m_TagString: Untagged
   m_Icon: {fileID: 0}

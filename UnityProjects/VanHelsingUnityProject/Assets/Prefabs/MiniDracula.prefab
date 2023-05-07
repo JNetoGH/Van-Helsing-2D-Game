@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 88480600227767446}
   - component: {fileID: 88480600227767447}
   - component: {fileID: 314644048334827299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MiniDraculaViewsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 88480600271042294}
   - component: {fileID: 88480600271042289}
   - component: {fileID: 88480600271042288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MiniDracula
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4371242848771691683}
   - component: {fileID: 4371242848771691684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: teste_mini_dracula_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4371242848781358485}
   - component: {fileID: 4371242848781358486}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'teste_mini_dracula_left wing '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4371242848994820176}
   - component: {fileID: 4371242848994820177}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MiniDraculaSideView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4371242849081438691}
   - component: {fileID: 4371242849081438692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: teste_mini_dracula_right arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4371242849620209583}
   - component: {fileID: 4371242849620209568}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: teste_mini_dracula_left arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4371242849647579741}
   - component: {fileID: 4371242849647579742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: teste_mini_dracula_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4371242850626689835}
   - component: {fileID: 4371242850626689836}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: teste_mini_dracula_rigth wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7300839089866759832}
   - component: {fileID: 7300839089866759833}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: front_view_baby dracula_left leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7300839090616196667}
   - component: {fileID: 7300839090616196660}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MiniDraculaFrontView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7300839090689083059}
   - component: {fileID: 7300839090689083052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: front_view_baby dracula_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1009,7 +1009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7300839091074421066}
   - component: {fileID: 7300839091074421067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: front_view_baby dracula_left wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7300839091114211713}
   - component: {fileID: 7300839091114211714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: front_view_baby dracula_right wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1177,7 +1177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7300839091376118376}
   - component: {fileID: 7300839091376118377}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: front_view_baby dracula_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1261,7 +1261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7300839091853602898}
   - component: {fileID: 7300839091853602899}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: front_view_baby dracula_right arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

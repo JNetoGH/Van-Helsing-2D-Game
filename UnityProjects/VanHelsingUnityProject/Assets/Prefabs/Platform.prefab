@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5571277189123181345}
   - component: {fileID: 9100287085370482233}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JNetotileSheetPlatformTile_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7265885345841689164}
   - component: {fileID: 5720331352084380544}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JNetotileSheetPlatformTile_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7444400063825862478}
   - component: {fileID: 1538098492896421809}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JNetotileSheetPlatformTile_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2665824123805978382}
   - component: {fileID: 1131676674481787860}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JNetotileSheetPlatformTile_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3194969338920042274}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: newPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 7855724588169396573}
   - component: {fileID: 7855724588169396562}
   - component: {fileID: 7855724588169396563}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

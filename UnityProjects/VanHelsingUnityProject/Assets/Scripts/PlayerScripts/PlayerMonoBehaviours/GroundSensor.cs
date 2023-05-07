@@ -1,38 +1,75 @@
+using System;
+using System.Linq;
 using UnityEngine;
 
 
 public class GroundSensor : MonoBehaviour
 {
+    [Header("Turn ON/OFF")]
+    [SerializeField] private bool _enabled = true;
+    
+    [Header("Sensor Settings")]
+    [SerializeField] private Vector2 _size;
+    [SerializeField] private Vector2 _offset;
+    
+    [Header("Layer Setting (Multiple Selection)")]
+    [SerializeField] private LayerMask _layersToConsider;
 
-    private int _colCount = 0;
-    private float _disableTimer;
+    // Internal Fields and Properties
+    private bool _isGrounded = false;
+    private Rigidbody2D _rb;
+    private Vector2 Center => (Vector2)transform.position + _offset;
 
-    private void OnEnable()
+    // Used by other scripts to get sensor state
+    public bool State => _isGrounded;
+
+    private void Start()
     {
-        _colCount = 0;
+        _rb = GetComponent<Rigidbody2D>();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void FixedUpdate()
     {
-        _colCount++;
+        // Clears it for checking
+        _isGrounded = false;
+        
+        // Checking if it's enabled
+        if (!_enabled) return;
+        
+        // Creating an axis-aligned bounding box at the center position with the given size
+        Collider2D[] hits = Physics2D.OverlapBoxAll(Center, _size, 0f);
+        
+        // Checking if has collided
+        bool hasCollided = hits is not null;
+        if (!hasCollided)
+            return;
+        
+        // Checking if the box hit collider that is in this game object and if its in a valid layer
+        bool anyValidHit = false;
+        foreach (Collider2D hit in hits)
+        {
+            if (this.transform.root == hit.transform.root)
+                continue;
+            if (_layersToConsider == (_layersToConsider  | (1 << hit.gameObject.layer)))
+                anyValidHit = true;
+        }
+        if (!anyValidHit)
+            return;
+        
+        // Checking if the object is stopped in Y
+        bool isStoppedInY = Mathf.Abs(_rb.velocity.y) < 0.1f;
+        if (!isStoppedInY)
+            return;
+        
+        _isGrounded = true;
+        Debug.Log($"sensor is colliding");
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnDrawGizmos()
     {
-        _colCount--;
+        Gizmos.color = _isGrounded ? Color.green : Color.red;
+        Gizmos.DrawCube(Center, _size);
     }
 
-    void Update()
-    {
-        _disableTimer -= Time.deltaTime;
-    }
-
-    public void Disable(float duration) => _disableTimer = duration;
-    public bool State()
-    {
-        if (_disableTimer > 0)
-            return false;
-        return _colCount > 0;
-    }
-
+    public void Disable(float duration) => _enabled = false;
 }

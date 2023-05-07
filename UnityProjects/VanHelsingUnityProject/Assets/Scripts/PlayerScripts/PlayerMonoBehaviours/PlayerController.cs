@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public float InputX => Input.GetAxis("Horizontal");
     public bool IsJumping => _rb.velocity.y > 0;
     public bool IsFalling => _rb.velocity.y < 0;
-    public bool IsGrounded => _groundSensor.State() && _rb.velocity.y == 0;
+    public bool IsGrounded => _groundSensor.State;
     public bool HasJumpedThisFrame =>  Input.GetButtonDown("Jump") && IsGrounded;
     public bool IsMoving => Mathf.Abs(InputX) > 0f;
     public bool IsMovingBackwards { get; private set; } = false;

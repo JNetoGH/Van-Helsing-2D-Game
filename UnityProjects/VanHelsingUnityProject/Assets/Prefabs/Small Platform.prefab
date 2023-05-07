@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8237989476606516971}
   - component: {fileID: 6420262603301569073}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JNetotileSheetPlatformTile_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8861694891688799943}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: newPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3594450058296856235}
   - component: {fileID: 4897017312176076372}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JNetotileSheetPlatformTile_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3636730482681111465}
   - component: {fileID: 1859824108486928997}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JNetotileSheetPlatformTile_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 4298963775529504952}
   - component: {fileID: 4298963775529504951}
   - component: {fileID: 4298963775529504950}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Small Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2016759649192794820}
   - component: {fileID: 2947440760263528412}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JNetotileSheetPlatformTile_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
