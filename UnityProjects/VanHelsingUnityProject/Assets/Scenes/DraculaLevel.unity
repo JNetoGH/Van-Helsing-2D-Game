@@ -16302,18 +16302,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 732675373666529496, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _layersToConsider.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 732675373666529496, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _coyoteTimeDurationInSeconds
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4353194281908265816, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _coyoteTimeDurationInSeconds
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367960, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_Name
       value: VanHelsing
@@ -16324,11 +16312,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.682
+      value: -1.63
       objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalPosition.z
