@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public bool IsGrounded => _groundSensor.State;
     public bool IsMoving => Mathf.Abs(InputX) > 0f;
     public bool IsMovingBackwards { get; private set; } = false;
-    public bool IsLockingToWalkOnly { get; private set; } = false;
+    public bool IsLockingToWalkSpeed { get; private set; } = false;
     public bool IsDashing { get; private set; } = false;
     public FacingDirection CurrentFacingDirection { get; private set; }
     
@@ -59,12 +59,11 @@ public class PlayerController : MonoBehaviour
             _dashCooldownTimer = 0;
 
         UpdateIsDashing();
-        if (IsDashing) 
-           return;
+        if (IsDashing) return;
         
         UpdateCurrentFacingDir();
         UpdateIsMovingBackwards();
-        IsLockingToWalkOnly = Input.GetButton("Lock to Walk Only");
+        IsLockingToWalkSpeed = Input.GetButton("Lock to Walk Only");
         
         // Notifying all Observers that the PlayerController.cs is updating
         foreach (IPlayerObserver observer in _playerObservers)
@@ -73,28 +72,22 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (IsDashing)
-            Dash();
-        else
-            Move(InputX);
+        if (IsDashing) Dash();
+        else Move(InputX);
     }
     
     private void Dash()
     {
         // This version of dash ignores gravity
         // In case of not moving dash towards where he is facing
-        if (IsMoving) 
-            _rb.velocity = new Vector2(InputX > 0 ? _dashSpeed : -_dashSpeed, 0);
-        else 
-            _rb.velocity = new Vector2(CurrentFacingDirection == FacingDirection.Right ? _dashSpeed : -_dashSpeed, 0);
+        if (IsMoving) _rb.velocity = new Vector2(InputX > 0 ? _dashSpeed : -_dashSpeed, 0);
+        else _rb.velocity = new Vector2(CurrentFacingDirection == FacingDirection.Right ? _dashSpeed : -_dashSpeed, 0);
     }
 
     private void Move(float inputX)
     {
-        if (IsLockingToWalkOnly) 
-            _rb.velocity = new Vector2(inputX * _walkMaxSpeed, _rb.velocity.y);
-        else
-            _rb.velocity = new Vector2(inputX * _runSpeed, _rb.velocity.y);
+        if (IsLockingToWalkSpeed) _rb.velocity = new Vector2(inputX * _walkMaxSpeed, _rb.velocity.y);
+        else _rb.velocity = new Vector2(inputX * _runSpeed, _rb.velocity.y);
     }
     
     private void UpdateIsDashing()

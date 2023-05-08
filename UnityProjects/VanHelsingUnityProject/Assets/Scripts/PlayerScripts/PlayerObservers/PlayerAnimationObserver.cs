@@ -22,6 +22,7 @@ namespace PlayerScripts.PlayerObservers
             _animator.SetBool("IsJumping", playerController.IsJumping);
             _animator.SetBool("IsFalling", playerController.IsFalling);
             _animator.SetBool("IsGrounded", playerController.IsGrounded);
+            _animator.SetBool("IsWalking", playerController.IsMoving);
         }
     
     }
