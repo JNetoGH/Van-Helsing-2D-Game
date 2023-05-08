@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7285411743718662149}
   - component: {fileID: 7285411743718662148}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: img_left_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1905828095
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 861b60b0c1333584eb35948d4f4906a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7285411743793736078}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: wings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7285411743873478495}
   - component: {fileID: 7285411743873478494}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DraculaContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7285411743894904823}
   - component: {fileID: 7285411743894904822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DraculaSpritesContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7285411744045541578}
   - component: {fileID: 7285411744045541577}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: img_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -292,7 +292,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1905828095
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: e6ca8ef6bb9230b4b90f6b4d29dfaea9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7285411744116291392}
   - component: {fileID: 7285411744116291423}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: img_right_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -376,7 +376,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1905828095
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 596a03a72ca6ba248bfca2a77c450433, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 4091371692623769558}
   - component: {fileID: 4091371692623769553}
   - component: {fileID: 4091371692265402726}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dracula
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7285411744432325142}
   - component: {fileID: 7285411744432325141}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: img_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -640,7 +640,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1905828095
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 344c3fff8fee7bb4a8515fa5dba13a98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -663,7 +663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7285411744485885676}
   - component: {fileID: 7285411744485885675}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: img_left_wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +705,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -724,7 +724,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1905828095
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5cd39fb563ff56048bda199f1df25785, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -747,7 +747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7285411744531589882}
   - component: {fileID: 7285411744531589881}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: img_right_wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +789,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -808,7 +808,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1905828095
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c12099641af159c4e95968ae6671ed14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -831,7 +831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7285411744757082524}
   - component: {fileID: 7285411744757082523}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: img_left_leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -873,7 +873,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -892,7 +892,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1905828095
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: a342ec93838527c4cbe83abf5375315e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -915,7 +915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7285411745129518272}
   - component: {fileID: 7285411745129518303}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: img_right_leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +957,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -976,7 +976,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1905828095
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: db5e0ea0d407c184b98377a26d0beb14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -998,7 +998,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7285411745186174282}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
