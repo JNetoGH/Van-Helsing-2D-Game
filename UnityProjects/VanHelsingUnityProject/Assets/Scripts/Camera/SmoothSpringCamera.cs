@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 
@@ -13,7 +14,6 @@ public class SmoothSpringCamera : MonoBehaviour
     [SerializeField] private float _cameraSpeed = 0.5f;
     
     [Header("Smoothening Area")]
-    [Tooltip("When the target is out of this area, the camera will simply follow it in a constant high speed without smoothening, in a attempt to catch it")]
     [SerializeField] private bool _useSmootheningArea = true;
     [SerializeField] private Vector2 _smootheningAreaOffset;
     [SerializeField] private Vector2 _smootheningAreaSize;
@@ -88,9 +88,20 @@ public class SmoothSpringCamera : MonoBehaviour
     {
         if (!_useSmootheningArea)
             return;
-        
-        Gizmos.color = _isTargetInSmootheningArea? Color.green : Color.red;
+       
+        Color color = _isTargetInSmootheningArea? Color.green : Color.red;
+        Gizmos.color = color;
         Gizmos.DrawWireCube(SmootheningAreaPosition, _smootheningAreaSize);
+       
+        // Draw the gizmos text
+        GUIStyle style = new GUIStyle();
+        Vector3 textPosition = SmootheningAreaPosition;
+        textPosition.z = transform.position.z;
+        textPosition.y += _smootheningAreaSize.y/2 + _smootheningAreaOffset.y + 0.25f;
+        style.normal.textColor = color;
+        style.alignment = TextAnchor.MiddleCenter;
+        Handles.Label(textPosition, "Camera SmootheningArea", style);      
+        
     }
     
 }
