@@ -1687,7 +1687,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000005dc15fe46d11a4ab8b10dca9ffa098711ff174e5
+  m_ApplyToSortingLayers: 000000005dc15fe46d11a4ab8b10dca9770d5460ffa09871df0a8b751ff174e5
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -4797,21 +4797,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7285411743718662150, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411743793736079, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 7285411743873478464, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_Name
       value: DraculaContainer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411743873478464, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7285411743873478495, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_RootOrder
@@ -4856,46 +4844,6 @@ PrefabInstance:
     - target: {fileID: 7285411743873478495, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411743894904825, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411744045541579, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411744116291393, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411744393129191, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411744432325143, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411744485885677, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411744531589883, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411744757082525, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411745129518273, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411745186174283, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
@@ -16381,30 +16329,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 732675373666529496, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4353194281908265816, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _useCoyoteTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4353194281908265816, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _useJumpBuffer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6258850251310436260, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6258850251310436260, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: m_Color.g
-      value: 0.33470583
-      objectReference: {fileID: 0}
-    - target: {fileID: 6258850251310436260, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367960, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_Name
       value: VanHelsing
