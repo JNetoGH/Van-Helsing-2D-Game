@@ -1325,8 +1325,8 @@ MonoBehaviour:
   _offsetFromTarget: {x: 0, y: -0.5}
   _cameraSpeed: 1
   _useSmoothingArea: 1
-  _smootheningAreaOffset: {x: 0, y: 0}
-  _smootheningAreaSize: {x: 10, y: 5}
+  _smoothingAreaOffset: {x: 0, y: 0}
+  _smoothingAreaSize: {x: 10, y: 5}
   _cameraCatchingSpeed: 50
   _smoothFollowInY: 1
   _smoothFollowInX: 1
@@ -4729,6 +4729,10 @@ PrefabInstance:
     - target: {fileID: 7285411743873478464, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_Name
       value: DraculaContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285411743873478464, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7285411743873478495, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_RootOrder
@@ -16262,6 +16266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VanHelsing
       objectReference: {fileID: 0}
+    - target: {fileID: 6258850253062367960, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -16363,6 +16371,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6183201698382267109, guid: 3e417ab686e83b046bee2719db8622f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e417ab686e83b046bee2719db8622f8, type: 3}
 --- !u!1001 &6592522194993674138
@@ -16436,6 +16448,10 @@ PrefabInstance:
     - target: {fileID: 88480600271042292, guid: 91b6a4d46e3306444ad41acd52de45fb, type: 3}
       propertyPath: m_Name
       value: MiniDracula
+      objectReference: {fileID: 0}
+    - target: {fileID: 88480600271042292, guid: 91b6a4d46e3306444ad41acd52de45fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 88480600271042295, guid: 91b6a4d46e3306444ad41acd52de45fb, type: 3}
       propertyPath: m_RootOrder

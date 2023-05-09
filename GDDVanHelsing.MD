@@ -15,7 +15,7 @@
 Super Fun Games
 
 **TEAM** <br>
-João Neto (a22200558), David Mendes (22203255), João Silva (22004451), Vasco Caleiro (22203051)
+João Neto (22200558), David Mendes (22203255), João Silva (22004451), Vasco Caleiro (22203051)
 
 **THEME**  <br>
 Movie (Van Helsing, 2004)
@@ -56,22 +56,22 @@ there will always be a possibility that we might make console versions.
 
 
 ## GAMEPLAY
-Includes the like the objectives, game progressions, and the game mechanics.
+Includes things like the objectives, game progressions, and the game mechanics.
 
 **OBJECTIVES/PROGRESSION** <br>
 The game  is highly inspired in other games like Cuphead, Dead Cells and Mega Man, where there progression is mostly linear.
-The player is meant to complete a esier part of the level first, with "easier" and more "generic" enemies, in other to reach a boss in the end of the level to a more unique and hard boss fight.
-Being inspired by the ***Soulslike*** sub-genre, the player is meant to repeat the levels many times in order to get progressively better while learning the bosses and commum enemies patterns.
+The player is meant to complete a easier part of the level first, with "easier" and more "generic" enemies, in other to reach a boss in the end of the level to a more unique and hard boss fight.
+Being inspired by the ***Soulslike*** sub-genre, the player is meant to repeat the levels many times in order to get progressively better while learning the bosses and common enemies patterns.
 
 **GAMEPLAY STYLE** <br>
-The Gameplay style is inspired in the ***Shoot 'em Up*** and the ***Run and Gun*** genres, where the player is meant to try quickly complete the phase, rushing on the enemies shooting projectiles.
+The Gameplay style is inspired in the ***Shoot 'em Up*** and the ***Run and Gun*** genres, where the player is meant to try to complete the phase as quick as possible, rushing on the enemies and shooting projectiles.
 This game is also meant to have some melee combat, they are dangerous strikes but also make a higher damage.
 
 **MECHANICS OVERVIEW**
 
 | Mechanic      | Brief Description                                  |
 |---------------|----------------------------------------------------|
-| Walk/Run      | Movement hastwo speeds: walk and run.              |
+| Walk/Run      | Movement has two speeds: walk and run.             |
 | Dash          | Quick movement in X axis, but takes normal damage. |
 | Fluid Jump    | Jump height varies with jump buffer.               |
 | Snappy Jump   | Gravity scales with each jump stage.               |
