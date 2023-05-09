@@ -1,74 +1,192 @@
 # Van Helsing GDD
+![imgVanHelsing](https://user-images.githubusercontent.com/24737993/236948246-0bd5f2d7-683a-418d-9d50-3cb100abdce9.png)
 
-**Studio:** Super Fun Games
-**Theme:** Movie (Van Helsing, 2004)
-**Team:** João Neto (a22200558),  David Mendes (22203255), João Silva (22004451), Vasco Caleiro (22203051)
- 
 
-## GAME OVERVIEW
 
-It summarizes the entire game concept, target audience, targeted platforms and  technicalities like game engine.
 
-**Concept:**
-This is a platformer action game based on the movie "Van Helsing (2004)", focused on methodical combat and pattern learning boss fights. It will have a fluid combat system with responsive controls with some elements drawn from the ***Soulslike***, ***Shoot 'em Up*** and  ***Run and Gun*** genres.
-Being a direct inspiration from the movie "Van Helsing (2004)", it features a dark and gothic art style and features vampire related enemies and locations. We will control a demon hunter, armed with a repeating crossbow and portable saws, with the task of defeating Dracula and any other related beings.
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+## OVERVIEW
+
+**STUDIO** <br>
+Super Fun Games
+
+**TEAM** <br>
+João Neto (a22200558), David Mendes (22203255), João Silva (22004451), Vasco Caleiro (22203051)
+
+**THEME**  <br>
+Movie (Van Helsing, 2004)
+
+**MOVIE SYNOPSIS**  <br>
+Van Helsing" is an action-adventure film where Gabriel Van Helsing, a legendary monster hunter,
+is sent to Transylvania to help Anna Valerious rid their village of Count Dracula. Along with a friar named Carl,
+they encounter dangerous obstacles including werewolves, vampires, and Dracula's offspring.
+Van Helsing must confront his past, tied to Dracula's, to defeat him once and for all.
+
+**GAME SYNOPSIS** <br>
+This is a platformer action game, based on the movie "Van Helsing (2004)", focused on methodical combat and pattern learning boss fights.
+It will have a fluid combat system with responsive controls with some elements drawn from the ***Soulslike***, ***Shoot 'em Up*** and  ***Run and Gun*** genres.
+Being a direct inspiration from the movie "Van Helsing (2004)", it features a dark and gothic art style and features vampire related enemies and locations. We will control a demon hunter,
+armed with a repeating crossbow and portable saws, with the task of defeating Dracula and any other related beings.
 The player will play as Van Helsing revisiting scenarios and battles taken straight from the movie.
 
-**Target Audience:**
-The action based combat and dark fantasy / victorian themes and its harsh difficulty make this game more appealing to a mature audience, specifically adolescents and young adults.
+**TARGET AUDIENCE** <br>
+The action based combat and dark fantasy / victorian themes and its harsh difficulty make this game more appealing to a mature audience.
 
-**Target Platform:**
-The target platform this project will be idealized will be Desktop Windows but due to the accessibility of the controls and the mechanics we are intending on implementing, there will always be a possibility that we might make console versions.
+**TARGET PLATFORM** <br>
+The target platform this project will be idealized will be Desktop Windows but due to the accessibility of the controls and the mechanics we are intending on implementing,
+there will always be a possibility that we might make console versions.
 
-**Unique Selling Points:**
-* Boss Fights 
-* Side Scroller 
+**UNIQUE SELLING POINTS**
+* Boss Fights
+* Side Scroller
 * Platforms
-* Variety Combat/Movement Mechanics and Playstyles 
+* Variety Combat/Movement Mechanics and Playstyles
 * Experiencing first hand iconic battles from the Van Helsing Movie
 
 
 
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
 ## GAMEPLAY
+Includes the like the objectives, game progressions, and the game mechanics.
 
-Includes things like the objectives, game progressions, and overall style of the game (RPG, First-Person Shooter, Third-Person).
-
-**Objectives/Progression:**
-The game  is highly inspired in other games like Cuphead, Dead Cells and Mega Man, where there progression is mostly linear. 
+**OBJECTIVES/PROGRESSION** <br>
+The game  is highly inspired in other games like Cuphead, Dead Cells and Mega Man, where there progression is mostly linear.
 The player is meant to complete a esier part of the level first, with "easier" and more "generic" enemies, in other to reach a boss in the end of the level to a more unique and hard boss fight.
 Being inspired by the ***Soulslike*** sub-genre, the player is meant to repeat the levels many times in order to get progressively better while learning the bosses and commum enemies patterns.
 
-**Gameplay Style:**
-The Gameplay style is inspired in the ***Shoot 'em Up*** and the ***Run and Gun*** genres, where the player is meant to try quickly complete the phase, rushing on the enemies shooting projectiles. 
+**GAMEPLAY STYLE** <br>
+The Gameplay style is inspired in the ***Shoot 'em Up*** and the ***Run and Gun*** genres, where the player is meant to try quickly complete the phase, rushing on the enemies shooting projectiles.
 This game is also meant to have some melee combat, they are dangerous strikes but also make a higher damage.
+
+**MECHANICS OVERVIEW**
+
+| Mechanic      | Brief Description                                  |
+|---------------|----------------------------------------------------|
+| Walk/Run      | Movement hastwo speeds: walk and run.              |
+| Dash          | Quick movement in X axis, but takes normal damage. |
+| Fluid Jump    | Jump height varies with jump buffer.               |
+| Snappy Jump   | Gravity scales with each jump stage.               |
+| Arm Switch    | Switches between arms (crossbowArm/sawArm)         |
+| Ranged Combat | Crossbow shoots arrows for ranged damage.          |
+| Melee Combat  | Saws used for melee attacks.                       |
+| Werewolf Mode | Become a werewolf in final battle.                 |
+| Cooldown      | Weapons and abilities have cooldown timers.        |
+
+**WALK/RUN MECHANIC** <br>
+There are two different kinds of movement speed, walk or run. <br>
+The player can lock the speed to walk speed by pressing `Q`, then the character will move slowly.
+
+**DASH** <br>
+The player can initiate a dash by pressing `SHIFT`. <br>
+This is simply a quick movement in the X-axis direction. During the dash, gravity is ignored, and the player is still vulnerable to receive damage.
+
+**FLUID JUMP** <br>
+The jump system consists of two parts: a variable height system that allows the player to jump higher while pressing `SPACE`,
+and a jump buffer that casts a straight line towards the ground to store a jump input if the line hits the ground. <br>
+This buffer is useful for making sequential jumps easier.
+
+**SNAPPY JUMP** <br>
+The jump system allows for different gravity scales for each phase of the jump, leading the player to fall quicker than it rises,
+resulting in a snappier jump, or what we call an anti-floaty jump.
+
+**ARM SWITCH** <br>
+The player can switch between the current arm by hitting `E` (between the crossbowArm and the sawArm).
+
+**RANGED COMBAT** <br>
+The player can shoot a projectile in the form of an arrow towards the mouse position by clicking on `MB1`. <br>
+This projectile can go through platforms and inflicts 1 damage to any hit enemy. <br>
+Once it hits a target, the projectile disappears and cannot inflict damage anymore.
+
+**MELEE COMBAT** <br>
+The player can strike with a saw towards the mouse position by clicking on `MB1`. <br>
+This strike has a small area of effect, which deals ":warning: not decided yet, but is bigger than the arrow :warning:" damage to any hit enemy in this area. <br>
+In contrast with the arrow, it doesn't desappear when it hits an enemy, just when its timer ends, what makes it a good tool for crowd control.
+
+**WEREWOLF MODE** <br>
+The player becomes a werewolf while fighting against Dracula in final battle at the top of the Dracula's castle. <br>
+Normal combat mechanics don't work on Dracula, so following the movie's lore, only when Van Helsing becomes a werewolf, the player can deal damage to the boss. <br>
+This transformation is temporary though, and lasts only while the full moon appears on the big window in the background, which goes on and off in a cycle. <br>
+This mode is meant to bring two states to the final battle: a survival state, where the player tries to survive with the game's regular mechanics,
+until the fight state arrives, where finally the player can become a werewolf and deal damage to Dracula. <br>
+:warning: The werewolf combat mechanics have not been decided yet. :warning:
+
+**COOLDOWN** <br>
+Weapons and abilities have their own cooldown timers(countdown), those are indicated on the GUI by a progress bar for each weapon/abilitiy.
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+## CAMERA
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
 
 
 
 ## LEVELS
-For now we have only  2 levels planned, more can be added in the future, the movie has many combat scenes.
+For now we have only 2 levels planned, more can be added in the future, the movie has many combat scenes.
 
-**First Level:**
-It's inspired in the battle of Van Helsing against the three Dracula's brides, Verona, Aleera and Marishka, as in the movie it played in the village next to Frankenstein's castle, the player will play through the viallage until he encounters the brides, then a triple boss battle begins.
+**FIRST LEVEL** <br>
+It's inspired in the battle of Van Helsing against the three Dracula's brides, Verona, Aleera and Marishka, as in the movie it played in the village next to Frankenstein's castle,
+the player will play through the viallage until he encounters the brides, then a triple boss battle begins.
 
-**Second Level:**
+**SECOND LEVEL** <br>
 This level is based on the last battle of the movie where Van Helsing faces Dracula at his castle, it's a vertical level just like in the movie, this fight is placed on a tower.
 
 
-## MECHANICS
-Includes the combat styles, physics, rules, and more of the game world.
 
-**Movement:**
-* Run
-* Dash (X axis only)
-* Jump
 
-**Combat:**
-* Ranged Combat (Crossbow)
-* Melee Combat (Saw)
-* Especial Form: the player can become a werewolf in the last battle against Dracula when the moon appears periodically at a giant window on the background (this mechanic is not 100% finished yet).
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+## ENEMIES
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
 
 ## GAME ART
-Includes the characters, locations, concept arts, etc.. 
 
 **Concept Arts:** https://drive.google.com/file/d/150Z57JqgJQeHUV4Fr360m37cGVkAub_Y/view?usp=share_link
 
@@ -91,13 +209,46 @@ Includes the characters, locations, concept arts, etc..
 
 
 
+<br>
+<br>
+<br>
+<br>
 
-## USER INTERFACE (UI) 
 
-**Style:**
-The games follows a medieval victorian dark style so the Game User Interface will also be designed in this aesthetic, we want to maximize the information the player can have at their disposal without cluttering the screen and interfering with gameplay.
+
+
+## USER INTERFACE (UI)
+
+**STYLE** <br>
+The games follows a medieval victorian dark style so the Game User Interface will also be designed in this aesthetic,
+we want to maximize the information the player can have at their disposal without cluttering the screen and interfering with gameplay.
 For this reason we firstly intend to move most of the information of the Game User Interface information to the bottom side of the player’s screen as some levels have a vertical scrolling direction.
 A clean GUI helps the player focus on gameplay, although we won’t discard the beauty factor when creating these.
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+## CHANGELOG
+
+| Name        | Date        | Description                                       |
+| ----------- | ----------- | ------------------------------------------------- |
+| JNeto       | 8-may-2023  | Movie Synopsis added                              |
+| JNeto       | 8-may-2023  | Target audience updateed                          |
+| JNeto       | 8-may-2023  | Mechanics overview added to Gameplay section      |
+
+
+<br>
+
+
+
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbNjQ1ODc4MDI2LDg2MjQ4NzU3NCwtMTcyMj
