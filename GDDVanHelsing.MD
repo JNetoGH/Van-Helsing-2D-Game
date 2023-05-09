@@ -140,7 +140,10 @@ the camera will stop smoothing and start to chase the player at a constant speed
 This hybrid implementation is crucial to ensure the player never gets out of the camera's view. <br>
 The system provides smooth transitions between camera behaviors, and the catchSpeed can be adjusted for different kinds of situations.
 
+**SYSTEM PREVIEW** <br>
 ![Alt Text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDhjNzQ5ZTU0YjFjYmU4YjZhY2ViOTMyZTUzNDhhYWRiNTA5MzFkNiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/CjJWxND1tYLuD1HNcQ/giphy.gif)
+
+
 
 <br>
 <hr>
@@ -152,12 +155,16 @@ The system provides smooth transitions between camera behaviors, and the catchSp
 For now we have only 2 levels planned, more can be added in the future, the movie has many combat scenes.
 
 **FIRST LEVEL** <br>
-It's inspired in the battle of Van Helsing against the three Dracula's brides, Verona, Aleera and Marishka, as in the movie it played in the village next to Frankenstein's castle,
+It's inspired in the battle of Van Helsing against the three Dracula's brides, Verona, Aleera and Marishka,
+as in the movie it played in the village next to Frankenstein's castle,
 the player will play through the village until he encounters the brides, then a triple boss battle begins.
 
-**SECOND LEVEL** <br>
-This level is based on the last battle of the movie where Van Helsing faces Dracula at his castle, it's a vertical level just like in the movie, this fight is placed on a tower.
 
+**SECOND LEVEL** <br>
+This level is based on the last battle of the movie where Van Helsing faces Dracula at his castle,
+it's a vertical level just like in the movie, this fight is placed on a tower. <br>
+At the top the player will encounter the final battle against Dracula. <br>
+![DraculasCastle](https://github.com/JNetoGH/Van-Helsing-2D-Game/assets/24737993/644d367c-8b0c-4181-932b-471f9cf2e5c6)
 
 
 <br>
@@ -229,12 +236,12 @@ A clean GUI helps the player focus on gameplay, although we won’t discard the 
 | JNeto | 8-may-2023 | Mechanics details added to Gameplay section  |
 | JNeto | 9-may-2023 | Camera section added                         |
 | JNeto | 9-may-2023 | Line separators added                        |
-| JNeto | 9-may-2023 | Camera gifadded                              |
+| JNeto | 9-may-2023 | Camera gif added                             |
+| JNeto | 9-may-2023 | Levels Section updated                       |
 
 
 
 <br>
-
 
 
 
