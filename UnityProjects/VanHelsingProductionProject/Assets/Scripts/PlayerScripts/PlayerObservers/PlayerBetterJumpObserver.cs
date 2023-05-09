@@ -1,6 +1,7 @@
 ﻿using PlayerScripts.Interfaces;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
@@ -24,16 +25,32 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
     [SerializeField] private Vector2 _jumpBufferLineOffset;
     [SerializeField] private float _jumpBufferLineLength;
     
+    [Header("Dust Effects")]
+    [SerializeField] private Transform _jumpEffectsPosition;
+    [SerializeField] private GameObject _jumpEffect;
+    [SerializeField] private Transform _landingEffectPosition;
+    [SerializeField] private GameObject _ladingEffect;
+    [SerializeField] private float _ladingEffectMinVelocityInY = -1;
+    
+    // General fields
+    private Rigidbody2D _rigidbody;
     private bool HasPlayerPressedJumpedFrame => Input.GetButtonDown("Jump");
+    
+    // Coyote time fields
     private float _coyoteTimeCountDownTimer = 0;
     private bool _wasGroundedLastFrame = false;
-    private Rigidbody2D _rigidbody;
+    
+    // Jump buffer fields
     private Vector2 JumpBufferLineStart => new Vector2(
         transform.position.x + _jumpBufferLineOffset.x, 
         transform.position.y + _jumpBufferLineOffset.y);
     private Vector2 JumpBufferLineEnd => new Vector2(JumpBufferLineStart.x, JumpBufferLineStart.y - _jumpBufferLineLength);
     private bool _hasJumpBuffered = false;
 
+    // Dust effect fields
+    private bool _hasLandedThisFrame;
+    private float _lastVelocityInYWhileFalling = 0;
+    
     public void OnNotifyStart(PlayerController playerController)
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -41,6 +58,16 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
 
     public void OnNotifyUpdate(PlayerController playerController)
     {
+        
+        // Landing effect
+        _hasLandedThisFrame = playerController.IsGrounded && ! _wasGroundedLastFrame && ! playerController.IsJumping;
+        bool isFallingFastEnough = _lastVelocityInYWhileFalling <= _ladingEffectMinVelocityInY;
+        if (_hasLandedThisFrame && isFallingFastEnough)
+        {
+            // Debug.Log($"Landing Min {_ladingEffectMinVelocityInY} | Last {_lastVelocityInYWhileFalling}");
+            InstantiateEffect(_ladingEffect, _landingEffectPosition.position);
+        }
+        
         
         // Updating _coyoteTimeCountDownTimer
         _coyoteTimeCountDownTimer -= Time.deltaTime;
@@ -69,6 +96,9 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
             if (playerController.IsGrounded || _coyoteTimeCountDownTimer > 0)
             {
                 Jump(_jumpForce);
+                bool hasJumpedBecauseOfCoyoteTime = !playerController.IsGrounded && _coyoteTimeCountDownTimer > 0;
+                if (!hasJumpedBecauseOfCoyoteTime)
+                    InstantiateEffect(_jumpEffect, _jumpEffectsPosition.position);
                 _rigidbody.gravityScale = 1f;
                 // disables the coyoteTime
                 _wasGroundedLastFrame = false;
@@ -87,8 +117,12 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
         {
             // prevents floaty jumps by making the fall heavier
             _rigidbody.gravityScale = _fallGravityScale;
+            
+            // updating for landing effect
+            _lastVelocityInYWhileFalling = _rigidbody.velocity.y;
         }
         
+       
     }
 
     private bool CheckJumpBufferCollision()
@@ -113,6 +147,12 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
     private void Jump(float force)
     {
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, force);
+    }
+
+    private void InstantiateEffect(GameObject effectPrefab, Vector3 position)
+    {
+        GameObject dust = Instantiate(effectPrefab);
+        dust.transform.position = position;
     }
     
     private void OnDrawGizmos()
