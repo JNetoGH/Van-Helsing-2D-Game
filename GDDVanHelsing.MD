@@ -69,17 +69,17 @@ This game is also meant to have some melee combat, they are dangerous strikes bu
 
 **MECHANICS OVERVIEW**
 
-| Mechanic      | Brief Description                                  |
-|---------------|----------------------------------------------------|
-| Walk/Run      | Movement has two speeds: walk and run.             |
-| Dash          | Quick movement in X axis, but takes normal damage. |
-| Fluid Jump    | Jump height varies with jump buffer.               |
-| Snappy Jump   | Gravity scales with each jump stage.               |
-| Arm Switch    | Switches between arms (crossbowArm/sawArm)         |
-| Ranged Combat | Crossbow shoots arrows for ranged damage.          |
-| Melee Combat  | Saws used for melee attacks.                       |
-| Werewolf Mode | Become a werewolf in final battle.                 |
-| Cooldown      | Weapons and abilities have cooldown timers.        |
+| Mechanic      | Brief Description                           |
+|---------------|---------------------------------------------|
+| Walk/Run      | Movement has two speeds: walk and run.      |
+| Dash          | Quick movement in X axis                    |
+| Fluid Jump    | Jump height varies with jump buffer.        |
+| Snappy Jump   | Gravity scales with each jump stage.        |
+| Arm Switch    | Switches between arms (crossbowArm/sawArm)  |
+| Ranged Combat | Crossbow shoots arrows for ranged damage.   |
+| Melee Combat  | Saws used for melee attacks.                |
+| Werewolf Mode | Become a werewolf in final battle.          |
+| Cooldown      | Weapons and abilities have cooldown timers. |
 
 **WALK/RUN MECHANIC** <br>
 There are two different kinds of movement speed, walk or run. <br>
