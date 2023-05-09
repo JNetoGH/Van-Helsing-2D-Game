@@ -3,12 +3,9 @@
 
 
 
-
 <br>
+<hr>
 <br>
-<br>
-<br>
-
 
 
 
@@ -52,12 +49,9 @@ there will always be a possibility that we might make console versions.
 
 
 
-
 <br>
+<hr>
 <br>
-<br>
-<br>
-
 
 
 
@@ -132,29 +126,24 @@ Weapons and abilities have their own cooldown timers(countdown), those are indic
 
 
 <br>
+<hr>
 <br>
-<br>
-<br>
-
 
 
 
 ## CAMERA
 The game camera uses a system called SmoothSpringCamara, which is a hybrid and highly customizable implementation of a Camera Controller. <br>
-There is a square-shaped area referred to as the smoothing box. While the player is inside this box, 
-the camera will behave with a somewhat standard Lerp behavior, whereas when the player is outside, 
+There is a square-shaped area referred to as the smoothing box. While the player is inside this box,
+the camera will behave with a somewhat standard Lerp behavior, whereas when the player is outside,
 the camera will stop smoothing and start to chase the player at a constant speed called catchSpeed until the smoothing box catches up with the player again. <br>
 This hybrid implementation is crucial to ensure the player never gets out of the camera's view. <br>
 The system provides smooth transitions between camera behaviors, and the catchSpeed can be adjusted for different kinds of situations.
 
 
 
-
 <br>
+<hr>
 <br>
-<br>
-<br>
-
 
 
 
@@ -170,12 +159,9 @@ This level is based on the last battle of the movie where Van Helsing faces Drac
 
 
 
-
 <br>
+<hr>
 <br>
-<br>
-<br>
-
 
 
 
@@ -183,12 +169,9 @@ This level is based on the last battle of the movie where Van Helsing faces Drac
 
 
 
-
 <br>
+<hr>
 <br>
-<br>
-<br>
-
 
 
 
@@ -214,12 +197,9 @@ This level is based on the last battle of the movie where Van Helsing faces Drac
 
 
 
-
 <br>
+<hr>
 <br>
-<br>
-<br>
-
 
 
 
@@ -232,13 +212,9 @@ For this reason we firstly intend to move most of the information of the Game Us
 A clean GUI helps the player focus on gameplay, although we won’t discard the beauty factor when creating these.
 
 
-
-
 <br>
+<hr>
 <br>
-<br>
-<br>
-
 
 
 
@@ -251,6 +227,7 @@ A clean GUI helps the player focus on gameplay, although we won’t discard the 
 | JNeto | 8-may-2023 | Mechanics overview added to Gameplay section |
 | JNeto | 8-may-2023 | Mechanics details added to Gameplay section  |
 | JNeto | 9-may-2023 | Camera section added                         |
+| JNeto | 9-may-2023 | Line separators added                        |
 
 
 
