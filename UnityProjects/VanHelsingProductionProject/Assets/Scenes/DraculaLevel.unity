@@ -1324,9 +1324,9 @@ MonoBehaviour:
   _followInX: 1
   _offsetFromTarget: {x: 0, y: -0.5}
   _cameraSpeed: 1
-  _useSmootheningArea: 1
+  _useSmoothingArea: 1
   _smootheningAreaOffset: {x: 0, y: 0}
-  _smootheningAreaSize: {x: 10.22, y: 4.16}
+  _smootheningAreaSize: {x: 10, y: 5}
   _cameraCatchingSpeed: 50
   _smoothFollowInY: 1
   _smoothFollowInX: 1

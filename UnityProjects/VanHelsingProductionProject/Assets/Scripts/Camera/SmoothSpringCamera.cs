@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 // Camera Smooth Spring System: by JNeto
@@ -13,24 +14,24 @@ public class SmoothSpringCamera : MonoBehaviour
     [SerializeField] private Vector2 _offsetFromTarget;
     [SerializeField] private float _cameraSpeed = 0.5f;
     
-    [Header("Smoothening Area")]
-    [SerializeField] private bool _useSmootheningArea = true;
-    [SerializeField] private Vector2 _smootheningAreaOffset;
-    [SerializeField] private Vector2 _smootheningAreaSize;
-    [Tooltip("The speed used by the camera in order to try to catch an object that has escaped the Smoothening Area")]
+    [Header("Smoothing Area")]
+    [SerializeField] private bool _useSmoothingArea = true;
+    [SerializeField] private Vector2 _smoothingAreaOffset;
+    [SerializeField] private Vector2 _smoothingAreaSize;
+    [Tooltip("The speed used by the camera in order to try to catch an object that has escaped the Smoothing Area")]
     [SerializeField] private float _cameraCatchingSpeed = 50;
     
-    // Smoothening area internal variables
-    private bool _isTargetInSmootheningArea = false;
-    private Vector2 SmootheningAreaPosition => new Vector2(
-        transform.position.x + _smootheningAreaOffset.x, 
-        transform.position.y + _smootheningAreaOffset.y
+    // Smoothing area internal variables
+    private bool _isTargetInSmoothingArea = false;
+    private Vector2 SmoothingAreaPosition => new Vector2(
+        transform.position.x + _smoothingAreaOffset.x, 
+        transform.position.y + _smoothingAreaOffset.y
     );
     
     [Header("Increment Appliance")]
     [SerializeField] private bool _smoothFollowInY = true;
     [SerializeField] private bool _smoothFollowInX = true;
-    [Tooltip("if the Smoothening is below the limits, it will use the limits, too small increments can lead to weird images")]
+    [Tooltip("if the Smoothing is below the limits, it will use the limits, too small increments can lead to weird images")]
     [SerializeField] private Vector2 _minimumIncrement = new Vector2(0.0025f, 0.005f);
     
     private void FixedUpdate()
@@ -42,9 +43,9 @@ public class SmoothSpringCamera : MonoBehaviour
             return;
         }
         
-        _isTargetInSmootheningArea = false;      
-        if (_useSmootheningArea)
-            _isTargetInSmootheningArea = IsPointInsideSquare(_target.position, SmootheningAreaPosition, _smootheningAreaSize);
+        _isTargetInSmoothingArea = false;      
+        if (_useSmoothingArea)
+            _isTargetInSmoothingArea = IsPointInsideSquare(_target.position, SmoothingAreaPosition, _smoothingAreaSize);
         
         Vector3 targetPosition = _target.position - new Vector3(_offsetFromTarget.x, _offsetFromTarget.y, 0);
         Vector3 newPosition = transform.position;
@@ -52,7 +53,7 @@ public class SmoothSpringCamera : MonoBehaviour
         Vector3 increment;
         
         // if the target is out of the smoothening area, it wont smooth it in order to prevent it from escaping the area
-        if (_isTargetInSmootheningArea || !_useSmootheningArea)
+        if (_isTargetInSmoothingArea || !_useSmoothingArea)
             increment = error * _cameraSpeed * Mathf.Min(Time.fixedDeltaTime / _cameraSpeed, 1);
         else
             increment = error.normalized * _cameraCatchingSpeed * Time.fixedDeltaTime;
@@ -86,21 +87,21 @@ public class SmoothSpringCamera : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!_useSmootheningArea)
+        if (!_useSmoothingArea)
             return;
        
-        Color color = _isTargetInSmootheningArea? Color.green : Color.red;
+        Color color = _isTargetInSmoothingArea? Color.green : Color.red;
         Gizmos.color = color;
-        Gizmos.DrawWireCube(SmootheningAreaPosition, _smootheningAreaSize);
+        Gizmos.DrawWireCube(SmoothingAreaPosition, _smoothingAreaSize);
        
         // Draw the gizmos text
         GUIStyle style = new GUIStyle();
-        Vector3 textPosition = SmootheningAreaPosition;
+        Vector3 textPosition = SmoothingAreaPosition;
         textPosition.z = transform.position.z;
-        textPosition.y += _smootheningAreaSize.y/2 + _smootheningAreaOffset.y + 0.25f;
+        textPosition.y += _smoothingAreaSize.y/2 + _smoothingAreaOffset.y + 0.25f;
         style.normal.textColor = color;
         style.alignment = TextAnchor.MiddleCenter;
-        Handles.Label(textPosition, "Camera SmootheningArea", style);      
+        Handles.Label(textPosition, "Camera SmoothingArea", style);      
         
     }
     
