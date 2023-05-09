@@ -98,11 +98,12 @@ This is simply a quick movement in the X-axis direction. During the dash, gravit
 **FLUID JUMP** <br>
 The jump system consists of two parts: a variable height system that allows the player to jump higher while pressing `SPACE`,
 and a jump buffer that casts a straight line towards the ground to store a jump input if the line hits the ground. <br>
-This buffer is useful for making sequential jumps easier.
+This buffer is useful for making sequential jumps easier. <br>
+the jump system is highly customizable and allow us to set any length to the buffer and duration to the coyote time.
 
 **SNAPPY JUMP** <br>
-The jump system allows for different gravity scales for each phase of the jump, leading the player to fall quicker than it rises,
-resulting in a snappier jump, or what we call an anti-floaty jump.
+The jump system allows for different gravity scales to be set for each phase of the jump, leading the player to fall quicker than it rises,
+resulting in a snappier jump, or what we call an anti-floaty jump. <br>
 
 **ARM SWITCH** <br>
 The player can switch between the current arm by hitting `E` (between the crossbowArm and the sawArm).
@@ -115,7 +116,7 @@ Once it hits a target, the projectile disappears and cannot inflict damage anymo
 **MELEE COMBAT** <br>
 The player can strike with a saw towards the mouse position by clicking on `MB1`. <br>
 This strike has a small area of effect, which deals ":warning: not decided yet, but is bigger than the arrow :warning:" damage to any hit enemy in this area. <br>
-In contrast with the arrow, it doesn't desappear when it hits an enemy, just when its timer ends, what makes it a good tool for crowd control.
+In contrast with the arrow, it doesn't disappear when it hits an enemy, just when its timer ends, what makes it a good tool for crowd control.
 
 **WEREWOLF MODE** <br>
 The player becomes a werewolf while fighting against Dracula in final battle at the top of the Dracula's castle. <br>
@@ -126,7 +127,7 @@ until the fight state arrives, where finally the player can become a werewolf an
 :warning: The werewolf combat mechanics have not been decided yet. :warning:
 
 **COOLDOWN** <br>
-Weapons and abilities have their own cooldown timers(countdown), those are indicated on the GUI by a progress bar for each weapon/abilitiy.
+Weapons and abilities have their own cooldown timers(countdown), those are indicated on the GUI by a progress bar for each weapon/ability.
 
 
 
@@ -139,6 +140,12 @@ Weapons and abilities have their own cooldown timers(countdown), those are indic
 
 
 ## CAMERA
+The game camera uses a system called SmoothSpringCamara, which is a hybrid and highly customizable implementation of a Camera Controller. <br>
+There is a square-shaped area referred to as the smoothing box. While the player is inside this box, 
+the camera will behave with a somewhat standard Lerp behavior, whereas when the player is outside, 
+the camera will stop smoothing and start to chase the player at a constant speed called catchSpeed until the smoothing box catches up with the player again. <br>
+This hybrid implementation is crucial to ensure the player never gets out of the camera's view. <br>
+The system provides smooth transitions between camera behaviors, and the catchSpeed can be adjusted for different kinds of situations.
 
 
 
@@ -147,7 +154,6 @@ Weapons and abilities have their own cooldown timers(countdown), those are indic
 <br>
 <br>
 <br>
-
 
 
 
@@ -157,7 +163,7 @@ For now we have only 2 levels planned, more can be added in the future, the movi
 
 **FIRST LEVEL** <br>
 It's inspired in the battle of Van Helsing against the three Dracula's brides, Verona, Aleera and Marishka, as in the movie it played in the village next to Frankenstein's castle,
-the player will play through the viallage until he encounters the brides, then a triple boss battle begins.
+the player will play through the village until he encounters the brides, then a triple boss battle begins.
 
 **SECOND LEVEL** <br>
 This level is based on the last battle of the movie where Van Helsing faces Dracula at his castle, it's a vertical level just like in the movie, this fight is placed on a tower.
@@ -244,6 +250,7 @@ A clean GUI helps the player focus on gameplay, although we won’t discard the 
 | JNeto | 8-may-2023 | Target audience updated                      |
 | JNeto | 8-may-2023 | Mechanics overview added to Gameplay section |
 | JNeto | 8-may-2023 | Mechanics details added to Gameplay section  |
+| JNeto | 9-may-2023 | Camera section added                         |
 
 
 
