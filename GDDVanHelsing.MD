@@ -140,7 +140,7 @@ the camera will stop smoothing and start to chase the player at a constant speed
 This hybrid implementation is crucial to ensure the player never gets out of the camera's view. <br>
 The system provides smooth transitions between camera behaviors, and the catchSpeed can be adjusted for different kinds of situations.
 
-
+![Alt Text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDhjNzQ5ZTU0YjFjYmU4YjZhY2ViOTMyZTUzNDhhYWRiNTA5MzFkNiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/CjJWxND1tYLuD1HNcQ/giphy.gif)
 
 <br>
 <hr>
@@ -229,7 +229,7 @@ A clean GUI helps the player focus on gameplay, although we won’t discard the 
 | JNeto | 8-may-2023 | Mechanics details added to Gameplay section  |
 | JNeto | 9-may-2023 | Camera section added                         |
 | JNeto | 9-may-2023 | Line separators added                        |
-
+| JNeto | 9-may-2023 | Camera gifadded                              |
 
 
 
