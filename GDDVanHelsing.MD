@@ -238,11 +238,14 @@ A clean GUI helps the player focus on gameplay, although we won’t discard the 
 
 ## CHANGELOG
 
-| Name        | Date        | Description                                       |
-| ----------- | ----------- | ------------------------------------------------- |
-| JNeto       | 8-may-2023  | Movie Synopsis added                              |
-| JNeto       | 8-may-2023  | Target audience updateed                          |
-| JNeto       | 8-may-2023  | Mechanics overview added to Gameplay section      |
+| Name  | Date       | Description                                  |
+|-------|------------|----------------------------------------------|
+| JNeto | 8-may-2023 | Movie Synopsis added                         |
+| JNeto | 8-may-2023 | Target audience updated                      |
+| JNeto | 8-may-2023 | Mechanics overview added to Gameplay section |
+| JNeto | 8-may-2023 | Mechanics details added to Gameplay section  |
+
+
 
 
 <br>
