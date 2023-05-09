@@ -83,7 +83,8 @@ This game is also meant to have some melee combat, they are dangerous strikes bu
 
 **WALK/RUN MECHANIC** <br>
 There are two different kinds of movement speed, walk or run. <br>
-The player can lock the speed to walk speed by pressing `Q`, then the character will move slowly.
+The player can lock the speed to walk speed by pressing `Q`, then the character will move slowly. <br>
+The `A`, `D`, `<-` and `->` keys are used in order to change the movement direction.
 
 **DASH** <br>
 The player can initiate a dash by pressing `SHIFT`. <br>
