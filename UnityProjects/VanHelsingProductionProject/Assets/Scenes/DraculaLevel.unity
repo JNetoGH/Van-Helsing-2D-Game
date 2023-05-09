@@ -4736,7 +4736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7285411743873478495, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7285411743873478495, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5430,7 +5430,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049780405
 GameObject:
@@ -5469,7 +5469,7 @@ Transform:
   - {fileID: 632947998}
   - {fileID: 82071617}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2053944004
 GameObject:
@@ -16266,10 +16266,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VanHelsing
       objectReference: {fileID: 0}
-    - target: {fileID: 6258850253062367960, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -16394,7 +16390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3876799320300711291, guid: 638c5f64f5dc86b49b1f9f03df5fa30d, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3876799320300711291, guid: 638c5f64f5dc86b49b1f9f03df5fa30d, type: 3}
       propertyPath: m_LocalPosition.x
