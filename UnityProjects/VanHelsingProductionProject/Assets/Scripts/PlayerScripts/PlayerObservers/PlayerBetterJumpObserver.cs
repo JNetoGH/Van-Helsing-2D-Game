@@ -52,13 +52,13 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
             _coyoteTimeCountDownTimer = _coyoteTimeDurationInSeconds;
         _wasGroundedLastFrame = playerController.IsGrounded;
         
-        // Updates the jump buffering
+        // Updates the jump buffering, cant buffer while jumping in order to avoid the player to hit jump twice and jump with another jump already befferd
         if (_useJumpBuffer)
         {
             bool hasBufferCollided = CheckJumpBufferCollision();
             if (!hasBufferCollided)
                 _hasJumpBuffered = false;
-            else if (HasPlayerPressedJumpedFrame && !_hasJumpBuffered)
+            else if (HasPlayerPressedJumpedFrame && !_hasJumpBuffered && ! playerController.IsJumping)
                 _hasJumpBuffered = true;
         }
         else _hasJumpBuffered = false;
