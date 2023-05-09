@@ -92,7 +92,7 @@ This is simply a quick movement in the X-axis direction. During the dash, gravit
 
 **FLUID JUMP** <br>
 The jump system consists of two parts: a variable height system that allows the player to jump higher while pressing `SPACE`,
-and a jump buffer that casts a straight line towards the ground to store a jump input if the line hits the ground. <br>
+and a jump buffer that casts a straight line towards the ground to store a jump input if the line hits the ground while the player is falling. <br>
 This buffer is useful for making sequential jumps easier. <br>
 the jump system is highly customizable and allow us to set any length to the buffer and duration to the coyote time.
 
