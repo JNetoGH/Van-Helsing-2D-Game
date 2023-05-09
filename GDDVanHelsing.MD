@@ -41,11 +41,8 @@ The target platform this project will be idealized will be Desktop Windows but d
 there will always be a possibility that we might make console versions.
 
 **UNIQUE SELLING POINTS**
-* Boss Fights
-* Side Scroller
-* Platforms
-* Variety Combat/Movement Mechanics and Playstyles
-* Experiencing first hand iconic battles from the Van Helsing Movie
+* Experience first hand the iconic boss battles from the 2004 Van Helsing Title;
+* Engage with the fluid movement and combat systems in this side-scrolling platformer;
 
 
 
@@ -174,8 +171,40 @@ At the top the player will encounter the final battle against Dracula. <br>
 
 
 ## ENEMIES
+We have planned 5 different enemy entities all based on existing characters from the movie. Their current health points value are not permanent.
 
+**MINI DRACULA**  
+This is a basic flying enemy, ment to pressure and deny playing area to the player.  
+Currently it tracks and follows the player after a set time after spawning, but it's behaviour might change.  
+  
+Health Points : 3  
 
+![Screenshot 2023-03-26 200453.png](Art%2FConcepts%2FMini%20Dracula%2FScreenshot%202023-03-26%20200453.png)
+  
+**DRACULA**  
+This will be the final boss.  
+As of now, it only moves side to side and it's attack moves will be added later.  
+  
+Health Points : 20  
+  
+![Dracula.png](Art%2FConcepts%2FDracula%2FDracula.png)  
+  
+**DWERGI**  
+This is a basic ground enemy, intended to be able to swarm the player in numbers.  
+Currently it stays idle until the player gets close, which makes it charge at the player. The current iteration has some design flaws.  
+  
+Health Points : 2  
+  
+![Screenshot_3.png](Art%2FConcepts%2FDwergi%2FScreenshot_3.png)  
+  
+**DRACULA'S BRIDES**  
+This duo will be the first boss encounter.  
+No assets or game objects have been made yet.
+
+**COCOON**  
+This is a stationary enemy structure.  
+The idea is to spawn mini draculas if the player gets too close without destroying it.  
+No assets or game objects have been made yet.
 
 <br>
 <hr>
@@ -218,7 +247,8 @@ The games follows a medieval victorian dark style so the Game User Interface wil
 we want to maximize the information the player can have at their disposal without cluttering the screen and interfering with gameplay.
 For this reason we firstly intend to move most of the information of the Game User Interface information to the bottom side of the player’s screen as some levels have a vertical scrolling direction.
 A clean GUI helps the player focus on gameplay, although we won’t discard the beauty factor when creating these.
-
+  
+![Untitled.jpg](Art%2FGUI%2FScreenShot%2FUntitled.jpg)
 
 <br>
 <hr>
@@ -238,7 +268,8 @@ A clean GUI helps the player focus on gameplay, although we won’t discard the 
 | JNeto | 9-may-2023 | Line separators added                        |
 | JNeto | 9-may-2023 | Camera gif added                             |
 | JNeto | 9-may-2023 | Levels Section updated                       |
-
+| DMendes| 9-may-2023| Unique selling points updated                |
+| DMendes| 9-may-2023| Enemy section added                          |
 
 
 <br>
