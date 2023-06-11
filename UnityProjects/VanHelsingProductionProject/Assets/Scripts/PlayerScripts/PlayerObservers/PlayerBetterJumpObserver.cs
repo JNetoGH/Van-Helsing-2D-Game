@@ -42,9 +42,11 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
     
     // Jump buffer fields
     private Vector2 JumpBufferLineStart => new Vector2(
-        transform.position.x + _jumpBufferLineOffset.x, 
-        transform.position.y + _jumpBufferLineOffset.y);
-    private Vector2 JumpBufferLineEnd => new Vector2(JumpBufferLineStart.x, JumpBufferLineStart.y - _jumpBufferLineLength);
+        x: transform.position.x + _jumpBufferLineOffset.x, 
+        y: transform.position.y + _jumpBufferLineOffset.y);
+    private Vector2 JumpBufferLineEnd => new Vector2(
+        x: JumpBufferLineStart.x, 
+        y: JumpBufferLineStart.y - _jumpBufferLineLength);
     private bool _hasJumpBuffered = false;
 
     // Dust effect fields
@@ -67,7 +69,6 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
             // Debug.Log($"Landing Min {_ladingEffectMinVelocityInY} | Last {_lastVelocityInYWhileFalling}");
             InstantiateEffect(_ladingEffect, _landingEffectPosition.position);
         }
-        
         
         // Updating _coyoteTimeCountDownTimer
         _coyoteTimeCountDownTimer -= Time.deltaTime;
@@ -121,8 +122,7 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
             // updating for landing effect
             _lastVelocityInYWhileFalling = _rigidbody.velocity.y;
         }
-        
-       
+
     }
 
     private bool CheckJumpBufferCollision()

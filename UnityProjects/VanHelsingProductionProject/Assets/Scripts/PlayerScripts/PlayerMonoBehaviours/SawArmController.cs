@@ -4,13 +4,20 @@ using UnityEngine;
 public class SawArmController : MonoBehaviour
 {
     
+    // Updated by the arms handler 
+    // - Required to be out of the arm controller because they're deactivated whe switched
+    // - If implemented here the cooldown will get stuck until the Arm is activate again.
+    public float AtkCooldownTimer { get; internal set; } = 0;
+   
+    // Same as above but I added a bit of encapsulation as well
     [SerializeField] private float _attackCooldownDuration = 0.5f;
+    public float AttackCooldownDuration => _attackCooldownDuration;
+    
+    // Area of Effect DMG
     [SerializeField] private GameObject _sawAreaOfEffect;
     [SerializeField] private Transform _areaOfEffectInstantiationPoint;
-    private float _atkCoolDownTimer = 0;
-    public float AttackCooldownDuration => _attackCooldownDuration;
-    public float AtkCoolDownTimer => _atkCoolDownTimer;
     
+    // Others
     private PlayerController _playerController;
     private Animator _sawArmAnimator;
     private static readonly int ShootAnimatorParameter = Animator.StringToHash("melee");
@@ -23,11 +30,6 @@ public class SawArmController : MonoBehaviour
 
     private void Update()
     {
-        _atkCoolDownTimer -= Time.deltaTime;
-        // needs to be zero in order to sync with the GUI slider
-        if (_atkCoolDownTimer < 0)
-            _atkCoolDownTimer = 0;
-        
         // cant shoot while dashing
         bool hasShot = Input.GetButtonDown("Shoot") && !_playerController.IsDashing;
         if(hasShot) 
@@ -36,7 +38,11 @@ public class SawArmController : MonoBehaviour
     
     private void TryAtk()
     {
-        if (!(_atkCoolDownTimer <= 0)) return;
+        // Method's gateway validation
+        if (!(AtkCooldownTimer <= 0)) 
+            return;
+       
+        // Animator
         _sawArmAnimator.SetTrigger(ShootAnimatorParameter);
         
         // AoE Instantiation
@@ -54,14 +60,12 @@ public class SawArmController : MonoBehaviour
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         AoE.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         
-        // sets the sprite flip to match
+        // AoE sprite flip 
         if (_playerController.CurrentFacingDirection == FacingDirection.Left)
             AoE.GetComponent<SpriteRenderer>().flipY = true;
-        
-        // Cooldown Reset
-        _atkCoolDownTimer = _attackCooldownDuration;
-    }
 
-    public void ResetCoolDown() => _atkCoolDownTimer = 0;
+        // Arm Cooldown Reset
+        AtkCooldownTimer = _attackCooldownDuration;
+    }
     
 }

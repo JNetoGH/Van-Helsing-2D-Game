@@ -24,8 +24,8 @@ public class CooldownSyncer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _crossbowCooldownSlider.value = _crossbowArmController.ShotCoolDownTimer;
-        _sawCooldownSlider.value = _sawArmController.AtkCoolDownTimer;
+        _crossbowCooldownSlider.value = _crossbowArmController.ShotCooldownTimer;
+        _sawCooldownSlider.value = _sawArmController.AtkCooldownTimer;
         _dashCooldownSlider.value = _playerController.DashCooldownTimer;
     }
     

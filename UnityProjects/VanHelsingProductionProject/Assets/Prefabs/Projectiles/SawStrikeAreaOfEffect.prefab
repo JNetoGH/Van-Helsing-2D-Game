@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3029215954078957995}
   - component: {fileID: 1667726309415383587}
-  - component: {fileID: 6206193771451570026}
   - component: {fileID: 2351663694425620426}
   - component: {fileID: 8726640278030047135}
   - component: {fileID: 7697930598895423536}
@@ -90,19 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6206193771451570026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8473264909764417047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341b680a4fa17e745bddca975a887110, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 3
 --- !u!114 &2351663694425620426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e104f1f6bf4cd3a2811647b50a6cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSpeed: 3
   _damage: 3
+  _disappearWhenEnemyHit: 0
 --- !u!95 &7697930598895423536
 Animator:
   serializedVersion: 5

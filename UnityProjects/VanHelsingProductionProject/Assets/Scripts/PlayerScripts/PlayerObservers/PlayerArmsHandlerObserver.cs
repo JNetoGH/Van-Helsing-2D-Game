@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class PlayerArmsHandlerObserver : MonoBehaviour, IPlayerObserver
 {
-
+    
+    // Switch System
     [Header("Arm Switching System")]
     [SerializeField] private ArmState _currentArmState = ArmState.Saw;
     [SerializeField] private GameObject _crossbowArm;
     [SerializeField] private GameObject _sawArm;
-    
     private GameObject _currentArm;
     private readonly Dictionary<ArmState, GameObject> _armStateAndArmGameObject = new();
+    
+    // Arm controllers
     private SawArmController _sawArmController;
     private CrossbowArmController _crossbowArmController;
     
@@ -30,6 +32,7 @@ public class PlayerArmsHandlerObserver : MonoBehaviour, IPlayerObserver
         if (Input.GetButtonDown("ChangeArm"))
             SwitchArms();
         RotateArmAccordingToMousePos(playerController);
+        UpdateCooldown();
     }
     
     private void SwitchArms()
@@ -42,9 +45,6 @@ public class PlayerArmsHandlerObserver : MonoBehaviour, IPlayerObserver
         // Changes the _currentArmState
         _currentArmState = newState;
         
-        // Also makes sure to reset the cooldown before Updating enabling the arm , it's required, otherwise the Gui gets Stuck
-        ResetAllCooldowns();
-        
         // Updates the dictionary and sets the _currentArm based on it
         foreach (ArmState key in _armStateAndArmGameObject.Keys)
         {
@@ -53,14 +53,6 @@ public class PlayerArmsHandlerObserver : MonoBehaviour, IPlayerObserver
                 _currentArm = _armStateAndArmGameObject[key];
         }
     }
-
-
-    private void ResetAllCooldowns()
-    {
-        _crossbowArmController.ResetCoolDown();
-        _sawArmController.ResetCoolDown();
-    }
-    
     
     private void RotateArmAccordingToMousePos(PlayerController playerController)
     {
@@ -73,5 +65,18 @@ public class PlayerArmsHandlerObserver : MonoBehaviour, IPlayerObserver
             case FacingDirection.Left:  _currentArm.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 180); break;
         }
     }
+    
+    private void UpdateCooldown()
+    {
+        // Updates the arms timer: required to be out oof the arm controller because they're deactivated whe switched
+        _sawArmController.AtkCooldownTimer -= Time.deltaTime;
+        _crossbowArmController.ShotCooldownTimer -= Time.deltaTime;
 
+        // Keeps the min cooldown at 0: has to be zero in order to sync with the GUI slider goes from Duration to 0
+        if (_sawArmController.AtkCooldownTimer < 0)
+            _sawArmController.AtkCooldownTimer = 0;
+        if (_crossbowArmController.ShotCooldownTimer < 0)
+            _crossbowArmController.ShotCooldownTimer = 0;
+    }
+    
 }

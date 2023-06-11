@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class DamageReciever : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     
     [Header("HP System")]
@@ -16,10 +16,10 @@ public class DamageReciever : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        // checks if its trigger has collided with a game object that carries a DamageDealer
-        if (col.gameObject.GetComponent<DamageDealer>() is null)
+        // checks if its trigger has collided with a game object that carries a Projectile
+        if (col.gameObject.GetComponent<Projectile>() is null)
             return;
-        col.gameObject.GetComponent<DamageDealer>().InflictDamageToReceiver(this);
+        col.gameObject.GetComponent<Projectile>().InflictDamageToEnemy(this);
         ExecuteDmgEffect();
     }
 
