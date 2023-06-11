@@ -4,8 +4,8 @@ using UnityEngine.Serialization;
 
 public class CooldownMsgController : MonoBehaviour
 {
-
     
+    [SerializeField] private GameObject _cooldownMsgPrefab;
     [SerializeField] private float _lifeTime = 1;
     
     [Header("Ascending Animation")]
@@ -51,6 +51,14 @@ public class CooldownMsgController : MonoBehaviour
         var currColor = _textMesh.color;
         currColor.a -= _disappearingSpeed * Time.deltaTime;
         _textMesh.color = currColor;
+    }
+
+    public void InstantiateCooldownMsg(Vector3 worldPos)
+    {
+        var msg = Instantiate(_cooldownMsgPrefab, GameObject.Find("Canvas").transform);
+        Vector3 instantiationPos = Camera.main.WorldToScreenPoint(worldPos);
+        instantiationPos.z = 0;
+        msg.GetComponent<RectTransform>().position = instantiationPos;
     }
     
 }

@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     private float _dashCooldownTimer = 0;
     public float DashCooldownInSec => _dashCooldownInSec;
     public float DashCooldownTimer => _dashCooldownTimer;
+    
+    [Header("Dash Cooldown Msg")]
+    [SerializeField] private CooldownMsgController _cooldownMsgController;
+    [SerializeField] private Transform _cooldownMsgInstantiationWorldPos;
 
     public float InputX => Input.GetAxis("Horizontal");
     public bool IsJumping => _rb.velocity.y > 0;
@@ -97,10 +101,18 @@ public class PlayerController : MonoBehaviour
         // check dashing input, cant dash again while already dashing
         if (!IsDashing)
         {
+            // Cooldown Msg that appears when the player tries to dash but the cool down hasn't finished
+            if (Input.GetButtonDown("Dash") && !hasFinishedCooldown)
+            {
+                var msgPos = _cooldownMsgInstantiationWorldPos.transform.position;
+                _cooldownMsgController.InstantiateCooldownMsg(msgPos);
+            }
+            
+            // Updates is Dashing
             IsDashing = Input.GetButtonDown("Dash") && hasFinishedCooldown;
+            
             // inits the cooldown timer to the next dash, in case of a valid input to a dash
-            if (IsDashing)
-                _dashCooldownTimer = _dashCooldownInSec;
+            if (IsDashing) _dashCooldownTimer = _dashCooldownInSec;
         }
         
         if (IsDashing)

@@ -18,9 +18,8 @@ public class SawArmController : MonoBehaviour
     [SerializeField] private GameObject _sawAreaOfEffect;
     [SerializeField] private Transform _areaOfEffectInstantiationPoint;
     
-    [Header("Cooldown Msg")]
-    [SerializeField] private GameObject _canvas;
-    [SerializeField] private GameObject _cooldownMsg;
+    [Header("Saw Cooldown Msg")]
+    [SerializeField] private CooldownMsgController _cooldownMsgController;
     [SerializeField] private Transform _cooldownMsgInstantiationWorldPos;
     
     // Others
@@ -47,7 +46,8 @@ public class SawArmController : MonoBehaviour
         // Method's gateway validation
         if (!(AtkCooldownTimer <= 0))
         {
-            InstantiateCooldownMsg();
+            var msgPos = _cooldownMsgInstantiationWorldPos.transform.position;
+            _cooldownMsgController.InstantiateCooldownMsg(msgPos);
             return;
         }
 
@@ -75,14 +75,6 @@ public class SawArmController : MonoBehaviour
 
         // Arm Cooldown Reset
         AtkCooldownTimer = _attackCooldownDuration;
-    }
-
-    private void InstantiateCooldownMsg()
-    {
-        GameObject msg = Instantiate(_cooldownMsg, _canvas.transform);
-        Vector3 instantiationPos = Camera.main.WorldToScreenPoint(_cooldownMsgInstantiationWorldPos.position);
-        instantiationPos.z = 0;
-        msg.GetComponent<RectTransform>().position = instantiationPos;
     }
     
 }

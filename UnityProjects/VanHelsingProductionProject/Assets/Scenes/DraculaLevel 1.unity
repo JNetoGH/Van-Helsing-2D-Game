@@ -17280,6 +17280,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7172918464432343951, guid: fb34fd1708d1db44b97c47690d2cdeaa, type: 3}
     - target: {fileID: 3004604959831414123, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: _cooldownMsgController
+      value: 
+      objectReference: {fileID: 7172918464432343952, guid: fb34fd1708d1db44b97c47690d2cdeaa, type: 3}
+    - target: {fileID: 3004604959831414123, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: _cooldownMsgInstantiationWorldPos
       value: 
       objectReference: {fileID: 933542761}
@@ -17335,6 +17339,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6258850253062367962, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: _cooldownMsgController
+      value: 
+      objectReference: {fileID: 7172918464432343952, guid: fb34fd1708d1db44b97c47690d2cdeaa, type: 3}
+    - target: {fileID: 6258850253062367962, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: _cooldownMsgInstantiationWorldPos
+      value: 
+      objectReference: {fileID: 933542761}
     - target: {fileID: 6578560779131017300, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
