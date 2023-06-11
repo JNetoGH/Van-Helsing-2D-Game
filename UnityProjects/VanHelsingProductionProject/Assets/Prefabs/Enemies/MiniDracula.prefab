@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flySpeed: 2
-  _idleDurationInSecs: 3
+  _idleDurationInSecs: 1.5
 --- !u!114 &88480600271042289
 MonoBehaviour:
   m_ObjectHideFlags: 0
