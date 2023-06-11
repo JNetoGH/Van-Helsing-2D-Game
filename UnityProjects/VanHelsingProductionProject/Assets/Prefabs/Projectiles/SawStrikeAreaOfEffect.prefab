@@ -114,9 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e104f1f6bf4cd3a2811647b50a6cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 3
+  _moveSpeed: 5
   _damage: 3
   _disappearWhenEnemyHit: 0
+  _showHitEffect: 0
+  _hitEffect: {fileID: 0}
 --- !u!95 &7697930598895423536
 Animator:
   serializedVersion: 5

@@ -76,7 +76,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.25
-    functionName: DestroyDust
+    functionName: DestroyEffect
     data: 
     objectReferenceParameter: {fileID: 8935918012585647707, guid: 4a4123fbc8b39d441868897a71d2b2b1, type: 3}
     floatParameter: 0

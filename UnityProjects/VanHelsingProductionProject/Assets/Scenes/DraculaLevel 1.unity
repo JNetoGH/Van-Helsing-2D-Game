@@ -4609,7 +4609,7 @@ GameObject:
   - component: {fileID: 1378384366}
   - component: {fileID: 1378384365}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextTest Scene Warning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17159,6 +17159,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.124
       objectReference: {fileID: 0}
+    - target: {fileID: 3004604959831414123, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: _sawAreaOfEffect
+      value: 
+      objectReference: {fileID: 8473264909764417047, guid: 1dd959e2e14e4804cab482c7ec1fedf8, type: 3}
     - target: {fileID: 3004604959831414123, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: _attackCooldownDuration
       value: 2

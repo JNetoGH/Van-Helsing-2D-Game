@@ -117,6 +117,8 @@ MonoBehaviour:
   _moveSpeed: 15
   _damage: 1
   _disappearWhenEnemyHit: 1
+  _showHitEffect: 1
+  _hitEffect: {fileID: 1974423257552651517, guid: cdaa582052307f64eb2d1ee268e8ee8b, type: 3}
 --- !u!50 &1750059485466825830
 Rigidbody2D:
   serializedVersion: 4
