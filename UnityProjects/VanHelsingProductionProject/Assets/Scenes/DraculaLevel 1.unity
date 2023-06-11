@@ -2867,11 +2867,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91b6a4d46e3306444ad41acd52de45fb, type: 3}
---- !u!4 &933542761 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6578560779131017300, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-  m_PrefabInstance: {fileID: 3004604960095430372}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &949248189
 GameObject:
   m_ObjectHideFlags: 0
@@ -17271,26 +17266,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3004604959831414123, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _canvas
-      value: 
-      objectReference: {fileID: 1303908162}
-    - target: {fileID: 3004604959831414123, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _cooldownMsg
-      value: 
-      objectReference: {fileID: 7172918464432343951, guid: fb34fd1708d1db44b97c47690d2cdeaa, type: 3}
-    - target: {fileID: 3004604959831414123, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _cooldownMsgController
-      value: 
-      objectReference: {fileID: 7172918464432343952, guid: fb34fd1708d1db44b97c47690d2cdeaa, type: 3}
-    - target: {fileID: 3004604959831414123, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _cooldownMsgInstantiationWorldPos
-      value: 
-      objectReference: {fileID: 933542761}
-    - target: {fileID: 3004604959831414123, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _cooldownMsgInstantiationPointInWorldPos
-      value: 
-      objectReference: {fileID: 933542761}
     - target: {fileID: 6258850253062367960, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_Name
       value: VanHelsing
@@ -17301,11 +17276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.15
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.42
+      value: -2.05
       objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17338,22 +17313,6 @@ PrefabInstance:
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6258850253062367962, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _cooldownMsgController
-      value: 
-      objectReference: {fileID: 7172918464432343952, guid: fb34fd1708d1db44b97c47690d2cdeaa, type: 3}
-    - target: {fileID: 6258850253062367962, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: _cooldownMsgInstantiationWorldPos
-      value: 
-      objectReference: {fileID: 933542761}
-    - target: {fileID: 6578560779131017300, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 6578560779131017300, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.61
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
