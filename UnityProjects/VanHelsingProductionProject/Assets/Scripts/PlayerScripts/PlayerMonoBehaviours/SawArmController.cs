@@ -1,5 +1,6 @@
 using PlayerScripts.Enums;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SawArmController : MonoBehaviour
 {
@@ -13,9 +14,14 @@ public class SawArmController : MonoBehaviour
     [SerializeField] private float _attackCooldownDuration = 0.5f;
     public float AttackCooldownDuration => _attackCooldownDuration;
     
-    // Area of Effect DMG
+    [Header("Area of Effect DMG")]
     [SerializeField] private GameObject _sawAreaOfEffect;
     [SerializeField] private Transform _areaOfEffectInstantiationPoint;
+    
+    [Header("Cooldown Msg")]
+    [SerializeField] private GameObject _canvas;
+    [SerializeField] private GameObject _cooldownMsg;
+    [SerializeField] private Transform _cooldownMsgInstantiationWorldPos;
     
     // Others
     private PlayerController _playerController;
@@ -39,9 +45,12 @@ public class SawArmController : MonoBehaviour
     private void TryAtk()
     {
         // Method's gateway validation
-        if (!(AtkCooldownTimer <= 0)) 
+        if (!(AtkCooldownTimer <= 0))
+        {
+            InstantiateCooldownMsg();
             return;
-       
+        }
+
         // Animator
         _sawArmAnimator.SetTrigger(ShootAnimatorParameter);
         
@@ -66,6 +75,14 @@ public class SawArmController : MonoBehaviour
 
         // Arm Cooldown Reset
         AtkCooldownTimer = _attackCooldownDuration;
+    }
+
+    private void InstantiateCooldownMsg()
+    {
+        GameObject msg = Instantiate(_cooldownMsg, _canvas.transform);
+        Vector3 instantiationPos = Camera.main.WorldToScreenPoint(_cooldownMsgInstantiationWorldPos.position);
+        instantiationPos.z = 0;
+        msg.GetComponent<RectTransform>().position = instantiationPos;
     }
     
 }
