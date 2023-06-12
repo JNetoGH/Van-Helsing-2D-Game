@@ -47,14 +47,21 @@ public class SmoothSpringCamera : MonoBehaviour
             _isTargetInSmoothingArea = IsPointInsideSquare(_target.position, SmoothingAreaPosition, _smoothingAreaSize);
         
         Vector3 targetPosition = _target.position - new Vector3(_offsetFromTarget.x, _offsetFromTarget.y, 0);
-        Vector3 newPosition = transform.position;
-        Vector3 error = targetPosition - newPosition;
+        Vector3 error = targetPosition - transform.position;
+        Vector3 newPosition = Vector3.zero;
         
         // if the target is out of the smoothening area, it wont smooth it in order to prevent it from escaping the area
         if (_isTargetInSmoothingArea || !_useSmoothingArea)
             newPosition = Vector3.Lerp(transform.position, targetPosition, _cameraSpeed * Time.deltaTime);
         else
             newPosition = transform.position + error.normalized * _cameraCatchingSpeed * Time.deltaTime;
+        
+        // Increments Limits Treatment, too small increments can lead to weird images
+        Vector3 increment = newPosition - transform.position;
+        if (Mathf.Abs(increment.x) < _minimumIncrement.x) increment.x = 0;
+        if (Mathf.Abs(increment.y) < _minimumIncrement.y) increment.y = 0;
+        newPosition = transform.position;
+        newPosition += increment;
         
         // Increment Post-Treatment: uses the user configuration
         if (!_smoothFollowInX) newPosition.x = targetPosition.x;
