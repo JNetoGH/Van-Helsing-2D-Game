@@ -17,7 +17,7 @@ public class FirstFloorManager : MonoBehaviour, IFloorManager
     [SerializeField] private float _levelWaitingDuration = 3.5f;
     private float _timer;
     
-    public void RespawnPlayer()
+    public void OnPlayerDead()
     {
         
     }
