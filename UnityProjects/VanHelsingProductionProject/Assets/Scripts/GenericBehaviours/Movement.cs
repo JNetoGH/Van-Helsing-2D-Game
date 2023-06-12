@@ -1,42 +1,56 @@
 ﻿using UnityEngine;
-
-public enum KindOfMovement 
-{
-    Continuous,
-    Loop,
-    Once
-}
+using UnityEngine.Serialization;
 
 public class Movement : MonoBehaviour 
 {
-    
-    [SerializeField] private float _durationInSec = 3.2f;
-    [SerializeField] private float _speed = 2;
-    [SerializeField] private KindOfMovement _kindOfMovement = KindOfMovement.Continuous;
-    [SerializeField] private Vector2 _moveDirection = new Vector2(1, 0);
 
-    private float _moveTimer = 0;
-
-    private void Start() 
+    private enum TypeOfMovement
     {
-        if (_moveDirection.magnitude != 0)
-            _moveDirection = _moveDirection.normalized;
-    }
-
-    private void Move()
-    {
-        if (_durationInSec <= _moveTimer && _kindOfMovement != KindOfMovement.Continuous)
-        {
-            if (_kindOfMovement != KindOfMovement.Loop) 
-                return;
-            _moveTimer = 0;
-            _moveDirection.x *= -1;
-            _moveDirection.y *= -1;
-        }
-        _moveTimer += Time.deltaTime;
-        transform.Translate(_moveDirection * (_speed * Time.deltaTime));
+        Continuous,
+        Once
     }
     
-    void Update() => Move();    
+    private enum TargetPoint
+    {
+        PointA,
+        PointB
+    }
     
+    [SerializeField] private TypeOfMovement _typeOfMovement;
+    [SerializeField] private TargetPoint _targetPointWrapper;
+    [SerializeField] private float _speed = 3.2f;
+    [SerializeField] private Vector3 _pointA;
+    [SerializeField] private Vector3 _pointB;
+    private Vector3 _targetPoint;
+    
+    private void Start()
+    {
+        transform.position = _targetPointWrapper == TargetPoint.PointA ? _pointB : _pointA;
+    }
+
+    private void Update()
+    {
+        _targetPoint = _targetPointWrapper == TargetPoint.PointA ? _pointA : _pointB;
+        
+        transform.position = Vector3.MoveTowards(
+            transform.position, 
+            _targetPoint,
+            _speed * Time.deltaTime);
+        
+        // Continuous Movement Checker
+        if (_typeOfMovement != TypeOfMovement.Continuous)
+            return;
+            
+        // Switches the current target
+        if (transform.position == _targetPoint)
+            _targetPointWrapper = _targetPointWrapper == TargetPoint.PointA ? TargetPoint.PointB : TargetPoint.PointA;
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawSphere(_pointA, 0.1f);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawSphere(_pointB, 0.1f);
+    }
 }

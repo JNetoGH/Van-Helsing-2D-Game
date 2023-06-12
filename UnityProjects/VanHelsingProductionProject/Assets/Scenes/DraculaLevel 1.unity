@@ -2803,7 +2803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869235864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.057046, y: 7.475278, z: 16.614305}
+  m_LocalPosition: {x: 0, y: -3.19, z: 16.614305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3975,7 +3975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1204422335}
   m_Layer: 0
-  m_Name: Orda (1)
+  m_Name: Orda2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5611,13 +5611,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1247288578700473326, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247288578700473326, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
+      propertyPath: _pointA.x
+      value: -4.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247288578700473326, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
+      propertyPath: _pointB.x
+      value: 4.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247288578700473326, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
+      propertyPath: _lerpSpeed
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247288578700473326, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
+      propertyPath: _typeOfMovement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7285411743873478464, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_Name
       value: DraculaContainer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285411743873478464, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7285411743873478495, guid: dbafbe14e03b1154fb0e945d0ce5ab70, type: 3}
       propertyPath: m_RootOrder
@@ -6113,15 +6129,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 460870, guid: c0c356ca5fe9b1443b4b8759ed02eb2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.077046
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 460870, guid: c0c356ca5fe9b1443b4b8759ed02eb2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.025278
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 460870, guid: c0c356ca5fe9b1443b4b8759ed02eb2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.614305
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 460870, guid: c0c356ca5fe9b1443b4b8759ed02eb2f, type: 3}
       propertyPath: m_LocalRotation.w
