@@ -20,9 +20,7 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
     [SerializeField] private float _levelWaitingDuration = 1f;
     private float _waitTimer;
 
-    [Header("Finish Sequence Dependencies")] 
-    [SerializeField] private GameObject _pilar1;
-    [SerializeField] private GameObject _pilar2;
+    [Header("Finish Sequence Dependencies")]
     [SerializeField] private GameObject _secondFloorPlatforms;
     private const float SecondFloorPlatformsSpeed = 4;
     
@@ -84,7 +82,6 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
             if (_waitTimer > 0)
             {
                 _playerController.canMove = false;
-                _playerController.gameObject.GetComponent<Animator>().SetBool("IsGrounded", true);
                 return;
             }
             
@@ -102,15 +99,13 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
         if (_hasFinishedSpawning && !_initEndSequence)
         {
             Invoke(nameof(InitEndSequenceCall), StartEndSequenceDelayInSec);
+            Debug.LogWarning("Player finished floor 2");
         }
 
         // Updates the End Sequence
         if (_initEndSequence)
         {
-            // Destroys the pillars once
-            if (_pilar1 is not null) Destroy(_pilar1, 1f);
-            if (_pilar2 is not null) Destroy(_pilar2, 1f);
-
+            // switches the current Virtual Cam
             _cam2.enabled = false;
             _cam3.enabled = true;
             
@@ -121,7 +116,7 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
                 maxDistanceDelta: SecondFloorPlatformsSpeed * Time.deltaTime
             );
             
-            Debug.LogWarning("Player finished floor 2");
+            
         }
     }
 

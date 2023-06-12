@@ -29,6 +29,18 @@ public class CameraSwitcher : MonoBehaviour
         _camB.enabled = true;
         HasSwitched = true;
         
+        // Makes player stop moving at Animator
+        Animator playerAnimator = _playerController.gameObject.GetComponent<Animator>();
+        playerAnimator.SetBool("IsGrounded", true);
+        playerAnimator.SetBool("IsWalking", false);
+        playerAnimator.Play("Idle");
+        
+        // Makes player stop moving at Rigidbody
+        Rigidbody2D playerRigidbody = _playerController.gameObject.GetComponent<Rigidbody2D>();
+        Vector3 curVel = playerRigidbody.velocity;
+        Vector3 newVel = new Vector3(0, curVel.x, 0);
+        playerRigidbody.velocity = newVel;
+        
         // invokes the events
         _onCameraSwitch.Invoke();
     }
