@@ -1,6 +1,5 @@
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 
 // Camera Smooth Spring System: by JNeto
@@ -50,20 +49,12 @@ public class SmoothSpringCamera : MonoBehaviour
         Vector3 targetPosition = _target.position - new Vector3(_offsetFromTarget.x, _offsetFromTarget.y, 0);
         Vector3 newPosition = transform.position;
         Vector3 error = targetPosition - newPosition;
-        Vector3 increment;
         
         // if the target is out of the smoothening area, it wont smooth it in order to prevent it from escaping the area
         if (_isTargetInSmoothingArea || !_useSmoothingArea)
-            increment = error * _cameraSpeed * Mathf.Min(Time.fixedDeltaTime / _cameraSpeed, 1);
+            newPosition = Vector3.Lerp(transform.position, targetPosition, _cameraSpeed * Time.deltaTime);
         else
-            increment = error.normalized * _cameraCatchingSpeed * Time.fixedDeltaTime;
-        
-        // Increments Limits Treatment, too small increments can lead to weird images
-        if (Mathf.Abs(increment.x) < _minimumIncrement.x) increment.x = 0;
-        if (Mathf.Abs(increment.y) < _minimumIncrement.y) increment.y = 0;
-        
-        // Applies the increment to the new postion
-        newPosition += increment;
+            newPosition = transform.position + error.normalized * _cameraCatchingSpeed * Time.deltaTime;
         
         // Increment Post-Treatment: uses the user configuration
         if (!_smoothFollowInX) newPosition.x = targetPosition.x;
@@ -101,8 +92,7 @@ public class SmoothSpringCamera : MonoBehaviour
         textPosition.y += _smoothingAreaSize.y/2 + _smoothingAreaOffset.y + 0.25f;
         style.normal.textColor = color;
         style.alignment = TextAnchor.MiddleCenter;
-        Handles.Label(textPosition, "Camera SmoothingArea", style);      
-        
+        Handles.Label(textPosition, "Camera SmoothingArea", style);
     }
     
 }
