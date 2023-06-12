@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Movement : MonoBehaviour 
 {
@@ -16,6 +15,12 @@ public class Movement : MonoBehaviour
         PointB
     }
     
+    [Header("Waiting Timer Settings")]
+    [SerializeField] private bool _waitBeforeStart = false;
+    [SerializeField] private float _waitingDuration;
+    private float _waitingTimer;
+    
+    [Header("Movement Setting")]
     [SerializeField] private TypeOfMovement _typeOfMovement;
     [SerializeField] private TargetPoint _targetPointWrapper;
     [SerializeField] private float _speed = 3.2f;
@@ -26,12 +31,22 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         transform.position = _targetPointWrapper == TargetPoint.PointA ? _pointB : _pointA;
+        _waitingTimer = _waitingDuration;
     }
 
     private void Update()
     {
-        _targetPoint = _targetPointWrapper == TargetPoint.PointA ? _pointA : _pointB;
+
+        // Waiting Timer
+        if (_waitBeforeStart)
+        {
+            _waitingTimer -= Time.deltaTime;
+            if (_waitingTimer > 0)
+                return;
+        }
         
+        // Movement Itself
+        _targetPoint = _targetPointWrapper == TargetPoint.PointA ? _pointA : _pointB;
         transform.position = Vector3.MoveTowards(
             transform.position, 
             _targetPoint,

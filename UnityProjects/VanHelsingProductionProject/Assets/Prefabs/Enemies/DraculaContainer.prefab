@@ -165,8 +165,8 @@ MonoBehaviour:
   _typeOfMovement: 0
   _targetPointWrapper: 0
   _speed: 2
-  _pointA: {x: -5, y: 13, z: 0}
-  _pointB: {x: 5, y: 13, z: 0}
+  _pointA: {x: -5, y: 33, z: 0}
+  _pointB: {x: 5, y: 33, z: 0}
 --- !u!1 &7285411743894904825
 GameObject:
   m_ObjectHideFlags: 0

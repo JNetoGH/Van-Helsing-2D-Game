@@ -35,8 +35,11 @@ public class CrossbowArmController : MonoBehaviour
     
     private void TryShoot()
     {
-        // Method's gateway validation
+        // Method's gateway validations
         if (!(ShotCooldownTimer <= 0)) 
+            return;
+        
+        if (!_playerController.canMove)
             return;
         
         // arrow is by default facing right --> just like the crossbow

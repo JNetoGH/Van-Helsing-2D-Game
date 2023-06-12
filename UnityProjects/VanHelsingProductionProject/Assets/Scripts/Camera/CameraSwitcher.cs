@@ -1,14 +1,22 @@
-using System;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CameraSwitcher : MonoBehaviour
 {
 
+    [Header("Cameras Settings")]
     [SerializeField] private CinemachineVirtualCamera _camA;
     [SerializeField] private CinemachineVirtualCamera _camB;
+    
+    [Header("Player Settings")]
     [SerializeField] private PlayerController _playerController;
-    public bool HasSwitched { get; set; } = false;
+    
+    [Header("Event Settings")]
+    [SerializeField] private UnityEvent _onCameraSwitch;
+    
+    // Control Property
+    public bool HasSwitched { get; private set; } = false;
     
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -20,5 +28,8 @@ public class CameraSwitcher : MonoBehaviour
         _camA.enabled = false;
         _camB.enabled = true;
         HasSwitched = true;
+        
+        // invokes the events
+        _onCameraSwitch.Invoke();
     }
 }

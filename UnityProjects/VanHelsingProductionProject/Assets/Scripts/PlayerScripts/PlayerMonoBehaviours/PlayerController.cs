@@ -3,6 +3,7 @@ using PlayerScripts.Enums;
 using PlayerScripts.Interfaces;
 using PlayerScripts.PlayerObservers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
 
     [Header("Walk and Run")]
+    public bool canMove = true;
     [SerializeField] private float _walkMaxSpeed;
     [SerializeField] private float _runSpeed;
-
+    
     [Header("Dash")]
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashDurationInSec;
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
     [Header("Dash Cooldown Msg")]
     [SerializeField] private CooldownMsgController _cooldownMsgController;
     [SerializeField] private Transform _cooldownMsgInstantiationWorldPos;
-
+    
     public float InputX => Input.GetAxis("Horizontal");
     public bool IsJumping => _rb.velocity.y > 0;
     public bool IsFalling => _rb.velocity.y < 0;
@@ -61,9 +63,11 @@ public class PlayerController : MonoBehaviour
         // needs to be zero in order to sync with the GUI slider
         if (_dashCooldownTimer < 0)
             _dashCooldownTimer = 0;
-
+        
         UpdateIsDashing();
         if (IsDashing) return;
+        
+        if (!canMove) return;
         
         UpdateCurrentFacingDir();
         UpdateIsMovingBackwards();
@@ -76,6 +80,7 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (!canMove) return;
         if (IsDashing) Dash();
         else Move(InputX);
     }

@@ -43,13 +43,16 @@ public class SawArmController : MonoBehaviour
     
     private void TryAtk()
     {
-        // Method's gateway validation
+        // Method's gateway validations
         if (!(AtkCooldownTimer <= 0))
         {
             var msgPos = _cooldownMsgInstantiationWorldPos.transform.position;
             _cooldownMsgController.InstantiateCooldownMsg(msgPos);
             return;
         }
+        
+        if (!_playerController.canMove)
+            return;
 
         // Animator
         _sawArmAnimator.SetTrigger(ShootAnimatorParameter);
