@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FirstFloorManager : MonoBehaviour, IFloorManager
 {
-    
+    // Set by the scene switcher
     public bool IsFloorRunning { get; set; }
     
     [Header("Cameras Settings")]
@@ -35,6 +35,10 @@ public class FirstFloorManager : MonoBehaviour, IFloorManager
     // Update is called once per frame
     void Update()
     {
+        
+        if (!IsFloorRunning)
+            return;
+        
         // makes the scene wait a bit before allowing the player to move
         // and change the camera
         if (_timer > 0)
@@ -46,7 +50,6 @@ public class FirstFloorManager : MonoBehaviour, IFloorManager
             _cam0.enabled = false;
             _cam1.enabled = true;
         }
-        
         
     }
     
