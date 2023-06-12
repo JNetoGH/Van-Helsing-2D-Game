@@ -30,9 +30,7 @@ public class SmoothSpringCamera : MonoBehaviour
     [Header("Increment Appliance")]
     [SerializeField] private bool _smoothFollowInY = true;
     [SerializeField] private bool _smoothFollowInX = true;
-    [Tooltip("if the Smoothing is below the limits, it will use the limits, too small increments can lead to weird images")]
-    [SerializeField] private Vector2 _minimumIncrement = new Vector2(0.0025f, 0.005f);
-    
+
     private void FixedUpdate()
     {
 
@@ -55,14 +53,7 @@ public class SmoothSpringCamera : MonoBehaviour
             newPosition = Vector3.Lerp(transform.position, targetPosition, _cameraSpeed * Time.deltaTime);
         else
             newPosition = transform.position + error.normalized * _cameraCatchingSpeed * Time.deltaTime;
-        
-        // Increments Limits Treatment, too small increments can lead to weird images
-        Vector3 increment = newPosition - transform.position;
-        if (Mathf.Abs(increment.x) < _minimumIncrement.x) increment.x = 0;
-        if (Mathf.Abs(increment.y) < _minimumIncrement.y) increment.y = 0;
-        newPosition = transform.position;
-        newPosition += increment;
-        
+
         // Increment Post-Treatment: uses the user configuration
         if (!_smoothFollowInX) newPosition.x = targetPosition.x;
         if (!_smoothFollowInY) newPosition.y = targetPosition.y;

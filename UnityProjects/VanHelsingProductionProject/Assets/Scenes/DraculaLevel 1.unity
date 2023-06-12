@@ -1538,7 +1538,6 @@ MonoBehaviour:
   _cameraCatchingSpeed: 50
   _smoothFollowInY: 1
   _smoothFollowInX: 1
-  _minimumIncrement: {x: 0.0025, y: 0.0025}
 --- !u!1001 &537385477
 PrefabInstance:
   m_ObjectHideFlags: 0
