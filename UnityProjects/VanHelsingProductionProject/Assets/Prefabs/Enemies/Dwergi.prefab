@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3876799320300711289}
   - component: {fileID: 3876799320300711288}
   - component: {fileID: 3876799320300711293}
+  - component: {fileID: 259823103}
   m_Layer: 6
   m_Name: Dwergi
   m_TagString: Untagged
@@ -66,8 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8409024cf9422c4ba51e413b76b5ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 550
+  moveSpeed: 100
   detectionRange: 3
+  jumpForce: 5
 --- !u!212 &3876799320300711290
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -178,3 +180,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &259823103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876799320300711287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3e7dea9167ac24f9b236e3aa681f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enabled: 1
+  _size: {x: 0.4, y: 0.05}
+  _offset: {x: 0.05, y: 0}
+  _checkIfIsStoppedInY: 1
+  _layersToConsider:
+    serializedVersion: 2
+    m_Bits: 8

@@ -6,14 +6,18 @@ public class DwergiController : MonoBehaviour
     
     [SerializeField] private float moveSpeed = 100.0f;
     [SerializeField] private float detectionRange;
-    private bool _hasDetectedPlayer = false;
+    [SerializeField] private float jumpForce = 5f;
+    private bool _hasDetectedPlayer;
 
     private Rigidbody2D _rigidbody;
     private Transform _transform;
     private Animator _animator;
     private Vector2 _movementDirection;
     private Vector2 _newVelocity;
-    private bool _isWalking = false;
+    private GroundSensor _groundSensor;
+    private bool _isWalking;
+    private int _jumps;
+    private float _upwardsForce;
     private GameObject Player { get; set; }
     // Start is called before the first frame update
     void Start()
@@ -21,28 +25,24 @@ public class DwergiController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _transform = GetComponent<Transform>();
+        _groundSensor = GetComponent<GroundSensor>();
         _movementDirection = new Vector2(0, 0);
         Player = GameObject.FindWithTag("Player");
     
         if (Player is null)
         {
             Debug.LogWarning("_player not found");
-            return;
         }
         
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         TryDetectingPlayer();
         if (_hasDetectedPlayer) GetPlayerDirection();
         else _movementDirection.x = 0;
         
-        _newVelocity.x = _movementDirection.x * (moveSpeed * Time.deltaTime);
-        _newVelocity.y = _rigidbody.velocity.y;
-        _rigidbody.velocity = _newVelocity;
-
         if (_rigidbody.velocity.x > 0.1 || _rigidbody.velocity.x < -0.1)
         {
             _isWalking = true;
@@ -65,6 +65,23 @@ public class DwergiController : MonoBehaviour
                 transform.rotation = Quaternion.identity;
             }
         }
+
+        _upwardsForce = 0;
+        if (_isWalking && !_groundSensor.State && _jumps > 0)
+        {
+            _upwardsForce += jumpForce;
+            _jumps--;
+        }
+
+        if (_groundSensor.State)
+        {
+            _jumps = 1;
+        }
+
+        _newVelocity.x = _movementDirection.x * (moveSpeed * Time.deltaTime);
+        _newVelocity.y = _rigidbody.velocity.y + _upwardsForce;
+        _rigidbody.velocity = _newVelocity;
+
     }
 
     private void GetPlayerDirection()
