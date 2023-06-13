@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FourthFloorManager : MonoBehaviour, IFloorManager
@@ -14,6 +15,17 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
     [SerializeField] private GameObject _draculaPrefab;
     [SerializeField] private DraculaHPBarController _draculaHpBarController;
     private GameObject _currentDracula;
+    
+    [Header("Horde Spawning Dependencies")]
+    [SerializeField] private GameObject _hordePrefab3;
+    [SerializeField] private GameObject _hordePrefab4;
+    [SerializeField] private GameObject _hordePrefab6;
+    [SerializeField] private List<Transform> _spawnPoints;
+    private float _spawnRateInSec; // changed in order to change the difficulty
+    private int _curSpawnPoint;
+    private float _spawnTimer;
+    private bool _hasFinishedSpawning;
+    private GameObject _currentHordePrefab;
 
     public void OnPlayerDead()
     {
@@ -39,6 +51,13 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
 
         // Syncs the HP bar with this new one
         _draculaHpBarController.Dracula = _currentDracula.GetComponentInChildren<Enemy>();
+
+        _spawnTimer = 0;
+        _curSpawnPoint = 0;
+        _spawnRateInSec = 2.5f;
+        _hasFinishedSpawning = false;
+        _currentHordePrefab = _hordePrefab3;
+        PlayerDeathManager.currentFloorManager = this;
     }
     
     private void Start()

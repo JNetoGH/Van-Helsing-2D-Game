@@ -30,18 +30,18 @@ public class FirstFloorManager : MonoBehaviour, IFloorManager
 
     public void InitPhase()
     {
-        
-    }
-
-    // Start is called before the first frame update
-    private void Start()
-    {
         _cam0.enabled = true;
         _cam1.enabled = false;
         IsFloorRunning = true;
         _playerController.canMove = false;
         _timer = _levelWaitingDuration;
         PlayerDeathManager.currentFloorManager = this;
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        InitPhase();
     }
 
     // Update is called once per frame
