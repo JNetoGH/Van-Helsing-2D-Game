@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ForthFloorManager : MonoBehaviour, IFloorManager
+public class FourthFloorManager : MonoBehaviour, IFloorManager
 {
     
     public bool IsFloorRunning { get; set; }
