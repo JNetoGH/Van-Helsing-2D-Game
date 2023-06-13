@@ -4358,7 +4358,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 3.25
+    OrthographicSize: 8
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -7311,9 +7311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d8a645fc8843a79fe9156df54c586d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ignoreFirstFloor: 0
-  _ignoreSecondFloor: 0
-  _ignoreThirdFloor: 0
+  _ignoreFirstFloor: 1
+  _ignoreSecondFloor: 1
+  _ignoreThirdFloor: 1
   _firstFloor: {fileID: 1331972340}
   _secondFloor: {fileID: 822034992}
   _thirdFloor: {fileID: 1207404602}

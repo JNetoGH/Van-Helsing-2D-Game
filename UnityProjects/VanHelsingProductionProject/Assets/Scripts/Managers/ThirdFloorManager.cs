@@ -1,3 +1,5 @@
+using System;
+using Cinemachine;
 using UnityEngine;
 
 public class ThirdFloorManager : MonoBehaviour, IFloorManager
@@ -5,6 +7,9 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
     
     // Set by the scene switcher
     public bool IsFloorRunning { get; set; }
+    
+    // Set by the Level Ignorer Script
+    public bool IgnoreLevel { get; set; }
     
     [Header("Camera Settings")]
     [SerializeField] private Movement _cameraMovement;
@@ -21,6 +26,17 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
     private GameObject _currentLightingObj;
     private bool _hasInitPhaseForTheFirstTime = false;
     
+    // Ignoring Floor Fields
+    private float _defaultOrthoSize;
+    private Vector3 _cameraInitialPosition;
+
+
+    private void Start()
+    {
+        _defaultOrthoSize = _camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize;
+        _cameraInitialPosition = _camera.transform.position;
+    }
+
     private void InitPhase()
     {
         _cameraMovement.enabled = true;
@@ -43,6 +59,19 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
     // Update is called once per frame
     void Update()
     {
+        
+        // Ignoring Floor Implementation
+        _cameraMovement.enabled = !IgnoreLevel;
+        _camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = IgnoreLevel ? 8 : _defaultOrthoSize;
+        if (IgnoreLevel)
+        {
+            _camera.transform.position = new Vector3(
+                _cameraInitialPosition.x, 
+                _cameraInitialPosition.y + 6,
+                _cameraInitialPosition.z);
+            return;
+        }
+
         if (IsFloorRunning && !_hasInitPhaseForTheFirstTime)
         {
             _hasInitPhaseForTheFirstTime = true;

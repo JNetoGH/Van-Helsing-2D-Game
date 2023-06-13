@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class FloorManagerIgnorer : MonoBehaviour
@@ -20,6 +18,7 @@ public class FloorManagerIgnorer : MonoBehaviour
     {
         _firstFloor.IgnoreLevel = _ignoreFirstFloor;
         _secondFloor.IgnoreLevel = _ignoreSecondFloor;
+        _thirdFloor.IgnoreLevel = _ignoreThirdFloor;
     }
     
 }
