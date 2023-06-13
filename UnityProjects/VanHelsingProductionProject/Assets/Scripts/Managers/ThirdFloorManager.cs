@@ -44,10 +44,6 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
         _cameraMovement.ResetWaitingTimer();
         
         PlayerDeathManager.currentFloorManager = this;
-        
-        // Deletes the old lighting (if possible)
-        Destroy(_currentLightingObj);
-        Invoke(nameof(CreateNewLighting),0.5f);
     }
     
     // Comes from the Interface, called by LightningController
@@ -88,10 +84,5 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
             InitPhase();
         }
     }
-    
-    private void CreateNewLighting()
-    {
-        _currentLightingObj = Instantiate(_lightingPrefab, _camera.transform);
-    }
-    
+
 }
