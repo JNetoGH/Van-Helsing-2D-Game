@@ -6990,7 +6990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d8a645fc8843a79fe9156df54c586d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ignoreFirstFloor: 1
+  _ignoreFirstFloor: 0
   _ignoreSecondFloor: 0
   _ignoreThirdFloor: 0
   _firstFloor: {fileID: 1331972340}
