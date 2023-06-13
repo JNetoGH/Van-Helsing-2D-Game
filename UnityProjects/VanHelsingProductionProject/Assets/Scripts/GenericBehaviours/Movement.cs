@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     
     [Header("Movement Setting")]
     [SerializeField] private TypeOfMovement _typeOfMovement;
-    [SerializeField] private TargetPoint _targetPointWrapper;
+    [SerializeField] private TargetPoint _targetPointWrapper = TargetPoint.PointB;
     [SerializeField] private float _speed = 3.2f;
     [SerializeField] private Vector3 _pointA;
     [SerializeField] private Vector3 _pointB;
