@@ -109,11 +109,12 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
             InitPhase();
         }
         
-        // Remove before shipping
+        
+        
+        // Test werewolf super move
         if (Input.GetKeyDown(KeyCode.O))
         {
-            ResetPhase();
-            InitPhase();
+            _player.GetComponent<Animator>().SetTrigger("WerewolfSuperMove");
         }
         
         // Phase sequence

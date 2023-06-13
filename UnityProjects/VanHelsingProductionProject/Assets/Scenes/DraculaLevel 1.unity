@@ -1751,7 +1751,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 3.25
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1775,7 +1775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.28, z: -10}
+  m_LocalPosition: {x: -0.04, y: 31.96, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5022,7 +5022,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 6
+  m_Priority: 16
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -7380,7 +7380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d8a645fc8843a79fe9156df54c586d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ignoreFirstFloor: 0
+  _ignoreFirstFloor: 1
   _ignoreSecondFloor: 0
   _ignoreThirdFloor: 0
   _firstFloor: {fileID: 1331972340}
@@ -7413,7 +7413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b1478e198864247b1137d9cf7e47cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPlayerInvincible: 0
+  _isPlayerInvincible: 1
 --- !u!1 &1874171193
 GameObject:
   m_ObjectHideFlags: 0
@@ -20081,6 +20081,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.069
       objectReference: {fileID: 0}
+    - target: {fileID: 6258850253062367909, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258850253062367909, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258850253062367909, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1028893248, guid: d03a0ecef20bd42419142aa5f318e5e5, type: 3}
+    - target: {fileID: 6258850253062367909, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367960, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_Name
       value: VanHelsing
@@ -20095,7 +20111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.95
+      value: 29.91
       objectReference: {fileID: 0}
     - target: {fileID: 6258850253062367961, guid: 10d86e0116a82434ab00a428afbc448a, type: 3}
       propertyPath: m_LocalPosition.z
