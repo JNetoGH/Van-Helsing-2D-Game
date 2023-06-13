@@ -4856,7 +4856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraMovement: {fileID: 1082231255}
-  _camera: {fileID: 0}
+  _camera: {fileID: 1082231252}
   _lightingPrefab: {fileID: 7352107144664853126, guid: be5b02d60abdf13449c307d3ba57341e, type: 3}
 --- !u!1 &1210232782
 GameObject:
@@ -7203,8 +7203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d8a645fc8843a79fe9156df54c586d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ignoreFirstFloor: 1
-  _ignoreSecondFloor: 1
+  _ignoreFirstFloor: 0
+  _ignoreSecondFloor: 0
   _ignoreThirdFloor: 0
   _firstFloor: {fileID: 1331972340}
   _secondFloor: {fileID: 822034992}
