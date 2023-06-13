@@ -34,7 +34,7 @@ armed with a repeating crossbow and portable saws, with the task of defeating Dr
 The player will play as Van Helsing revisiting scenarios and battles taken straight from the movie.
 
 **TARGET AUDIENCE** <br>
-The action based combat and dark fantasy / victorian themes and its harsh difficulty make this game more appealing to a mature audience.
+The action based combat and dark fantasy / victorian themes and its harsh difficulty make this game more appealing to audience between the ages of 16 and 22.
 
 **TARGET PLATFORM** <br>
 The target platform this project will be idealized will be Desktop Windows but due to the accessibility of the controls and the mechanics we are intending on implementing,
@@ -145,20 +145,28 @@ The system provides smooth transitions between camera behaviors, and the catchSp
 
 
 
-## LEVELS
-For now we have only 2 levels planned, more can be added in the future, the movie has many combat scenes.
+## LEVEL
+This game features a single level divided by 4 sections:  
 
-**FIRST LEVEL** <br>
-It's inspired in the battle of Van Helsing against the three Dracula's brides, Verona, Aleera and Marishka,
-as in the movie it played in the village next to Frankenstein's castle,
-the player will play through the village until he encounters the brides, then a triple boss battle begins.
+**FIRST SECTION** <br>
+The player must climb though the tower until it reaches the next floor.  
+This is a short introduction to the movement.  
 
 
-**SECOND LEVEL** <br>
-This level is based on the last battle of the movie where Van Helsing faces Dracula at his castle,
-it's a vertical level just like in the movie, this fight is placed on a tower. <br>
-At the top the player will encounter the final battle against Dracula. <br>
-![DraculasCastle](https://github.com/JNetoGH/Van-Helsing-2D-Game/assets/24737993/644d367c-8b0c-4181-932b-471f9cf2e5c6)
+**SECOND SECTION** <br>
+The player enters a narrower arena and must survive through the hordes of enemies  
+This is an introduction to the combat systems.  
+![Untitled1](https://github.com/JNetoGH/Van-Helsing-2D-Game/assets/115217596/579ffc13-b037-44a4-aa2c-cd51de32fc77)
+
+**THIRD SECTION** <br>
+The player must quickly climb another set of platforms as not to get struck by lightning.  
+![Untitled](https://github.com/JNetoGH/Van-Helsing-2D-Game/assets/115217596/04bb8bf3-495a-4b34-b200-3cf2e00f6eb6)  
+
+**FOURTH SECTION** <br>  
+The player finaly catches up with drakula and starts fighting him.  
+![Untitled2](https://github.com/JNetoGH/Van-Helsing-2D-Game/assets/115217596/a0621200-e7bb-4e23-ae37-de35d281e80f)
+
+
 
 
 <br>
