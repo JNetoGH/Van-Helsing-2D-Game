@@ -166,9 +166,9 @@ MonoBehaviour:
   _waitingDuration: 0
   _typeOfMovement: 0
   _targetPointWrapper: 0
-  _speed: 2
-  _pointA: {x: -5, y: 33, z: 0}
-  _pointB: {x: 5, y: 33, z: 0}
+  _speed: 4
+  _pointA: {x: -5, y: 32.5, z: 0}
+  _pointB: {x: 5, y: 32.5, z: 0}
 --- !u!1 &7285411743894904825
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1bdcfa1e2f49c090a23aee0bac7d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoints: 20
+  maxHealthPoints: 50
   _destroyWhenKilled: {fileID: 7285411743873478464}
   _dmgColorIndicatorDurationInSec: 0.1
   _spriteRenderersToReceiveDmgEffect:

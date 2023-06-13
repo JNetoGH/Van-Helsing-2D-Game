@@ -5,8 +5,10 @@ public class Enemy : MonoBehaviour
 {
     
     [Header("HP System")]
-    [SerializeField] private int _healthPoints = 1;
-
+    [SerializeField] public int maxHealthPoints = 1;
+    private int _healthPoints;
+    public int HealthPoints => _healthPoints; 
+    
     [Header("To be remove when dead (root ideally)")]
     [SerializeField] private GameObject _destroyWhenKilled;
     
@@ -14,6 +16,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _dmgColorIndicatorDurationInSec = 0.1f;
     [SerializeField] private SpriteRenderer[] _spriteRenderersToReceiveDmgEffect;
     
+    private void Start()
+    {
+        _healthPoints = maxHealthPoints;
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         // checks if its trigger has collided with a game object that carries a Projectile

@@ -30,7 +30,6 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
     private float _defaultOrthoSize;
     private Vector3 _cameraInitialPosition;
 
-
     private void Start()
     {
         _defaultOrthoSize = _camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize;

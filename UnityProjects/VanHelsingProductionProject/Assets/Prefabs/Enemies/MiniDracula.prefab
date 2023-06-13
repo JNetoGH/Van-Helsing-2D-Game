@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1bdcfa1e2f49c090a23aee0bac7d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoints: 3
+  maxHealthPoints: 3
   _destroyWhenKilled: {fileID: 88480600271042292}
   _dmgColorIndicatorDurationInSec: 0.1
   _spriteRenderersToReceiveDmgEffect:

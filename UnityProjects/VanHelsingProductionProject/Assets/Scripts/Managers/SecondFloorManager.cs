@@ -105,8 +105,7 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
             _waitTimer -= Time.deltaTime;
             
             // in case the init timer hasn't finished
-            if (_waitTimer > 0)
-                return;
+            if (_waitTimer > 0) return;
             
             //  in case the init timer has finished counting
             InitPhase();
@@ -147,11 +146,11 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
             switch (_curSpawnPoint)
             {
                 case 3:
-                    _spawnRateInSec = 2.25f;
+                    _spawnRateInSec = 2.35f;
                     _currentHordePrefab = _hordePrefab3;
                     break;
                 case 6:
-                    _spawnRateInSec = 2.15f;
+                    _spawnRateInSec = 2.30f;
                     _currentHordePrefab = _hordePrefab4;
                     break;
                 case 8:
