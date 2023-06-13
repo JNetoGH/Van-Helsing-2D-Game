@@ -111,12 +111,9 @@ This strike has a small area of effect, which deals ":warning: not decided yet, 
 In contrast with the arrow, it doesn't disappear when it hits an enemy, just when its timer ends, what makes it a good tool for crowd control.
 
 **WEREWOLF MODE** <br>
-The player becomes a werewolf while fighting against Dracula in final battle at the top of the Dracula's castle. <br>
+The player can become a werewolf while fighting against Dracula in final battle at the top of the Dracula's castle. <br>
 Normal combat mechanics don't work on Dracula, so following the movie's lore, only when Van Helsing becomes a werewolf, the player can deal damage to the boss. <br>
-This transformation is temporary though, and lasts only while the full moon appears on the big window in the background, which goes on and off in a cycle. <br>
-This mode is meant to bring two states to the final battle: a survival state, where the player tries to survive with the game's regular mechanics,
-until the fight state arrives, where finally the player can become a werewolf and deal damage to Dracula. <br>
-:warning: The werewolf combat mechanics have not been decided yet. :warning:
+To damage Drakula, the player must, with a special attack, briefly transform into a werewolf and attack Drakula to defeat it. <br>
 
 **COOLDOWN** <br>
 Weapons and abilities have their own cooldown timers(countdown), those are indicated on the GUI by a progress bar for each weapon/ability.
@@ -254,6 +251,21 @@ A clean GUI helps the player focus on gameplay, although we won’t discard the 
 <hr>
 <br>
 
+# Post-Mortem  
+
+
+
+**- O que correu mal no projecto?**
+Como grupo não tivemos uma boa gestão em relação ao nosso tempo de maneira que fosse possível estarmos a trabalhar os 4 todos juntos, sendo assim tínhamos de trabalhar aos pares o que depois na fase final complicou o nosso processo visto que teríamos de juntar cada parte do trabalho.
+Acredito que se fossemos trabalhando os 4 todos juntos em vez estarmos separados facilmente teríamos adiantando muito mais trabalho e cumprido com os nossos objetivos.
+
+
+**- O que poderiamos ter feito de diferente?**
+Na fase final da última entrega devíamos ter começado mais cedo a trabalhar em vez de deixar para a última semana antes da entrega e ter de finalizar o trabalho todo a pressa e deixar certos extras de parte.
+
+
+**- O que resultou bem?**
+Acho que graças a uma boa organização no trello foi possível cada um saber quais eram as suas funções e o tipo de trabalho que tinham que fazer o que permitiu que nos primeiros dois meses conseguíssemos avançar muito trabalho.  
 
 
 ## CHANGELOG
