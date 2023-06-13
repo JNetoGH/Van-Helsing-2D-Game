@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class SecondFloorManager : MonoBehaviour, IFloorManager
@@ -33,12 +34,16 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
     [SerializeField] private Transform _playerRespawnPosition;
     
     [Header("Horde Spawning Dependencies")]
-    [SerializeField] private GameObject _hordePrefab;
+    [SerializeField] private GameObject _hordePrefab2;
+    [SerializeField] private GameObject _hordePrefab3;
+    [SerializeField] private GameObject _hordePrefab4;
+    [SerializeField] private GameObject _hordePrefab6;
     [SerializeField] private List<Transform> _spawnPoints;
     private float _spawnRateInSec; // changed in order to change the difficulty
     private int _curSpawnPoint;
     private float _spawnTimer;
     private bool _hasFinishedSpawning;
+    private GameObject _currentHordePrefab;
 
     // End Sequence Controlling
     private bool _initEndSequence;
@@ -70,9 +75,10 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
         _playerController.canMove = true;
         _spawnTimer = 0;
         _curSpawnPoint = 0;
-        _spawnRateInSec = 3f;
+        _spawnRateInSec = 2.5f;
         _hasFinishedSpawning = false;
         _initEndSequence = false;
+        _currentHordePrefab = _hordePrefab2;
         PlayerDeathManager.currentFloorManager = this;
     }
     
@@ -133,15 +139,25 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
         if (canSpawnHorde && !_hasFinishedSpawning)
         {
             // spawn
-            GameObject horde = Instantiate(_hordePrefab);
+            GameObject horde = Instantiate(_currentHordePrefab);
             horde.transform.position = _spawnPoints[_curSpawnPoint].position;
             _curSpawnPoint++;
 
             // progressive difficulty
-            if (_curSpawnPoint == 4)
-                _spawnRateInSec = 2.5f;
-            if (_curSpawnPoint == 7)
-                _spawnRateInSec = 2f;
+            switch (_curSpawnPoint)
+            {
+                case 3:
+                    _spawnRateInSec = 2.25f;
+                    _currentHordePrefab = _hordePrefab3;
+                    break;
+                case 6:
+                    _spawnRateInSec = 2.15f;
+                    _currentHordePrefab = _hordePrefab4;
+                    break;
+                case 8:
+                    _currentHordePrefab = _hordePrefab6;
+                    break;
+            }
 
             // quite the spawning
             if (_curSpawnPoint >= _spawnPoints.Count)
