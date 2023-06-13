@@ -140,11 +140,11 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 800348f05a9c4af419ff90c4336ffabd, type: 3}
-  m_Color: {r: 1, g: 0.39215684, b: 0.9552388, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.59375, y: 1.59375}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -186,7 +186,7 @@ MonoBehaviour:
   _attackCooldownDuration: 2
   _sawAreaOfEffect: {fileID: 8473264909764417047, guid: 1dd959e2e14e4804cab482c7ec1fedf8, type: 3}
   _areaOfEffectInstantiationPoint: {fileID: 437932981}
-  _cooldownMsgController: {fileID: 7172918464432343952, guid: fb34fd1708d1db44b97c47690d2cdeaa, type: 3}
+  _ascendAndDisappearText: {fileID: 7172918464432343952, guid: fb34fd1708d1db44b97c47690d2cdeaa, type: 3}
   _cooldownMsgInstantiationWorldPos: {fileID: 6578560779131017300}
 --- !u!1 &3004604960578691091
 GameObject:
@@ -576,7 +576,7 @@ MonoBehaviour:
   _dashSpeed: 13
   _dashDurationInSec: 0.15
   _dashCooldownInSec: 2
-  _cooldownMsgController: {fileID: 7172918464432343952, guid: fb34fd1708d1db44b97c47690d2cdeaa, type: 3}
+  _ascendAndDisappearText: {fileID: 7172918464432343952, guid: fb34fd1708d1db44b97c47690d2cdeaa, type: 3}
   _cooldownMsgInstantiationWorldPos: {fileID: 6578560779131017300}
 --- !u!114 &732675373666529496
 MonoBehaviour:
