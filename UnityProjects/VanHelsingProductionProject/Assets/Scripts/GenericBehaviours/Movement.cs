@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
         Once
     }
     
-    private enum TargetPoint
+    public enum TargetPoint
     {
         PointA,
         PointB
@@ -27,6 +27,26 @@ public class Movement : MonoBehaviour
     [SerializeField] private Vector3 _pointA;
     [SerializeField] private Vector3 _pointB;
     private Vector3 _targetPoint;
+
+    public void TeleportToPoint(TargetPoint target)
+    {
+        switch (target)
+        {
+            case TargetPoint.PointA:
+                transform.position = _pointA;
+                _targetPointWrapper = TargetPoint.PointB;
+                break;
+            case TargetPoint.PointB: 
+                transform.position = _pointB;
+                _targetPointWrapper = TargetPoint.PointA;
+                break;
+        }
+    }
+
+    public void ResetWaitingTimer()
+    {
+        _waitingTimer = _waitingDuration;
+    }
     
     private void Start()
     {

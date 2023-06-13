@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class FirstFloorManager : MonoBehaviour, IFloorManager
 {
+    
     // Set by the scene switcher
     public bool IsFloorRunning { get; set; }
+
+    // Set by the Level Ignorer Script
+    public bool IgnoreLevel { get; set; }
     
     [Header("Cameras Settings")]
     [SerializeField] private CinemachineVirtualCamera _cam0;
@@ -38,6 +42,15 @@ public class FirstFloorManager : MonoBehaviour, IFloorManager
         
         if (!IsFloorRunning)
             return;
+
+        // Ignoring Floor Implementation
+        if (IgnoreLevel)
+        {
+            _cam0.enabled = false;
+            _cam1.enabled = true;
+            _playerController.canMove = true;
+            return;
+        }
         
         // makes the scene wait a bit before allowing the player to move
         // and change the camera

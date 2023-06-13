@@ -1,18 +1,18 @@
-using System;
 using System.Collections.Generic;
 using Cinemachine;
-using UnityEditor.Animations;
 using UnityEngine;
+
 
 public class SecondFloorManager : MonoBehaviour, IFloorManager
 {
     
+    
     // Set by the scene switcher
     public bool IsFloorRunning { get; set; }
 
-    [Header("Floor Switching Dependencies")]
-    [SerializeField] private FirstFloorManager _lastFloor;
-    
+    // Set by the Level Ignorer Script
+    public bool IgnoreLevel { get; set; }
+
     [Header("Player Dependencies")]
     [SerializeField] private PlayerController _playerController;
     
@@ -31,12 +31,12 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
     [Header("Horde Spawning Dependencies")]
     [SerializeField] private GameObject _hordePrefab;
     [SerializeField] private List<Transform> _spawnPoints;
-    private float _spawnRateInSec; // changed in order to change the diffculty
+    private float _spawnRateInSec; // changed in order to change the difficulty
     private int _curSpawnPoint;
     private float _spawnTimer;
     private bool _hasFinishedSpawning;
 
-    // End Sequence Conmtrolling
+    // End Sequence Controlling
     private bool _initEndSequence;
     private const float StartEndSequenceDelayInSec = 8;
     
@@ -88,36 +88,19 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
             //  in case the init timer has finished counting
             InitPhase();
         }
+
+        // Ignoring Floor Implementation
+        if (IgnoreLevel)
+        {
+            _hasFinishedSpawning = true;
+            _initEndSequence = true;
+            UpdateEndSequence();
+            return;
+        }    
         
+        // Update
         SpawnHorde();
         UpdateEndSequence();
-    }
-
-    private void UpdateEndSequence()
-    {
-        // Checks if the End Sequence should be initiated or not
-        if (_hasFinishedSpawning && !_initEndSequence)
-        {
-            Invoke(nameof(InitEndSequenceCall), StartEndSequenceDelayInSec);
-            Debug.LogWarning("Player finished floor 2");
-        }
-
-        // Updates the End Sequence
-        if (_initEndSequence)
-        {
-            // switches the current Virtual Cam
-            _cam2.enabled = false;
-            _cam3.enabled = true;
-            
-            // Moves the platforms
-            _secondFloorPlatforms.transform.position = Vector3.MoveTowards(
-                current: _secondFloorPlatforms.transform.position,
-                target: new Vector3(-1, _secondFloorPlatforms.transform.position.y, 0),
-                maxDistanceDelta: SecondFloorPlatformsSpeed * Time.deltaTime
-            );
-            
-            
-        }
     }
 
     private void SpawnHorde()
@@ -146,4 +129,31 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
                 _hasFinishedSpawning = true;
         }
     }
+    
+    private void UpdateEndSequence()
+    {
+        // Checks if the End Sequence should be initiated or not
+        if (_hasFinishedSpawning && !_initEndSequence)
+        {
+            Invoke(nameof(InitEndSequenceCall), StartEndSequenceDelayInSec);
+            Debug.LogWarning("Player finished floor 2");
+        }
+
+        // Updates the End Sequence
+        if (_initEndSequence)
+        {
+            // switches the current Virtual Cam
+            _cam2.enabled = false;
+            _cam3.enabled = true;
+            
+            // Moves the platforms
+            _secondFloorPlatforms.transform.position = Vector3.MoveTowards(
+                current: _secondFloorPlatforms.transform.position,
+                target: new Vector3(-1, _secondFloorPlatforms.transform.position.y, 0),
+                maxDistanceDelta: SecondFloorPlatformsSpeed * Time.deltaTime
+            );
+        }
+    }
+
+
 }
