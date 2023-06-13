@@ -15,26 +15,48 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
     [SerializeField] private GameObject _draculaPrefab;
     [SerializeField] private DraculaHPBarController _draculaHpBarController;
     private GameObject _currentDracula;
+    private Enemy _draculaEnemyScript;
     
+    [Header("PLayer Respawn Settings")]
+    [SerializeField] private GameObject _player;
+    [SerializeField] private Transform _playerRespawnPosition;
+
+    [Header("Winning Msg")]
+    [SerializeField] private AscendAndDisappearText _winningMsg;
+
     [Header("Horde Spawning Dependencies")]
+    [SerializeField] private float _spawnRateInSec = 1; 
     [SerializeField] private GameObject _hordePrefab3;
     [SerializeField] private GameObject _hordePrefab4;
     [SerializeField] private GameObject _hordePrefab6;
     [SerializeField] private List<Transform> _spawnPoints;
-    private float _spawnRateInSec; // changed in order to change the difficulty
     private int _curSpawnPoint;
     private float _spawnTimer;
-    private bool _hasFinishedSpawning;
     private GameObject _currentHordePrefab;
 
     public void OnPlayerDead()
     {
         ResetPhase();
+        _player.transform.position = _playerRespawnPosition.position;
+    }
+
+    // called by the Enemy script on the OnDeath event
+    public void EndSequence()
+    {
+        Debug.LogWarning($"Player killed dracula");
+        IsFloorRunning = false;
+        
+        // removes every enemy
+        Array.ForEach(GameObject.FindGameObjectsWithTag("Enemy"), e => Destroy(e));
+        _player.GetComponent<PlayerController>().canMove = false;
+        _winningMsg.InstantiateMsgAtScreenMiddle();
     }
 
     private void ResetPhase()
     {
         _waitTimer = _levelWaitingDuration;
+        // removes every enemy
+        Array.ForEach(GameObject.FindGameObjectsWithTag("Enemy"), e => Destroy(e));
     }
     
     public void InitPhase()
@@ -46,16 +68,20 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
         // removes every enemy
         Array.ForEach(GameObject.FindGameObjectsWithTag("Enemy"), e => Destroy(e));
         
-        // Creates a new one
+        // Creates a new Dracula
         _currentDracula = Instantiate(_draculaPrefab);
+        _draculaEnemyScript = _currentDracula.GetComponentInChildren<Enemy>();
+        
+        // Dracula event setting
+        _draculaEnemyScript.onDeath.RemoveAllListeners();
+        _draculaEnemyScript.onDeath.AddListener(EndSequence);
 
         // Syncs the HP bar with this new one
-        _draculaHpBarController.Dracula = _currentDracula.GetComponentInChildren<Enemy>();
+        _draculaHpBarController.Dracula = _draculaEnemyScript;
 
+        // Horde Settings
         _spawnTimer = 0;
         _curSpawnPoint = 0;
-        _spawnRateInSec = 2.5f;
-        _hasFinishedSpawning = false;
         _currentHordePrefab = _hordePrefab3;
         PlayerDeathManager.currentFloorManager = this;
     }
@@ -63,11 +89,11 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
     private void Start()
     {
         ResetPhase();
+        _currentHordePrefab = _hordePrefab3;
     }
     
     void Update()
     {
-        
         if (!IsFloorRunning)
             return;
         
@@ -83,6 +109,7 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
             InitPhase();
         }
         
+        // Remove before shipping
         if (Input.GetKeyDown(KeyCode.O))
         {
             ResetPhase();
@@ -90,8 +117,43 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
         }
         
         // Phase sequence
-        if (_currentDracula is null)
-            Debug.LogWarning($"Player killed dracula");
+        if (_currentDracula is not null)
+        {
+            TrySpawnHorde();
+        }
+
+    }
+
+    private void TrySpawnHorde()
+    {
+        
+        bool canSpawnHorde = _spawnTimer <= 0 && _currentDracula is not null;
+        
+        // Updates the spawn timer
+        if (canSpawnHorde) _spawnTimer = _spawnRateInSec;
+        else _spawnTimer -= Time.deltaTime;
+
+        // spawn the horde
+        if (!canSpawnHorde) return;
+        
+        Debug.LogWarning("Horde Spawned");
+        
+        // progressive difficulty
+        // _currentHordePrefab = _currentDracula.GetComponent<Enemy>().HealthPoints switch
+        // {
+        //     > 40 => _hordePrefab3, 
+        //     > 25 => _hordePrefab4,
+        //     _ => _currentHordePrefab
+        // };
+
+        // spawn
+        GameObject horde = Instantiate(_currentHordePrefab);
+        horde.transform.position = _spawnPoints[_curSpawnPoint].position;
+        _curSpawnPoint++;
+
+        // reset the spawn points
+        if (_curSpawnPoint >= _spawnPoints.Count)
+            _curSpawnPoint = 0;
     }
     
 }

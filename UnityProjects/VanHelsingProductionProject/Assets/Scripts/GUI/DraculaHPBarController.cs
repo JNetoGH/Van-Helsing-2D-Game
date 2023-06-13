@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DraculaHPBarController : MonoBehaviour
 {
-
     public Enemy Dracula { get; set; }
     [SerializeField] private Slider _bar;
 
@@ -13,12 +12,9 @@ public class DraculaHPBarController : MonoBehaviour
     void Update()
     {
         if (Dracula is null)
-        {
-            Debug.LogWarning($"Dracula is null");
             return;
-        }
-
-        Debug.LogWarning($"Dracula Max HP: {Dracula.maxHealthPoints}  Dracula HP: {Dracula.HealthPoints}");
+        
+        
         _bar.maxValue = Dracula.maxHealthPoints;
         _bar.value = Dracula.HealthPoints;
     }

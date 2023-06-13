@@ -121,13 +121,13 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
         }    
         
         // Update
-        SpawnHorde();
+        TrySpawnHorde();
         bool areAllEnemiesDead = GameObject.FindWithTag("Enemy") is null;
         if (areAllEnemiesDead)
             UpdateEndSequence();
     }
 
-    private void SpawnHorde()
+    private void TrySpawnHorde()
     {
         // Updates the spawn timer
         bool canSpawnHorde = _spawnTimer <= 0;

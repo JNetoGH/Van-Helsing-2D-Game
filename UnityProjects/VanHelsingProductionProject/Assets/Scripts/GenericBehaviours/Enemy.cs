@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class Enemy : MonoBehaviour
     [Header("Damage Color Effect")]
     [SerializeField] private float _dmgColorIndicatorDurationInSec = 0.1f;
     [SerializeField] private SpriteRenderer[] _spriteRenderersToReceiveDmgEffect;
+
+    [Header("Event called when the enemy dies")]
+    [SerializeField] public UnityEvent onDeath;
     
     private void Start()
     {
@@ -44,6 +48,7 @@ public class Enemy : MonoBehaviour
         if (this._healthPoints <= 0)
         {
             Debug.Log($"{gameObject.name} was killed"); 
+            onDeath.Invoke();
             Destroy(_destroyWhenKilled);
         }
     }
