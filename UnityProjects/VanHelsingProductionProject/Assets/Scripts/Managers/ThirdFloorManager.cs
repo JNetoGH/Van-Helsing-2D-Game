@@ -25,8 +25,7 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
     // Control Fields
     private GameObject _currentLightingObj;
     private bool _hasInitPhaseForTheFirstTime = false;
-    private bool _hasLightiningBeenCreated = false;
-    
+
     // Ignoring Floor Fields
     private float _defaultOrthoSize;
     private Vector3 _cameraInitialPosition;
@@ -69,6 +68,7 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
         // Ignoring Floor Implementation
         _cameraMovement.enabled = !IgnoreLevel;
         _camera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = IgnoreLevel ? 8 : _defaultOrthoSize;
+        if (_currentLightingObj is not null) _currentLightingObj.SetActive(!IgnoreLevel);
         if (IgnoreLevel)
         {
             _camera.transform.position = new Vector3(
@@ -77,16 +77,11 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
                 _cameraInitialPosition.z);
             return;
         }
-
-        if (!_hasLightiningBeenCreated)
-        {
-            CreateNewLighting();
-            _hasLightiningBeenCreated = true;
-        }
         
         if (IsFloorRunning && !_hasInitPhaseForTheFirstTime)
         {
             _hasInitPhaseForTheFirstTime = true;
+            CreateNewLighting();
             InitPhase();
         }
     }
