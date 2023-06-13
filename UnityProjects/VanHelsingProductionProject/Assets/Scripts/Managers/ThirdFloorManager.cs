@@ -25,6 +25,7 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
     // Control Fields
     private GameObject _currentLightingObj;
     private bool _hasInitPhaseForTheFirstTime = false;
+    private bool _hasLightiningBeenCreated = false;
     
     // Ignoring Floor Fields
     private float _defaultOrthoSize;
@@ -42,7 +43,6 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
         _cameraMovement.enabled = true;
         _cameraMovement.TeleportToPoint(Movement.TargetPoint.PointA);
         _cameraMovement.ResetWaitingTimer();
-        
         PlayerDeathManager.currentFloorManager = this;
     }
     
@@ -78,11 +78,22 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
             return;
         }
 
+        if (!_hasLightiningBeenCreated)
+        {
+            CreateNewLighting();
+            _hasLightiningBeenCreated = true;
+        }
+        
         if (IsFloorRunning && !_hasInitPhaseForTheFirstTime)
         {
             _hasInitPhaseForTheFirstTime = true;
             InitPhase();
         }
     }
-
+    
+    private void CreateNewLighting()
+    {
+        _currentLightingObj = Instantiate(_lightingPrefab, _camera.transform);
+    }
+    
 }
