@@ -7,7 +7,6 @@ using UnityEngine;
 public class SecondFloorManager : MonoBehaviour, IFloorManager
 {
     
-    
     // Set by the scene switcher
     public bool IsFloorRunning { get; set; }
 
@@ -48,17 +47,22 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
     // Comes from the Interface, called by LightningController
     public void OnPlayerDead()
     {
-        //
         Debug.LogWarning("Player died on level 2");
         
-        // Teleports player
+        // Teleports player and kills its velocity
         _player.transform.position = _playerRespawnPosition.position;
+        _player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        
+        // Also brute forces the animation to default idle
+        Animator playerAnimator = _player.GetComponent<Animator>();
+        playerAnimator.Play("Idle");
         
         // removes every enemy
         Array.ForEach(GameObject.FindGameObjectsWithTag("Enemy"), e => Destroy(e));
         
         // Reset internal stuff
         InitPhase();
+        _waitTimer = _levelWaitingDuration;
     }
     
     public void InitPhase()
@@ -96,10 +100,7 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
             
             // in case the init timer hasn't finished
             if (_waitTimer > 0)
-            {
-                _playerController.canMove = false;
                 return;
-            }
             
             //  in case the init timer has finished counting
             InitPhase();
@@ -172,6 +173,5 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
             );
         }
     }
-
-
+    
 }

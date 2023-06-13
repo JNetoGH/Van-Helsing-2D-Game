@@ -90,7 +90,7 @@ public class SmoothSpringCamera : MonoBehaviour
         textPosition.y += _smoothingAreaSize.y/2 + _smoothingAreaOffset.y + 0.25f;
         style.normal.textColor = color;
         style.alignment = TextAnchor.MiddleCenter;
-        Handles.Label(textPosition, "Camera SmoothingArea", style);
+        // Handles.Label(textPosition, "Camera SmoothingArea", style);
     }
     
 }

@@ -26,8 +26,9 @@ public class PlayerController : MonoBehaviour
     public float DashCooldownInSec => _dashCooldownInSec;
     public float DashCooldownTimer => _dashCooldownTimer;
     
+    [FormerlySerializedAs("_cooldownMsgController")]
     [Header("Dash Cooldown Msg")]
-    [SerializeField] private CooldownMsgController _cooldownMsgController;
+    [SerializeField] private AscendAndDisappearText _ascendAndDisappearText;
     [SerializeField] private Transform _cooldownMsgInstantiationWorldPos;
     
     public float InputX => Input.GetAxis("Horizontal");
@@ -110,7 +111,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Dash") && !hasFinishedCooldown)
             {
                 var msgPos = _cooldownMsgInstantiationWorldPos.transform.position;
-                _cooldownMsgController.InstantiateCooldownMsg(msgPos);
+                _ascendAndDisappearText.InstantiateMsgWorldPosition(msgPos);
             }
             
             // Updates is Dashing

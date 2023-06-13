@@ -86,7 +86,7 @@ public class GroundSensor : MonoBehaviour
         textPosition.x += 0.5f;
         style.normal.textColor = color;
         style.alignment = TextAnchor.MiddleCenter;
-        Handles.Label(textPosition, "GroundSensor", style);        
+        // Handles.Label(textPosition, "GroundSensor", style);        
     }
 
     public void Disable(float duration) => _enabled = false;

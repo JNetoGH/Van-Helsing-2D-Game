@@ -176,7 +176,7 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
             GUIStyle coyoteTextStyle = new GUIStyle();
             coyoteTextStyle.normal.textColor = colorCoyoteTime;
             coyoteTextStyle.alignment = TextAnchor.MiddleCenter;
-            Handles.Label(coyoteTextPosition, "CoyoteTime", coyoteTextStyle);
+            // Handles.Label(coyoteTextPosition, "CoyoteTime", coyoteTextStyle);
         }
         
         if (_useJumpBuffer)
@@ -192,7 +192,7 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
             GUIStyle styleJumpBufferText = new GUIStyle();
             styleJumpBufferText.normal.textColor = colorJumpBuffer;
             styleJumpBufferText.alignment = TextAnchor.MiddleCenter;
-            Handles.Label(jumpBufferTxtPosition, "Jump Buffer", styleJumpBufferText);
+            // Handles.Label(jumpBufferTxtPosition, "Jump Buffer", styleJumpBufferText);
         }        
         
     }

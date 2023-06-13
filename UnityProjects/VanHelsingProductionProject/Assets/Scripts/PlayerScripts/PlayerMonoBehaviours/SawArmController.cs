@@ -18,8 +18,9 @@ public class SawArmController : MonoBehaviour
     [SerializeField] private GameObject _sawAreaOfEffect;
     [SerializeField] private Transform _areaOfEffectInstantiationPoint;
     
+    [FormerlySerializedAs("_cooldownMsgController")]
     [Header("Saw Cooldown Msg")]
-    [SerializeField] private CooldownMsgController _cooldownMsgController;
+    [SerializeField] private AscendAndDisappearText _ascendAndDisappearText;
     [SerializeField] private Transform _cooldownMsgInstantiationWorldPos;
     
     // Others
@@ -47,7 +48,7 @@ public class SawArmController : MonoBehaviour
         if (!(AtkCooldownTimer <= 0))
         {
             var msgPos = _cooldownMsgInstantiationWorldPos.transform.position;
-            _cooldownMsgController.InstantiateCooldownMsg(msgPos);
+            _ascendAndDisappearText.InstantiateMsgWorldPosition(msgPos);
             return;
         }
         

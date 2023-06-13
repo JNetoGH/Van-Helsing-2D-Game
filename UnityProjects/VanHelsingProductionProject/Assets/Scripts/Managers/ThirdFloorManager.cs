@@ -55,7 +55,15 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
     {
         Debug.Log("Player has died in third floor");
         InitPhase();
+        
+        // Teleports player and kills its velocity
         _player.transform.position = _playerRespawnPosition.position;
+        _player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        _player.GetComponent<Animator>().SetBool("IsGrounded", true);
+        
+        // Also brute forces the animation to default idle
+        Animator playerAnimator = _player.GetComponent<Animator>();
+        playerAnimator.Play("Idle");
     }
     
     // Update is called once per frame
