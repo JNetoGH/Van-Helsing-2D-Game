@@ -6,13 +6,20 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
     // Set by the scene switcher
     public bool IsFloorRunning { get; set; }
     
+    [Header("Camera Settings")]
     [SerializeField] private Movement _cameraMovement;
     [SerializeField] private GameObject _camera;
+    
+    [Header("Lightning Settings")]
     [SerializeField] private GameObject _lightingPrefab;
 
-    // Controlll
+    [Header("PLayer Respawn Settings")]
+    [SerializeField] private GameObject _player;
+    [SerializeField] private Transform _playerRespawnPosition;
+
+    // Control Fields
     private GameObject _currentLightingObj;
-    private bool _hasSetPhaseForTheFirstTime = false;
+    private bool _hasInitPhaseForTheFirstTime = false;
     
     private void InitPhase()
     {
@@ -22,22 +29,31 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
         
         // Deletes the old lighting (if possible)
         Destroy(_currentLightingObj);
-        _currentLightingObj = Instantiate(_lightingPrefab, _camera.transform);
+        Invoke(nameof(CreateNewLighting),0.5f);
     }
     
+    // Called by LightningController
     public void OnPlayerDead()
     {
-        
+        Debug.Log("Player has died in third floor");
+        InitPhase();
+        _player.transform.position = _playerRespawnPosition.position;
     }
     
     // Update is called once per frame
     void Update()
     {
-        if (IsFloorRunning && !_hasSetPhaseForTheFirstTime)
+        if (IsFloorRunning && !_hasInitPhaseForTheFirstTime)
         {
-            _hasSetPhaseForTheFirstTime = true;
+            _hasInitPhaseForTheFirstTime = true;
             InitPhase();
         }
+    }
+    
+    private void CreateNewLighting()
+    {
+        _currentLightingObj = Instantiate(_lightingPrefab, _camera.transform);
+        _currentLightingObj.GetComponent<LightningController>().thirdFloorManager = this;
     }
     
 }
