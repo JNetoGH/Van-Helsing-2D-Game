@@ -37,18 +37,20 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
         _cameraInitialPosition = _camera.transform.position;
     }
 
-    private void InitPhase()
+    public void InitPhase()
     {
         _cameraMovement.enabled = true;
         _cameraMovement.TeleportToPoint(Movement.TargetPoint.PointA);
         _cameraMovement.ResetWaitingTimer();
+        
+        PlayerDeathManager.currentFloorManager = this;
         
         // Deletes the old lighting (if possible)
         Destroy(_currentLightingObj);
         Invoke(nameof(CreateNewLighting),0.5f);
     }
     
-    // Called by LightningController
+    // Comes from the Interface, called by LightningController
     public void OnPlayerDead()
     {
         Debug.Log("Player has died in third floor");
@@ -82,7 +84,6 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
     private void CreateNewLighting()
     {
         _currentLightingObj = Instantiate(_lightingPrefab, _camera.transform);
-        _currentLightingObj.GetComponent<LightningController>().thirdFloorManager = this;
     }
     
 }

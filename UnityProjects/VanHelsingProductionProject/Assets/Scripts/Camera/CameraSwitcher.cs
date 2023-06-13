@@ -24,6 +24,10 @@ public class CameraSwitcher : MonoBehaviour
         if (!(other.gameObject == _playerController.gameObject && _playerController.IsGrounded && !HasSwitched)) 
             return;
         
+        // can't be the player's hit-box
+        if (other.isTrigger)
+            return;
+        
         Debug.Log("Player is in a Camara Switcher");
         _camA.enabled = false;
         _camB.enabled = true;

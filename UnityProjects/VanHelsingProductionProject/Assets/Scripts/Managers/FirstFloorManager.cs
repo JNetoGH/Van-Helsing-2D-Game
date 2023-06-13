@@ -21,23 +21,31 @@ public class FirstFloorManager : MonoBehaviour, IFloorManager
     [SerializeField] private float _levelWaitingDuration = 3.5f;
     private float _timer;
     
+    
+    // Comes from the Interface, called by LightningController
     public void OnPlayerDead()
     {
         
     }
-    
+
+    public void InitPhase()
+    {
+        
+    }
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _cam0.enabled = true;
         _cam1.enabled = false;
         IsFloorRunning = true;
         _playerController.canMove = false;
         _timer = _levelWaitingDuration;
+        PlayerDeathManager.currentFloorManager = this;
     }
-    
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
         if (!IsFloorRunning)

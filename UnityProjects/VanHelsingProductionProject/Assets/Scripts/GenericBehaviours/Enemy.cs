@@ -17,10 +17,19 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         // checks if its trigger has collided with a game object that carries a Projectile
-        if (col.gameObject.GetComponent<Projectile>() is null)
+        if (col.gameObject.GetComponent<Projectile>())
+        {
+            col.gameObject.GetComponent<Projectile>().InflictDamageToEnemy(this);
+            ExecuteDmgEffect();
             return;
-        col.gameObject.GetComponent<Projectile>().InflictDamageToEnemy(this);
-        ExecuteDmgEffect();
+        }
+        
+        // Player Hitbox Enters
+        if (col.gameObject.tag.Equals("Player"))
+        {
+            PlayerDeathManager.NotifyCurrentManagerAboutPlayerDeath();
+            return;
+        }
     }
 
     private void Update()
@@ -51,6 +60,7 @@ public class Enemy : MonoBehaviour
         foreach (SpriteRenderer spriteRenderer in _spriteRenderersToReceiveDmgEffect)
             spriteRenderer.color = Color.white;
     }
-    
-    
+
+ 
+       
 }

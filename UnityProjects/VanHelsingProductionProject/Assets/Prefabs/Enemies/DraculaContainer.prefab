@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 1247288578700473326}
   m_Layer: 7
   m_Name: DraculaContainer
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,6 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447d28d74e524d7489727d4633e0b025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waitBeforeStart: 0
+  _waitingDuration: 0
   _typeOfMovement: 0
   _targetPointWrapper: 0
   _speed: 2

@@ -3,5 +3,8 @@ using UnityEngine;
 public interface IFloorManager
 {
     public bool IsFloorRunning { get; set; }
-    void OnPlayerDead();
+   
+    public abstract void OnPlayerDead();
+    public abstract void InitPhase();
+    
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
@@ -28,6 +29,10 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
     [SerializeField] private CinemachineVirtualCamera _cam2;
     [SerializeField] private CinemachineVirtualCamera _cam3;
     
+    [Header("PLayer Respawn Settings")]
+    [SerializeField] private GameObject _player;
+    [SerializeField] private Transform _playerRespawnPosition;
+    
     [Header("Horde Spawning Dependencies")]
     [SerializeField] private GameObject _hordePrefab;
     [SerializeField] private List<Transform> _spawnPoints;
@@ -38,15 +43,25 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
 
     // End Sequence Controlling
     private bool _initEndSequence;
-    private const float StartEndSequenceDelayInSec = 8;
+    private const float StartEndSequenceDelayInSec = 2;
     
-    // Comes from the Interface
+    // Comes from the Interface, called by LightningController
     public void OnPlayerDead()
     {
+        //
+        Debug.LogWarning("Player died on level 2");
         
+        // Teleports player
+        _player.transform.position = _playerRespawnPosition.position;
+        
+        // removes every enemy
+        Array.ForEach(GameObject.FindGameObjectsWithTag("Enemy"), e => Destroy(e));
+        
+        // Reset internal stuff
+        InitPhase();
     }
     
-    private void InitPhase()
+    public void InitPhase()
     {
         _playerController.canMove = true;
         _spawnTimer = 0;
@@ -54,6 +69,7 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
         _spawnRateInSec = 3f;
         _hasFinishedSpawning = false;
         _initEndSequence = false;
+        PlayerDeathManager.currentFloorManager = this;
     }
     
     private void InitEndSequenceCall()
@@ -100,7 +116,9 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
         
         // Update
         SpawnHorde();
-        UpdateEndSequence();
+        bool areAllEnemiesDead = GameObject.FindWithTag("Enemy") is null;
+        if (areAllEnemiesDead)
+            UpdateEndSequence();
     }
 
     private void SpawnHorde()
@@ -134,7 +152,7 @@ public class SecondFloorManager : MonoBehaviour, IFloorManager
     {
         // Checks if the End Sequence should be initiated or not
         if (_hasFinishedSpawning && !_initEndSequence)
-        {
+        {   
             Invoke(nameof(InitEndSequenceCall), StartEndSequenceDelayInSec);
             Debug.LogWarning("Player finished floor 2");
         }
