@@ -176,40 +176,29 @@ The player finaly catches up with drakula and starts fighting him.
 
 
 ## ENEMIES
-We have planned 5 different enemy entities all based on existing characters from the movie. Their current health points value are not permanent.
+This game features enemy entities all based on existing characters from the movie.
 
 **MINI DRACULA**  
 This is a basic flying enemy, ment to pressure and deny playing area to the player.  
-Currently it tracks and follows the player after a set time after spawning, but it's behaviour might change.  
+Currently it tracks and follows the player after a set time after spawning.  
   
-Health Points : 3  
 
 ![Screenshot 2023-03-26 200453.png](Art%2FConcepts%2FMini%20Dracula%2FScreenshot%202023-03-26%20200453.png)
   
 **DRACULA**  
 This will be the final boss.  
-As of now, it only moves side to side and it's attack moves will be added later.  
+He moves side to side, summoning help from his ofspring.  
   
-Health Points : 20  
   
 ![Dracula.png](Art%2FConcepts%2FDracula%2FDracula.png)  
   
 **DWERGI**  
 This is a basic ground enemy, intended to be able to swarm the player in numbers.  
-Currently it stays idle until the player gets close, which makes it charge at the player. The current iteration has some design flaws.  
+Currently it stays idle until the player gets close, which makes it charge at the player.
   
-Health Points : 2  
   
 ![Screenshot_3.png](Art%2FConcepts%2FDwergi%2FScreenshot_3.png)  
-  
-**DRACULA'S BRIDES**  
-This duo will be the first boss encounter.  
-No assets or game objects have been made yet.
-
-**COCOON**  
-This is a stationary enemy structure.  
-The idea is to spawn mini draculas if the player gets too close without destroying it.  
-No assets or game objects have been made yet.
+ 
 
 <br>
 <hr>
@@ -290,6 +279,7 @@ Acho que graças a uma boa organização no trello foi possível cada um saber q
 | JNeto | 9-may-2023 | Levels Section updated                       |
 | DMendes| 9-may-2023| Unique selling points updated                |
 | DMendes| 9-may-2023| Enemy section added                          |
+| DMendes| 13-june-2023| Updated Levels and Enemies                 |
 
 
 <br>
