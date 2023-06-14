@@ -7,7 +7,11 @@ using UnityEngine.Serialization;
 public class FourthFloorManager : MonoBehaviour, IFloorManager
 {
     
+    // Set by the scene switcher
     public bool IsFloorRunning { get; set; }
+
+    // Set by the Level Ignorer Script
+    public bool IgnoreLevel { get; set; }
 
     [Header("Level Init Timer Settings")]
     [SerializeField] private float _levelWaitingDuration = 5f;
@@ -53,7 +57,7 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
         _player.transform.position = _playerRespawnPosition.position;
     }
 
-    // called by the Enemy script on the OnDeath event
+    // called by the Enemy script on the OnDeath event or if the ignoreFloor is true
     public void EndSequence()
     {
         Debug.LogWarning($"Player killed dracula");
@@ -81,6 +85,10 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
         // Destroys the previous dracula if had any
         if (_currentDracula is not null)
             Destroy(_currentDracula);
+        
+        // Level ignoring validation
+        if (IgnoreLevel)
+            EndSequence();
         
         // removes every enemy
         Array.ForEach(GameObject.FindGameObjectsWithTag("Enemy"), e => Destroy(e));

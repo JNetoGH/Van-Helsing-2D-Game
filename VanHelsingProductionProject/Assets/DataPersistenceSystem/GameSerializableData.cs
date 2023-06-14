@@ -5,13 +5,10 @@ namespace DataPersistenceSystem
     [Serializable]
     public class GameSerializableData
     {
-        public bool invincibility;
-        
-        public bool ignoreFirstFloorSequence;
-        public bool ignoreSecondFloorSequence;
-        public bool ignoreThirdFloorSequence;
-        public bool ignoreForthFloorSequence;
-        
-        public int testNum;
+        public bool invincibility = false;
+        public bool ignoreFirstFloorSequence = false;
+        public bool ignoreSecondFloorSequence = false;
+        public bool ignoreThirdFloorSequence = false;
+        public bool ignoreFourthFloorSequence = false;
     }
 }

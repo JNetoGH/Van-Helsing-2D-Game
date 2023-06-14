@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using DataPersistenceSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class PlayerDeathIgnorer : MonoBehaviour
+public class PlayerDeathIgnorer : MonoBehaviour, IDataPersistenceListener
 {
 
+    [Header("Ignored (WILL BE OVERRIDEN BY THE DATA PERSISTENCE SYSTEM)")]
     [SerializeField] private bool _isPlayerInvincible;
     
     private void Start()
@@ -18,5 +16,11 @@ public class PlayerDeathIgnorer : MonoBehaviour
     {
         PlayerDeathManager.isPlayerInvincible = _isPlayerInvincible;
     }
-    
+
+    public void OnLoadData(GameSerializableData gameSerializableData)
+    {
+        _isPlayerInvincible = gameSerializableData.invincibility;
+    }
+
+    public void OnSaveData(GameSerializableData gameSerializableData) { }
 }
