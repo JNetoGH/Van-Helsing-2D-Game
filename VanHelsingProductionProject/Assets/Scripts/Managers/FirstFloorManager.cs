@@ -20,8 +20,7 @@ public class FirstFloorManager : MonoBehaviour, IFloorManager
     [Header("Level Init Timer Settings")]
     [SerializeField] private float _levelWaitingDuration = 3.5f;
     private float _timer;
-    
-    
+
     // Comes from the Interface, called by LightningController
     public void OnPlayerDead()
     {
