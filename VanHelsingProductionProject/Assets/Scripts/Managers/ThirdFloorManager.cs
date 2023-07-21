@@ -44,6 +44,13 @@ public class ThirdFloorManager : MonoBehaviour, IFloorManager
         PlayerDeathManager.currentFloorManager = this;
     }
     
+    // Turns the lightning sound off called by the Camera Transition Game Object
+    public void TurnLightingSoundOff()
+    {
+        _currentLightingObj.GetComponent<AudioSource>().enabled = false;
+    }
+    
+
     // Comes from the Interface, called by LightningController
     public void OnPlayerDead()
     {
