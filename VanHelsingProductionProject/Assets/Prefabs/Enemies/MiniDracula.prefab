@@ -65,6 +65,9 @@ MonoBehaviour:
   - {fileID: 7300839091074421067}
   - {fileID: 7300839091114211714}
   - {fileID: 7300839091853602899}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &88480600227767446
 Rigidbody2D:
   serializedVersion: 4
