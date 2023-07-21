@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
     [Header("Sound Settings")] 
     [SerializeField] private AudioSource _dashAudioSource;
     [SerializeField] private AudioClip _dashAudioClip;
-
     
     public float InputX => Input.GetAxis("Horizontal");
     public bool IsJumping => _rb.velocity.y > 0;

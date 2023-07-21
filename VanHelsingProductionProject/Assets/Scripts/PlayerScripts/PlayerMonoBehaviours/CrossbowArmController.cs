@@ -17,12 +17,19 @@ public class CrossbowArmController : MonoBehaviour
     [SerializeField] private GameObject _projectile;
     [SerializeField] private Transform _shootingPoint;
     
+    [Header("Sound Settings")]
+    [SerializeField] private AudioClip _shootAudioClip;
+    private AudioSource _shootAudioSource;
+    
     // Others
     private PlayerController _playerController;
     
     private void Start()
     {
         _playerController = GetComponentInParent<PlayerController>();
+        
+        // sound
+        _shootAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -53,6 +60,9 @@ public class CrossbowArmController : MonoBehaviour
             projectileRotation = Quaternion.Euler(aux);
         }
         Instantiate(_projectile, _shootingPoint.position, projectileRotation);
+        
+        // Sound
+        _shootAudioSource.PlayOneShot(_shootAudioClip);
         
         // Sets the cooldown to start counting
         ShotCooldownTimer = _shootingCooldownDuration;

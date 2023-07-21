@@ -21,7 +21,7 @@ public class SawArmController : MonoBehaviour
     [Header("Saw Cooldown Msg")]
     [SerializeField] private AscendAndDisappearText _ascendAndDisappearText;
     [SerializeField] private Transform _msgInstantiationWorldPos;
-    
+
     // Others
     private PlayerController _playerController;
     private Animator _sawArmAnimator;
@@ -56,7 +56,7 @@ public class SawArmController : MonoBehaviour
 
         // Animator
         _sawArmAnimator.SetTrigger(ShootAnimatorParameter);
-        
+
         // AoE Instantiation
         GameObject AoE = Instantiate(_sawAreaOfEffect);
         
