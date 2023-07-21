@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AscendAndDisappearText _ascendAndDisappearText;
     [SerializeField] private Transform _cooldownMsgInstantiationWorldPos;
     
+    [Header("Sound Settings")] 
+    [SerializeField] private AudioSource _dashAudioSource;
+    [SerializeField] private AudioClip _dashAudioClip;
+
+    
     public float InputX => Input.GetAxis("Horizontal");
     public bool IsJumping => _rb.velocity.y > 0;
     public bool IsFalling => _rb.velocity.y < 0;
@@ -91,6 +96,8 @@ public class PlayerController : MonoBehaviour
         // In case of not moving dash towards where he is facing
         if (IsMoving) _rb.velocity = new Vector2(InputX > 0 ? _dashSpeed : -_dashSpeed, 0);
         else _rb.velocity = new Vector2(CurrentFacingDirection == FacingDirection.Right ? _dashSpeed : -_dashSpeed, 0);
+        if (!_dashAudioSource.isPlaying)
+            _dashAudioSource.PlayOneShot(_dashAudioClip);
     }
 
     private void Move(float inputX)
