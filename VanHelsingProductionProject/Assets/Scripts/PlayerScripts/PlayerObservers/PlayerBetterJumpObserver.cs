@@ -1,5 +1,6 @@
 ﻿using PlayerScripts.Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
@@ -30,6 +31,10 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
     [SerializeField] private GameObject _ladingEffect;
     [SerializeField] private float _ladingEffectMinVelocityInY = -1;
     
+    [Header("Sound Settings")] 
+    [SerializeField] private AudioSource _jumpAudioSource;
+    [SerializeField] private AudioClip _jumpAudioClip;
+
     // General fields
     private Rigidbody2D _rigidbody;
     private bool HasPlayerPressedJumpedFrame => Input.GetButtonDown("Jump");
@@ -145,6 +150,7 @@ public class PlayerBetterJumpObserver : MonoBehaviour, IPlayerObserver
     private void Jump(float force)
     {
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, force);
+        _jumpAudioSource.PlayOneShot(_jumpAudioClip);
     }
 
     private void InstantiateEffect(GameObject effectPrefab, Vector3 position)
