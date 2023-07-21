@@ -146,7 +146,7 @@ public class FourthFloorManager : MonoBehaviour, IFloorManager
         if (canTriggerWerewolf)
         {
             // triggers the werewolf and resets the cooldown
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 _player.GetComponent<Animator>().SetTrigger("WerewolfSuperMove");
                 WerewolfCooldownTimer = WerewolfCooldownDurationInSec;

@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 1ca2136b50b7a8f46b8c0453fb7d0731
   - enabled: 1
-    path: Assets/Scenes/DraculaLevel 1.unity
+    path: Assets/Scenes/DraculaCaslte.unity
     guid: 1f979895c7db8c344aa3e4be83a034ba
   m_configObjects: {}
